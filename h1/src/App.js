@@ -18,12 +18,12 @@ class App extends React.Component {
     event.preventDefault()
     const value = event.target.name
 
-    this.setState({ currentPage: this.state.currentPage = value })
+    this.setState({ currentPage: value })
     console.log(this.state)
   }
 
   renderSwitch() {
-    switch(this.state) {
+    switch(this.state.currentPage) {
       case 'home':
         return <Home />;
       

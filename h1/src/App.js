@@ -10,19 +10,16 @@ class App extends React.Component {
     this.state = {
       currentPage: 'home' ,      
     }
-    console.log(this.state)
   }
-
 
   handleClick = (event) => {
     event.preventDefault()
     const value = event.target.name
 
     this.setState({ currentPage: value })
-    console.log(this.state)
   }
 
-  renderSwitch() {
+  renderPage() {
     switch(this.state.currentPage) {
       case 'home':
         return <Home />;
@@ -41,8 +38,6 @@ class App extends React.Component {
         return  <Home />;
     }
   }
-
-  
 
   render() {
     return (
@@ -69,7 +64,7 @@ class App extends React.Component {
             </a>
           </li>
         </ul>
-        <div id='container'>{this.renderSwitch()}</div>
+        <div id='container'>{this.renderPage()}</div>
       </div>      
     )
   }
@@ -86,27 +81,33 @@ class Home extends React.Component {
 }
 
 class News extends React.Component { 
-  render() {
-    return <a>News</a>
+  constructor() {
+      super()
+      this.text = 'News Page'
+    }
+    render() {
+      return <div>{this.text}</div>
+    }
   }
-}
 
 class CallBack extends React.Component { 
-  render() {
-    return <a>CallBack</a>
+  constructor() {
+      super()
+      this.text = 'CallBack Page'
+    }
+    render() {
+      return <div>{this.text}</div>
+    }
   }
-}
 
 class Contacts extends React.Component { 
-  render() {
-    return <a>Contacts</a>
+  constructor() {
+      super()
+      this.text = 'Contacts Page'
+    }
+    render() {
+      return <div>{this.text}</div>
+    }
   }
-}
-
-
-
-
-
-
 
 export default App;

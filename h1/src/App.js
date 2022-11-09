@@ -2,7 +2,6 @@
 import React from 'react';
 import './App.css';
 
-const container = document.getElementById('container')
 
 class App extends React.Component {
   constructor(props) {
@@ -11,13 +10,38 @@ class App extends React.Component {
     this.state = {
       currentPage: 'home' ,      
     }
+    console.log(this.state)
   }
 
-  changeState = (data) => {
-    const value = data.target.name
+
+  handleClick = (event) => {
+    event.preventDefault()
+    const value = event.target.name
 
     this.setState({ currentPage: this.state.currentPage = value })
+    console.log(this.state)
   }
+
+  renderSwitch() {
+    switch(this.state) {
+      case 'home':
+        return <Home />;
+      
+      case 'news':
+        return <News />;
+
+      
+      case 'callBack':
+        return <CallBack />;
+
+      case 'contacts':
+        return <Contacts />;      
+      
+      default:
+        return  <Home />;
+    }
+  }
+
   
 
   render() {
@@ -25,33 +49,31 @@ class App extends React.Component {
       <div>
         <ul>
           <li>
-            <a name = 'home' onClick={this.changeState} >
+            <a name = 'home' onClick={this.handleClick}>
               Home
             </a>
           </li>
           <li>
-            <a name = 'news' onClick={this.changeState}>
+            <a name = 'news' onClick={this.handleClick}>
               News
             </a>
           </li>
           <li>
-            <a name = 'callback' onClick={this.changeState}>
+            <a name = 'callback' onClick={this.handleClick}>
               CallBack
             </a>
           </li>
           <li>
-            <a name = 'contacts' onClick={this.changeState}>
+            <a name = 'contacts' onClick={this.handleClick}>
               Contacts
             </a>
           </li>
         </ul>
-        <div id='container'></div>
+        <div id='container'>{this.renderSwitch()}</div>
       </div>      
     )
   }
 };
-
-
 
 class Home extends React.Component { 
   constructor() {
@@ -60,15 +82,8 @@ class Home extends React.Component {
   }
   render() {
     return <div>{this.text}</div>
-    console.log(this)
   }
-
 }
-
-
-
-
-
 
 class News extends React.Component { 
   render() {

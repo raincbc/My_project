@@ -2,49 +2,50 @@
 import React from 'react';
 import './App.css';
 
+const container = document.getElementById('container')
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-    currentPage:'home',
+      currentPage: 'home' ,      
     }
-
   }
 
-  changeState(data) {
-    console.log(data)
-    // this.setState({currentPage: this.state.currentPage = data})
+  changeState = (data) => {
+    const value = data.target.name
 
+    this.setState({ currentPage: this.state.currentPage = value })
   }
+  
 
   render() {
     return (
       <div>
         <ul>
           <li>
-            <a onClick={this.changeState('home')}>
+            <a name = 'home' onClick={this.changeState} >
               Home
             </a>
           </li>
           <li>
-            <a onClick={this.changeState('news')}>
+            <a name = 'news' onClick={this.changeState}>
               News
             </a>
           </li>
           <li>
-            <a onClick={this.changeState('call')}>
+            <a name = 'callback' onClick={this.changeState}>
               CallBack
             </a>
           </li>
           <li>
-            <a onClick={this.changeState('contacts')}>
+            <a name = 'contacts' onClick={this.changeState}>
               Contacts
             </a>
           </li>
         </ul>
-        
+        <div id='container'></div>
       </div>      
     )
   }
@@ -55,33 +56,37 @@ class App extends React.Component {
 class Home extends React.Component { 
   constructor() {
     super()
-    this.name = 'home';
     this.text = 'Home Page'
   }
   render() {
     return <div>{this.text}</div>
+    console.log(this)
   }
+
 }
 
 
 
-// class News extends React.Component { 
-//   render() {
-//     return <a>News</a>
-//   }
-// }
 
-// class CallBack extends React.Component { 
-//   render() {
-//     return <a>CallBack</a>
-//   }
-// }
 
-// class Contacts extends React.Component { 
-//   render() {
-//     return <a>Contacts</a>
-//   }
-// }
+
+class News extends React.Component { 
+  render() {
+    return <a>News</a>
+  }
+}
+
+class CallBack extends React.Component { 
+  render() {
+    return <a>CallBack</a>
+  }
+}
+
+class Contacts extends React.Component { 
+  render() {
+    return <a>Contacts</a>
+  }
+}
 
 
 

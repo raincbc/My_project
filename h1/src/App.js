@@ -8,13 +8,14 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-    text:'',
+    currentPage:'home',
     }
 
   }
 
-  changeState = () => {
-
+  changeState(data) {
+    console.log(data)
+    // this.setState({currentPage: this.state.currentPage = data})
 
   }
 
@@ -23,47 +24,64 @@ class App extends React.Component {
       <div>
         <ul>
           <li>
-            <Home/>
+            <a onClick={this.changeState('home')}>
+              Home
+            </a>
           </li>
           <li>
-            <News />
+            <a onClick={this.changeState('news')}>
+              News
+            </a>
           </li>
           <li>
-            <CallBack />
+            <a onClick={this.changeState('call')}>
+              CallBack
+            </a>
           </li>
           <li>
-            <Contacts/>
+            <a onClick={this.changeState('contacts')}>
+              Contacts
+            </a>
           </li>
         </ul>
-        <p>{this.state.text}</p>
+        
       </div>      
     )
   }
 };
 
+
+
 class Home extends React.Component { 
+  constructor() {
+    super()
+    this.name = 'home';
+    this.text = 'Home Page'
+  }
   render() {
-    return <a>Home</a>
+    return <div>{this.text}</div>
   }
 }
 
-class News extends React.Component { 
-  render() {
-    return <a>News</a>
-  }
-}
 
-class CallBack extends React.Component { 
-  render() {
-    return <a>CallBack</a>
-  }
-}
 
-class Contacts extends React.Component { 
-  render() {
-    return <a>Contacts</a>
-  }
-}
+// class News extends React.Component { 
+//   render() {
+//     return <a>News</a>
+//   }
+// }
+
+// class CallBack extends React.Component { 
+//   render() {
+//     return <a>CallBack</a>
+//   }
+// }
+
+// class Contacts extends React.Component { 
+//   render() {
+//     return <a>Contacts</a>
+//   }
+// }
 
 
 

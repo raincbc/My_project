@@ -1,25 +1,31 @@
 import React from "react";
 
 const UserCard = (props) => {
+    const { name, surname, age } = props.data;
+
     return (
         <div>
             <div>User Information:</div>
-            <div>Name: {props.props.name}</div>
-            <div>Surname: {props.props.surname}</div>
-            <div>Age: {props.props.age}</div>
+            <div>Name: {name}</div>
+            <div>Surname: {surname}</div>
+            <div>Age: {age}</div>
         </div>
     );
 }
 
 const UserCardText = (props) => {
+    const { name, surname, age } = props.data;
+
     return (
-        <div>My info:  {props.props.name}  {props.props.surname}  {props.props.age}</div>
+        <div>My info:  {name}  {surname}  {age}</div>
     )
 }
 
 const Advisory = (props) => {
+    const { name, age } = props.data;
+
     return (
-        <div>Привет {props.props.name}, тебе {props.props.age} , я {(props.props.name < 18 ? 'не могу' : 'могу')} налить тебе выпить</div>
+        <div>Привет {name}, тебе {age} , я {age < 18 ? 'не могу' : 'могу'} налить тебе выпить</div>
     )
 }
 
@@ -34,13 +40,13 @@ export default class FirstTask extends React.Component{
     render() {
         return (<div>
             <div>
-                <UserCard props={this.state} />
+                <UserCard data={this.state} />
             </div>
             <div>
-                <UserCardText props={this.state} />
+                <UserCardText data={this.state} />
             </div>
             <div>
-                <Advisory props={this.state}/>
+                <Advisory data={this.state} />
             </div>
         </div>
         )

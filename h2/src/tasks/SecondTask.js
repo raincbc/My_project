@@ -19,8 +19,11 @@ export default class UserForm extends React.Component{
         } else {
             
             alert(`Добро пожаловать ${this.state.surname} ${this.state.name}`)
-            event.target.name.value = '';
-            event.target.surname.value = '';
+            this.setState({
+                name: '',
+                surname: '',
+                error:''
+            })
         }
     };
 
@@ -28,6 +31,7 @@ export default class UserForm extends React.Component{
     }
 
     changeValue = (event) => {
+        this.setState({error:''})
         this.setState({
             [event.target.name]: event.target.value
         })

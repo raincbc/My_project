@@ -5,13 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import FirstTask from './tasks/FirstTask.js'
 import UserForm from './tasks/SecondTask.js';
+import Title from './tasks/ThirdTask';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <UserForm/>
-    <FirstTask/>
+    <FirstTask />
+    <Title/>
   </React.StrictMode>
 );
 

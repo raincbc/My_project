@@ -27,9 +27,6 @@ export default class UserForm extends React.Component{
         }
     };
 
-    handleChange = (event) => {
-    }
-
     changeValue = (event) => {
         this.setState({error:''})
         this.setState({

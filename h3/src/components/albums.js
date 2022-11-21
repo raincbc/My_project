@@ -9,18 +9,27 @@ export default class Album extends React.Component{
         fetch('https://jsonplaceholder.typicode.com/albums')
             .then(response => {
                 if (response.ok) {
-                    return response.json(); 
+                    const res = response.json();
+                    return res
                 } else {
                     throw new Error('err');
                 }   
-            })
-            .then(result => this.setState({ data: result }))
-        console.log(this.state)
+            })            
+            .then(res => this.setState({ data: res }))
+            .catch(e => console.log(e));
     }
 
     render() {
+        const albums = this.state.data
         return (
-            <div></div>
+            <div>
+                {albums.map((album) => (
+                    <div key={album.id}>
+                        {album.id} - {} - {album.title}
+                    </div>
+                ))
+                }
+            </div>
         )
     }
 }

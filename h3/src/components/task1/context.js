@@ -1,7 +1,11 @@
+import { render } from "@testing-library/react";
 import React from "react";
-export default class Album extends React.Component{
+
+export const DataContext = React.createContext();
+
+export default class AlbumProvider extends React.Component{
     state = {
-        data:[]
+        data: []
     };
 
     componentDidMount() {
@@ -16,19 +20,14 @@ export default class Album extends React.Component{
             })            
             .then(res => this.setState({ data: res }))
             .catch(e => console.log(e));
+        console.log(this.state.data)
     }
-
+    
     render() {
-        const albums = this.state.data
         return (
-            <div>
-                {albums.map((album, index) => (
-                    <div key={album.id} >
-                        {album.id} - {index} - {album.title}
-                    </div>
-                ))
-                }
-            </div>
+            < DataContext.Provider value={this.state} >
+                {this.props.children}
+            </DataContext.Provider >
         )
-    }
+    }   
 }

@@ -6,13 +6,13 @@ export default class Album2 extends React.Component{
         return (
             <div>
                 <DataContext.Consumer>
-                    {albums => {
-                        // albums.map((album, index) => (
-                        //     console.log(album)
-                            // <div key={album.id} >
-                            //     {album.id} - {index} - {album.title}
-                            // </div>
-                        // ))
+                    {(albums) => {
+
+                        return albums.map((album, index) => (
+                            <div key={album.id} >
+                                {album.id} - {index} - {album.title}
+                            </div>
+                        ))
                     }
                     }
                  </DataContext.Consumer>

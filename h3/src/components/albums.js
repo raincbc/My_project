@@ -1,5 +1,4 @@
 import React from "react";
-
 export default class Album extends React.Component{
     state = {
         data:[]
@@ -23,9 +22,9 @@ export default class Album extends React.Component{
         const albums = this.state.data
         return (
             <div>
-                {albums.map((album) => (
-                    <div key={album.id}>
-                        {album.id} - {} - {album.title}
+                {albums.map((album, index) => (
+                    <div key={album.id} >
+                        {album.id} - {index} - {album.title}
                     </div>
                 ))
                 }

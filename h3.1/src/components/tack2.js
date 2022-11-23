@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 export const VideoContent = () => {
 
-    const [playerState, setVideoState] = useState({
+    const [videoState, setVideoState] = useState({
     progress: 0,
     });
     
@@ -22,7 +22,7 @@ export const VideoContent = () => {
     const handleTime = () => {
     const progress = (playRef.current.currentTime / playRef.current.duration)*100;
         setVideoState({
-            ...playerState,            
+            ...videoState,            
             progress,      
         });        
         console.log(progress)
@@ -32,7 +32,7 @@ export const VideoContent = () => {
     const manualChange = Number(event.target.value);
         playRef.current.currentTime = (playRef.current.duration / 100) * manualChange;
         setVideoState({  
-            ...playerState,
+            ...videoState,
             progress: manualChange           
         });            
     };
@@ -50,9 +50,9 @@ export const VideoContent = () => {
                 type="range"                
                 min="0"                
                 max="100"
-                value={playerState.progress}
+                value={videoState.progress}
                 onChange={(e) => handleVideoProgress(e)}                
-            />            
+            />
         </div>        
         <div>
             <button className='videoBtn' onClick={onplay}>Play</button>

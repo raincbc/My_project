@@ -1,11 +1,12 @@
 import React from 'react';
-// import { Square } from './components/task1';
 import Square from './components/task1';
+import { VideoContent } from './components/tack2';
 
 function App() {
   return (
     <div >
-      <Square/>
+      <Square />
+      <VideoContent/>
     </div>
   );
 }

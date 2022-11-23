@@ -24,15 +24,3 @@ export default class Square extends React.Component{
         )
     }
 }
-
-// export const Square = () => {
-//     const squareRef = React.createRef();
-
-//     useEffect(() => {
-//         setTimeout(() => {
-//             squareRef.current.className = 'square1'
-//         }, 2000);
-//     })
-
-//     return <div ref={squareRef} className="square"></div>
-// }

@@ -1,11 +1,14 @@
 import { render } from "@testing-library/react";
 import React from "react";
+import Album2 from "./albums2";
+import Album3 from "./albums2";
 
 export const DataContext = React.createContext();
 
 export default class AlbumProvider extends React.Component{
     state = {
-        data: []
+        data: [],
+        num:''
     };
 
     componentDidMount() {
@@ -21,12 +24,30 @@ export default class AlbumProvider extends React.Component{
             .then(res => this.setState({ data: res }))
             .catch(e => console.log(e));
     }
+
+    
     
     render() {
+        const album = this.state.data
+        const num = this.state.num
         return (
-            < DataContext.Provider value={this.state.data} >
+            < DataContext.Provider value={ album } >
                 {this.props.children}
             </DataContext.Provider >
         )
     }   
+}
+
+export const WithData = (DataComponent) => {
+    return class extends React.Component{
+        render() {
+            return (
+                <DataContext.Consumer>
+                    {(value) => {
+                        return <DataComponent {...value} />
+                    }}
+                </DataContext.Consumer>
+            )
+        }
+    }
 }

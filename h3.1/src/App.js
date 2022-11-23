@@ -5,7 +5,7 @@ import { VideoContent } from './components/tack2';
 function App() {
   return (
     <div >
-      <Square />
+      {/* <Square /> */}
       <VideoContent/>
     </div>
   );

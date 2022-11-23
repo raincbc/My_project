@@ -1,23 +1,62 @@
 import React from 'react';
+import KISH from '../video/KISH.mp4'
+import { useState } from 'react';
 
 export const VideoContent = () => {
 
-    const playRef = React.createRef();
-    const pauseRef = React.createRef();
+    const [playerState, setVideoState] = useState({
+    progress: 0,
+    });
+    
 
-    onclick = (event) => {
+    const playRef = React.createRef();
+
+    onplay = () => {
         playRef.current.play()
     }
 
-    return <div>
+    onpause = () => {
+        playRef.current.pause()
+    }
+
+    const handleTime = () => {
+    const progress = (playRef.current.currentTime / playRef.current.duration)*100;
+        setVideoState({
+            ...playerState,            
+            progress,      
+        });        
+        console.log(progress)
+    };
+    
+    const handleVideoProgress = (event) => {
+    const manualChange = Number(event.target.value);
+        playRef.current.currentTime = (playRef.current.duration / 100) * manualChange;
+        setVideoState({  
+            ...playerState,
+            progress: manualChange           
+        });            
+    };
+    
+    
+
+    return <div className='videoWrapper'>
         <div>
-            <video>
-                <source src="../UshaikaRiverEmb_640x360.webm"></source>
+            <video ref={playRef} onTimeUpdate={handleTime} >
+                <source src={KISH}></source>
             </video>
         </div>
         <div>
-            <button onClick={onclick}>Play</button>
-            <button>Pause</button>
+            <input
+                type="range"                
+                min="0"                
+                max="100"
+                value={playerState.progress}
+                onChange={(e) => handleVideoProgress(e)}                
+            />            
+        </div>        
+        <div>
+            <button className='videoBtn' onClick={onplay}>Play</button>
+            <button className='videoBtn' onClick={onpause}>Pause</button>
         </div>
     </div>
 }

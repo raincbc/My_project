@@ -3,7 +3,7 @@
     height: 200px;
     margin-top: 100px;
     margin-left: 100px;
-    margin-bottom: 200px;
+    margin-bottom: 100px;
     background-color: red;
     transition: 1s;
 }
@@ -12,8 +12,18 @@
     width: 200px;
     height: 200px;
     margin-top: 100px;
-    margin-bottom: 200px;
+    margin-bottom: 100px;
     background-color: red;
     margin-left: 300px;
     transition: 1s;
+}
+
+.videoWrapper{
+    text-align: center;
+}
+
+.videoBtn{
+    margin: 30px 20px 0;
+    padding: 5px 0;
+    width: 100px;
 }

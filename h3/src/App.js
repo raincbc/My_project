@@ -1,7 +1,7 @@
 import React from 'react';
 import Album from './components/task1/albums1';
 import Album2 from './components/task1/albums2';
-import { Album3 } from './components/task1/albums2';
+import { WithData } from './components/task1/context';
 
 export default class App extends React.Component{
   render() {
@@ -9,7 +9,7 @@ export default class App extends React.Component{
       <div>
         <Album/>
         <Album2 />
-        {/* <Album3/> */}
+        <WithData/>
       </div>
     )
   }

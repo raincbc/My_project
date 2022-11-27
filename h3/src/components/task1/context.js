@@ -25,19 +25,12 @@ export default class AlbumProvider extends React.Component{
             .then(res => this.setState({ data: res }))
             .catch(e => console.log(e));
     }
-
-    setNum = (data) => {
-        console.log(data)
-        this.setState({ num: data }) 
-    }
-
-    
     
     render() {
         const album = this.state.data
         const num = this.state.num
         return (
-            < DataContext.Provider value={{ album, num, setNum:this.setNum }} >
+            < DataContext.Provider value={{ album, num }} >
                 {this.props.children}
             </DataContext.Provider >
         )

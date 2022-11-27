@@ -24,27 +24,37 @@ export class Album2 extends React.Component{
     }
 }
 export class Album3 extends React.Component{
-
-    handleSubmit = (event) => {
-        event.preventDefault(); 
-        const { album, num } = this.props;
-        const userAlbums = album.slice(0, num);
-        return userAlbums;         
+    state = {
+        visible:[]
     }
 
-    changeValue = (event) => {        
+    setNum = (data) => {
+        const { album } = this.props;
+        const userAlbums = album.slice(0, data);
+        return userAlbums
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+
+        // this.setState({ visible: this })
+        // console.log(this.state.visible)
+    }
+
+    changeValue = (event) => {  
         const inputValue = event.target.value;
-        this.props.setNum(inputValue)
+        this.setNum(inputValue)
     }
 
     render() { 
+        // const visibleAlbums = this.userAlbums;
         return (
             <div>
                 <div className="line"></div>
                 <div>
                     <div>
-                        {(userAlbums) => {
-                        return userAlbums.map((album, index) => (
+                        {(visibleAlbums) => {
+                        return visibleAlbums.map((album, index) => (
                             <div key={album.id} >
                                 {album.id} - {index} - {album.title}
                             </div>

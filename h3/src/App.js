@@ -9,7 +9,7 @@ export default class App extends React.Component{
       <div>
         <Album/>
         <Album2 />
-        <Album3/>
+        {/* <Album3/> */}
       </div>
     )
   }

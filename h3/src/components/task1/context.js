@@ -1,4 +1,5 @@
 import { render } from "@testing-library/react";
+import { getValue } from "@testing-library/user-event/dist/utils";
 import React from "react";
 import Album2 from "./albums2";
 import Album3 from "./albums2";
@@ -8,7 +9,7 @@ export const DataContext = React.createContext();
 export default class AlbumProvider extends React.Component{
     state = {
         data: [],
-        num:''
+        num: ''
     };
 
     componentDidMount() {
@@ -25,13 +26,18 @@ export default class AlbumProvider extends React.Component{
             .catch(e => console.log(e));
     }
 
+    setNum = (data) => {
+        console.log(data)
+        this.setState({ num: data }) 
+    }
+
     
     
     render() {
         const album = this.state.data
         const num = this.state.num
         return (
-            < DataContext.Provider value={ album } >
+            < DataContext.Provider value={{ album, num, setNum:this.setNum }} >
                 {this.props.children}
             </DataContext.Provider >
         )

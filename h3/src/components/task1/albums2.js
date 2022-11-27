@@ -3,8 +3,8 @@ import'../../index.css'
 import { DataContext } from "./context";
 import { WithData } from "./context";
 
-export default class Album2 extends React.Component{
-    
+export class Album2 extends React.Component{
+
     render() {
         return (
             <div>
@@ -18,45 +18,56 @@ export default class Album2 extends React.Component{
                         ))
                     }
                     }
-                    {}
                 </DataContext.Consumer>
             </div>            
         )
     }
 }
-
 export class Album3 extends React.Component{
+
     handleSubmit = (event) => {
-        event.preventDefault();
+        event.preventDefault(); 
+        const { album, num } = this.props;
+        const userAlbums = album.slice(0, num);
+        return userAlbums;         
     }
 
-    changeValue = (event) => {
+    changeValue = (event) => {        
         const inputValue = event.target.value;
-        console.log(inputValue)
-        return inputValue;
+        this.props.setNum(inputValue)
     }
 
-    render() {
+    render() { 
         return (
             <div>
                 <div className="line"></div>
+                <div>
                     <div>
-                    <div>
-                        <WithData>
-                            <form onSubmit={this.handleSubmit}>
-                                <div>                                
-                                    <input
-                                        placeholder="Enter number"
-                                        onChange={this.changeValue}
-                                    ></input>
-                                </div>
-                                <button type="submit">Submit</button>
-                            </form> 
-                        </WithData>
-                    </div>                                 
-                </div>                
-            </div>
+                        {(userAlbums) => {
+                        return userAlbums.map((album, index) => (
+                            <div key={album.id} >
+                                {album.id} - {index} - {album.title}
+                            </div>
+                        ))
+                    }
+                    }
+                        {this.userAlbums}
+                    </div>
+                    <div>                        
+                        <form onSubmit={this.handleSubmit}>
+                            <div>                                
+                                <input
+                                    placeholder="Enter number"
+                                       onChange={this.changeValue}
+                                ></input>
+                            </div>
+                            <button type="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>               
+            </div>            
         )
     }
 }
 
+export default WithData(Album3)

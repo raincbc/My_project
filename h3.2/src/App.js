@@ -1,5 +1,5 @@
 import './App.css';
-import Albums from './components/task1'
+import Albums from './components/task1';
 
 
 function App() {

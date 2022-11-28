@@ -3,10 +3,17 @@ import { DataContext } from './context';
 
 const Albums = () => {
 
-    const context = React.useContext(DataContext);
-    console.log(context)
+    const { data } = React.useContext(DataContext);
+    console.log(data)
     return (
-        <h1>xgzhyr</h1>
+        <div>
+            { data.map((album, index) => (
+                <div key={album.id} >
+                    {album.id} - {index} - {album.title}
+                </div>
+                ))                
+            }
+        </div>
     );
 }
 

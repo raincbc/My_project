@@ -1,15 +1,13 @@
 import React from "react";
-import UsersData from './components/firstTask/UsersData'
-import UsersProvider from "./components/context";
-import AllPosts from "./components/thirdTask/AllPosts";
+import RouterApp from "./components/fourthTask/RouterApp";
+import { BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      {/* <UsersProvider>
-        <UsersData />
-      </UsersProvider> */}
-      <AllPosts/>
+      <Router>
+        <RouterApp />
+      </Router>
     </div>
   );
 }

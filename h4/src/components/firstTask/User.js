@@ -1,6 +1,6 @@
 const User = ({user}) => {
     return (
-        <div>
+        <div className="user-wrapper">
             {user.name}--
             {user.username}--
             {user.email}--

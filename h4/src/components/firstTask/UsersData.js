@@ -1,5 +1,5 @@
 import React from "react";
-import { withUsers } from "../context";
+import { withUsers } from "../context/DataContext";
 import User from "./User";
 
 export class UsersData extends React.Component {

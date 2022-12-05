@@ -1,4 +1,3 @@
-import './App.css';
 import Albums from './components/task1';
 
 

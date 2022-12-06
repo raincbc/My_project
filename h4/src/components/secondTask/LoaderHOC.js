@@ -1,10 +1,20 @@
 import React from "react";
+import ContactList from "./ContactList";
 
 const BASE_URL = 'https://api.randomuser.me/?nat=us,gb&results=10';
+
+const withDelay = (delay) => (data) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(data);
+    }, delay);
+  });
+};
 
 export default class LoaderHOC extends React.Component{
     state = {
         contacts: [],
+        loaded: true
     }
 
     componentDidMount() {
@@ -18,6 +28,8 @@ export default class LoaderHOC extends React.Component{
                 }   
             })            
             .then(result => this.filterContacts(result))
+            .then(result => withDelay(2000)(result))
+            .then(result => this.setResult(result))
             .catch(e => console.log(e));
     }
 
@@ -33,13 +45,18 @@ export default class LoaderHOC extends React.Component{
             }      
             newContacts.push(element)
         })       
-        this.setState({ contacts: newContacts })
+        return newContacts;
     }
 
-    render() {
+    setResult(data) {
+        this.setState({contacts:data})
+    }
+
+    render() {  
         const arr = this.state.contacts
         return (
             <div className="contacts-wrapper">
+                {/* <ContactList data={arr} value={this.state.loaded} /> */}
                 {arr.map((elem) => {
                     return (
                         <div key={elem.id}>

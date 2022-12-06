@@ -2,12 +2,13 @@ import React from "react";
 import { useState, useEffect } from "react";
 
 export const DataMaker = (props) => {
+    const { renderDataUrl, url } = props;
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
         try {
-            const response = await fetch(props.url);
+            const response = await fetch(url);
             const json = await response.json();
             setPosts(json)
         } catch (error) {
@@ -19,7 +20,7 @@ export const DataMaker = (props) => {
 
     return (
         <div>
-            {props.renderDataUrl(posts)}
+            {renderDataUrl(posts)}
         </div>
     )
 }

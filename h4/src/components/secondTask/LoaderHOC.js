@@ -23,23 +23,33 @@ export default class LoaderHOC extends React.Component{
 
     filterContacts(data) {
         const contactData = data.results;
-        console.log(contactData)
-        
-        contactData.map((elem) => {
-            const map = new Map;
-            map.set( 'name', `${elem.name.first} ${elem.name.last}`);
-            map.set('thumbnail', `${elem.picture.medium}`);
-            map.set('id', `${elem.id.value}`);
-            console.log(map)
-            return map;
-        })
-        this.setState({contacts:this.map})
+        const newContacts = []
+
+        contactData.filter((elem) => {
+            const element = {
+                name: `${elem.name.first} ${elem.name.last}`,
+                thumbnail: `${elem.picture.medium}`,
+                id:`${elem.id.value}`
+            }      
+            newContacts.push(element)
+        })       
+        this.setState({ contacts: newContacts })
     }
 
     render() {
-        console.log(this.state.contacts)
+        const arr = this.state.contacts
         return (
-            <div></div>
+            <div className="contacts-wrapper">
+                {arr.map((elem) => {
+                    return (
+                        <div key={elem.id}>
+                            <img src={elem.thumbnail} ></img><br/>
+                            {elem.name}<br />
+                            {elem.id}
+                        </div>
+                    )
+                })}
+            </div>
         )
     }
 }

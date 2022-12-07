@@ -14,14 +14,16 @@ const withDelay = (delay) => (data) => {
 export default class LoaderHOC extends React.Component{
     state = {
         contacts: [],
-        loaded: true
+        loaded: false
     }
 
     componentDidMount() {
+        
         fetch(BASE_URL)
             .then(response => {
                 if (response.ok) {
                     const result = response.json();
+                    this.setState({loaded:true})
                     return result
                 } else {
                     throw new Error('err');
@@ -30,6 +32,7 @@ export default class LoaderHOC extends React.Component{
             .then(result => this.filterContacts(result))
             .then(result => withDelay(2000)(result))
             .then(result => this.setResult(result))
+            .then( this.setState({loaded:false}))
             .catch(e => console.log(e));
     }
 
@@ -64,13 +67,3 @@ export default class LoaderHOC extends React.Component{
     }
 }
 
-const loaderHOC = (WrappedComponent) => {
-    return class extends React.Component{
-        render() {
-            console.log(this.props.load)
-            return <WrappedComponent {...this.props} />
-        }
-    }
-}
-
-loaderHOC(ContactList)

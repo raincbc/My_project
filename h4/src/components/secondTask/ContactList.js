@@ -1,6 +1,7 @@
 import React from "react";
 import Contact from "./Contact";
-export default class Contacts extends React.Component{
+import loaderHOC from './HOC'
+export class Contacts extends React.Component{
     
     render() {
         const { data } = this.props
@@ -17,4 +18,6 @@ export default class Contacts extends React.Component{
         )
     }
 }
+
+export default loaderHOC(Contacts)
 

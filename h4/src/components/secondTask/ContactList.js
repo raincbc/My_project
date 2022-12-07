@@ -1,16 +1,20 @@
 import React from "react";
-import LoaderHOC from "./LoaderHOC";
-// import { setContact } from './Contact'
-
+import Contact from "./Contact";
 export default class Contacts extends React.Component{
     
     render() {
-
+        const { data } = this.props
         return (
-            <div>
+            <div  className="contacts-wrapper">
+                {data.map((elem) => {
+                    return (
+                        <div key={elem.id}>
+                            <Contact contact={elem} />
+                        </div>
+                    )
+                })}
             </div>
         )
     }
 }
 
-// export default LoaderHOC(Contacts)

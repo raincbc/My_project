@@ -49,24 +49,28 @@ export default class LoaderHOC extends React.Component{
     }
 
     setResult(data) {
-        this.setState({contacts:data})
+        this.setState({ contacts: data })
     }
 
     render() {  
-        const arr = this.state.contacts
+        const arr = this.state.contacts;
+        const load = this.state.loaded;
+
         return (
-            <div className="contacts-wrapper">
-                {/* <ContactList data={arr} value={this.state.loaded} /> */}
-                {arr.map((elem) => {
-                    return (
-                        <div key={elem.id}>
-                            <img src={elem.thumbnail} ></img><br/>
-                            {elem.name}<br />
-                            {elem.id}
-                        </div>
-                    )
-                })}
+            <div>
+                <ContactList data={arr} load={load} />
             </div>
         )
     }
 }
+
+const loaderHOC = (WrappedComponent) => {
+    return class extends React.Component{
+        render() {
+            console.log(this.props.load)
+            return <WrappedComponent {...this.props} />
+        }
+    }
+}
+
+loaderHOC(ContactList)

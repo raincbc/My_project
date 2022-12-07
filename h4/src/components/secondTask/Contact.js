@@ -1,13 +1,13 @@
-// import React from "react";
+import React from "react";
 
-// const setContact = (data) => {
-//     return (
-//         <div >            
-//             {/* <img src={data.thumbnail} ></img><br />            
-//             {data.name}<br />            
-//             {data.id}             */}
-//         </div>          
-//     )
-// }
+const Contact = ({contact}) => {
+    return (
+        <div>            
+            <img src={contact.thumbnail} ></img><br/>
+            {contact.name}<br />
+            {contact.id}
+        </div>          
+    )
+}
 
-// export default setContact();
+export default Contact;

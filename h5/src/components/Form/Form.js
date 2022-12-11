@@ -1,5 +1,6 @@
-import React from "react";
-import { FormInput } from './FormInput'
+import React, { useState } from "react";
+import { FormInput } from './FormInput';
+import styled from 'styled-components';
 
 const formData = [
     {
@@ -24,41 +25,99 @@ const formData = [
         id: '4',
         name:'type',
         title: 'VISA or MASTERCARD',
-        placeholder: '0000000000000000',
+        placeholder: 'VISA',
     },
 ]
 
-export default class Form extends React.Component{
-    state = {
-        cardNum: '',
-        cvv: '',
-        fullName: '',
-        type:''
-    }
+const Container = styled.div`
+    padding: 0 80px;
+`;
 
-    handelSubmit(event) {
+const Title = styled.h4`
+    font-family: 'Abel';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 61px;
+    letter-spacing: 4.17391px;
+`;
+
+const FormList = styled.form`
+    
+`;
+
+const Button = styled.button`
+    width: 514px;
+    height: 76px;
+    background: #AA24E9;
+    border-radius: 25px;
+    border:none;
+    font-family: 'Abel';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 38px;
+    letter-spacing: 4.17391px;
+    color: #FFFFFF;
+    box-sizing:border-box;
+    margin-top:40px;
+`;
+
+const Form = () => {
+    
+    const [cardNum, setCardNum] = useState('');
+    const [cvv, setSvv] = useState('');
+    const [fullName, setFullName] = useState('');
+    const [type, setType] = useState('');
+
+    const handelSubmit = (event)=> {
         event.preventDefault()
     }
 
-    changeValue(event) {
-        console.log(event.target.name)
-        console.log(event.target.value)
-        // this.setState({
-        //     [event.target.name]: event.target.value
-        // })
+    const changeValue = (event) => {
+        const name = event.target.name
+        const value = event.target.value
+        console.log(name, value)
+        switch (name) {
+            case 'cardNum':
+                return setCardNum(cardNum, value);
+            
+            case 'cvv':
+                return setSvv(cvv, value);
+                break;
+
+            case 'fullName':
+                setFullName(fullName, value);
+                break;
+
+            case 'type':
+                setType(type, value);
+                break;
+            
+            default:
+        }
     }
 
-    render() {
-        return (
-            <form onSubmit={this.handelSubmit}>
-                {formData.map(({ id, title, placeholder, name }) => (
-                    <FormInput
-                        key={id}
-                        data={{ title, placeholder, name, func:this.changeValue }}
-                    />
-                ))}
-                <button type="submit">Add Card</button>
-            </form>
-        )
-    }
+    return (
+        <Container>
+            <Title>
+                Create a new card
+            </Title>
+            <FormList onSubmit={handelSubmit}>
+                    {formData.map(({ id, title, placeholder, name }) => (
+                        <FormInput
+                            key={id}
+                            title={title}
+                            placeholder={placeholder}
+                            name={name}
+                            func={changeValue}
+                        />
+                    ))}
+                    <Button type="submit">Add Card</Button>
+            </FormList>
+        </Container>
+    )
+
 }
+
+export default Form;

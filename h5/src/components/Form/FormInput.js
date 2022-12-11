@@ -1,13 +1,52 @@
-export const FormInput = (data) => {
-    const { title, placeholder, name, func } = data.data;
+import styled from "styled-components";
+
+const InputWrapper = styled.div`
+    
+`;
+
+const Input = styled.input`
+    display:block;
+    width: 514px;
+    height: 76px;
+    border:none;
+    background: #E7D7EF;
+    border-radius: 25px;
+    margin-bottom:20px;
+    padding-left: 23px;
+    box-sizing:border-box;
+
+    &::placeholder {
+        font-family: 'Abel';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 38px;
+        letter-spacing: 4.17391px;
+        color: rgba(0, 0, 0, 0.44);
+    }
+`;
+const Label = styled.label`
+    font-family: 'Abel';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 38px;
+    letter-spacing: 4.17391px;
+
+    color: #010000;
+`;
+
+
+export const FormInput = ({title, placeholder, name, func}) => {
+
     return (
-        <div>
-            <label>{ title }</label>
-            <input
+        <InputWrapper>
+            <Label>{ title }</Label>
+            <Input
                 name={name}
                 placeholder={placeholder}
                 onChange={func}
             />
-        </div>
+        </InputWrapper>
     )
 }

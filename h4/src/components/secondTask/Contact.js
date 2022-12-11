@@ -2,10 +2,14 @@ import React from "react";
 
 const Contact = ({contact}) => {
     return (
-        <div>            
-            <img src={contact.thumbnail} ></img><br/>
-            {contact.name}<br />
-            {contact.id}
+        <div className="contact">            
+            <img src={contact.thumbnail} />
+            <span>
+                {contact.name}
+            </span>
+            <span>
+                {contact.id}
+            </span>
         </div>          
     )
 }

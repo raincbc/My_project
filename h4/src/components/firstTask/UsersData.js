@@ -1,5 +1,5 @@
 import React from "react";
-import { withUsers } from "../context/DataContext";
+import { withUsers } from "../../context/DataContext";
 import User from "./User";
 
 export class UsersData extends React.Component {
@@ -9,7 +9,7 @@ export class UsersData extends React.Component {
         return (
             <div>
                 {users.map((user) => (                    
-                    <User user={user} /> 
+                    <User user={user} key={user.id}/> 
                 ))}
             </div>
         )

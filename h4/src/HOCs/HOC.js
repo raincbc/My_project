@@ -1,10 +1,10 @@
-import React from "react";
+import { Component } from "react";
 
 const loaderHOC = (WrappedComponent) => {
-    return class extends React.Component{
+    return class extends Component{
         render() {
             return (
-                this.props.load ? (
+                !this.props.load ? (
                     <WrappedComponent {...this.props} />
                 ) : (
                         <div className="loading">Loading...</div>

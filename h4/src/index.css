@@ -4,14 +4,20 @@
     text-align: center;
 }
 
-.container>a{
+.container>ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.container>ul>li{
+    list-style: none;
+}
+
+.container>ul>li>a{
     text-decoration: none;
     color: black;
     font-size: 25px;
-}
-
-.container>a:not(:last-child){
-    margin-right: 200px;
 }
 
 .image-container{
@@ -41,13 +47,20 @@
     gap: 30px;
 }
 
-.contacts-wrapper>div{
+.contact{
+    text-align: center;
     margin: 0 auto;
     font-size: 18px;
 }
 
-.contacts-wrapper>div>img{
+.contact>span{
+    display: block;
+}
+
+.contact>img{
+    display: block;
     width: 150px;
+    margin: 0 auto;
 }
 
 .loading{

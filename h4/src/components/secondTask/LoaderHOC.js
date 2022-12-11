@@ -19,36 +19,40 @@ export default class LoaderHOC extends React.Component{
 
     componentDidMount() {
         
+        this.setState({ loaded: true })
+        
         fetch(BASE_URL)
             .then(response => {
                 if (response.ok) {
                     const result = response.json();
-                    this.setState({loaded:true})
+                    
                     return result
                 } else {
                     throw new Error('err');
                 }   
-            })            
-            .then(result => this.filterContacts(result))
+            })
             .then(result => withDelay(2000)(result))
-            .then(result => this.setResult(result))
-            .then( this.setState({loaded:false}))
+            .then(result => {
+                const data = this.filterContacts(result)
+                this.setResult(data)
+                this.setState({loaded:false})
+            })
             .catch(e => console.log(e));
     }
 
     filterContacts(data) {
         const contactData = data.results;
-        const newContacts = []
 
-        contactData.filter((elem) => {
+
+        const filteredContacts = contactData.map((elem) => {
             const element = {
                 name: `${elem.name.first} ${elem.name.last}`,
                 thumbnail: `${elem.picture.medium}`,
-                id:`${elem.id.value}`
-            }      
-            newContacts.push(element)
-        })       
-        return newContacts;
+                id: `${elem.id.value}`
+            }
+            return element
+        })
+        return filteredContacts
     }
 
     setResult(data) {
@@ -56,12 +60,12 @@ export default class LoaderHOC extends React.Component{
     }
 
     render() {  
-        const arr = this.state.contacts;
-        const load = this.state.loaded;
+        const {contacts, loaded}= this.state
+
 
         return (
             <div>
-                <ContactList data={arr} load={load} />
+                <ContactList data={contacts} load={loaded} />
             </div>
         )
     }

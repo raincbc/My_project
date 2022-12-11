@@ -1,6 +1,6 @@
 import React from "react";
 import Contact from "./Contact";
-import loaderHOC from './HOC'
+import loaderHOC from '../../HOCs/HOC'
 export class Contacts extends React.Component{
     
     render() {
@@ -8,11 +8,8 @@ export class Contacts extends React.Component{
         return (
             <div  className="contacts-wrapper">
                 {data.map((elem) => {
-                    return (
-                        <div key={elem.id}>
-                            <Contact contact={elem} />
-                        </div>
-                    )
+                    return <Contact key={elem.id} contact={elem} />
+
                 })}
             </div>
         )

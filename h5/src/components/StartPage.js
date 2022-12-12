@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import VisaCard from "../cards/Visa";
-import MasterCard from "../cards/Mastercad";
+import Card from "./Card";
 import { Link } from "react-router-dom";
+import { defaultVisa, defaultMastercard } from "./Form/Form";
 
 const Container = styled.div`
     width: 540px;
@@ -73,8 +73,8 @@ const StartPage = () => {
                     </NavPlus>
                 </Link>
             </Navigate>
-            <VisaCard/>
-            <MasterCard/>
+            <Card data={defaultVisa} />
+            <Card data={defaultMastercard}/>
         </Container>
     )
 }

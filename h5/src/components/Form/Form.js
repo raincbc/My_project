@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { FormInput } from './FormInput';
 import styled from 'styled-components';
-import VisaCard from "../../cards/Visa";
 import { Link } from "react-router-dom";
+import Card from "../Card";
 
 const formData = [
     {
@@ -66,6 +66,20 @@ const Button = styled.button`
     cursor:pointer;
 `;
 
+export const defaultVisa = {
+    cardNum: '9572840914367518',
+    cvv: '315',
+    fullname: 'Rick Sanchez',
+    type: 'Visa'
+}
+
+export const defaultMastercard = {
+    cardNum: '4964937567696764',
+    cvv: '681',
+    fullname: 'Mortie Smith',
+    type: 'Mastercard'
+}
+
 
 const Form = () => {
     
@@ -108,7 +122,7 @@ const Form = () => {
             <Title>
                 Create a new card
             </Title>
-            <VisaCard/>
+            <Card data={ defaultVisa } />
             <FormList onSubmit={handelSubmit}>
                 {formData.map(({ id, title, placeholder, name }) => (
                     <FormInput

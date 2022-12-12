@@ -6,30 +6,32 @@ import mastercard from '../assets/mastercard.webp';
 import Mastercard from '../assets/Mastercard.png'
 
 const Card = (props) => {
+    console.log(props.data)
+    const { cardNum, cvv, fullname, type } = props.data;
+    console.log(type)
 
     const CardPlace = styled.div`
         width:540px;
         height:335px;
         border-radius:50px;
-        background-image: url(${visa});
+        background-image: ${(type) => (type = 'Visa' ? `url(${visa})` : `url(${mastercard})`)};
         background-size: cover;
         padding: 0 55px;
         padding-top:85px;
         margin-bottom:50px;
         box-sizing:border-box;
-        z-index:10;
-`;
-    
-    const CardPlaceSpan = styled.span`
-        display:block;
-        font-family: 'Abel';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 30px;
-        line-height: 38px;
-        letter-spacing: 4.17391px;
-        color:red
-`;    
+
+        &:nth-child(2){
+            display:block;
+            font-family: 'Abel';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 30px;
+            line-height: 38px;
+            letter-spacing: 4.17391px;
+            color:blue;
+        }
+`; 
     
     const Chip = styled.img`
         display:block;
@@ -41,17 +43,17 @@ const Card = (props) => {
         display:flex;
         align-items: center;
         justify-content: space-between;
-`;
 
-    const CardDataSpan = styled.span`
-        display:block;
-        font-family: 'Abel';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 24px;
-        line-height: 31px;
-        letter-spacing: 2.4px;
-        color:red
+        &:first-child{
+            display:block;
+            font-family: 'Abel';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 31px;
+            letter-spacing: 2.4px;
+            color:red
+        }
 `;
     
     const CardDataImg = styled.img`
@@ -62,13 +64,14 @@ const Card = (props) => {
         <>
             <CardPlace>
                 <Chip src={chip}/>
-                <CardPlaceSpan>
-                    ****&nbsp;&nbsp;****&nbsp;&nbsp;****&nbsp;&nbsp;0000
-                </CardPlaceSpan>
+                <span>
+                    {cardNum}
+                    {/* ****&nbsp;&nbsp;****&nbsp;&nbsp;****&nbsp;&nbsp;0000 */}
+                </span>
                 <CardData>
-                    <CardDataSpan>
-                        John Smith
-                    </CardDataSpan>
+                    <span>
+                        {fullname}
+                    </span>
                     <CardDataImg src={Visa}/>
                 </CardData>
             </CardPlace>

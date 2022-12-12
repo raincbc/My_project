@@ -55,7 +55,7 @@ const Card = (props) => {
             color:red
         }
 `;
-    
+
     const CardDataImg = styled.img`
         height:85px;
     `;

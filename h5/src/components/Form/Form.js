@@ -21,13 +21,13 @@ const formData = [
         id: '3',
         name:'fullName',
         title: 'Your fullname',
-        placeholder: 'John Smith',
+        placeholder: 'Rick Sanchez',
     },
     {
         id: '4',
         name:'type',
-        title: 'VISA or MASTERCARD',
-        placeholder: 'VISA',
+        title: 'Visa or Mastercard',
+        placeholder: 'Visa',
     },
 ]
 

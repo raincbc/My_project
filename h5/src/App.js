@@ -1,10 +1,13 @@
 import React from "react";
-import Form from "./components/Form/Form";
+import RouterApp from "./RouterApp";
+import { BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <Form/>
+      <Router>
+        <RouterApp />
+      </Router>
     </div>
   );
 }

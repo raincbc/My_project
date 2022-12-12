@@ -14,6 +14,13 @@ const Input = styled.input`
     margin-bottom:20px;
     padding-left: 23px;
     box-sizing:border-box;
+    font-family: 'Abel';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 38px;
+    letter-spacing: 4.17391px;
+    color: rgba(0, 0, 0, 0.44);
 
     &::placeholder {
         font-family: 'Abel';
@@ -24,6 +31,8 @@ const Input = styled.input`
         letter-spacing: 4.17391px;
         color: rgba(0, 0, 0, 0.44);
     }
+
+    
 `;
 const Label = styled.label`
     font-family: 'Abel';

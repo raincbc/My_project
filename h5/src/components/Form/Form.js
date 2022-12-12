@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { FormInput } from './FormInput';
 import styled from 'styled-components';
+import VisaCard from "../../cards/Visa";
+import { Link } from "react-router-dom";
 
 const formData = [
     {
@@ -61,7 +63,9 @@ const Button = styled.button`
     color: #FFFFFF;
     box-sizing:border-box;
     margin-top:40px;
+    cursor:pointer;
 `;
+
 
 const Form = () => {
     
@@ -77,24 +81,25 @@ const Form = () => {
     const changeValue = (event) => {
         const name = event.target.name
         const value = event.target.value
+
         console.log(name, value)
         switch (name) {
             case 'cardNum':
-                return setCardNum(cardNum, value);
+                return setCardNum({cardNum:value});
             
             case 'cvv':
-                return setSvv(cvv, value);
-                break;
+                return setSvv({cvv:value});
+
 
             case 'fullName':
-                setFullName(fullName, value);
-                break;
+                return setFullName({fullName:value});
+
 
             case 'type':
-                setType(type, value);
-                break;
+                return setType({type:value});
             
             default:
+                alert('1')
         }
     }
 
@@ -103,17 +108,22 @@ const Form = () => {
             <Title>
                 Create a new card
             </Title>
+            <VisaCard/>
             <FormList onSubmit={handelSubmit}>
-                    {formData.map(({ id, title, placeholder, name }) => (
-                        <FormInput
-                            key={id}
-                            title={title}
-                            placeholder={placeholder}
-                            name={name}
-                            func={changeValue}
-                        />
-                    ))}
-                    <Button type="submit">Add Card</Button>
+                {formData.map(({ id, title, placeholder, name }) => (
+                    <FormInput
+                        key={id}
+                        title={title}
+                        placeholder={placeholder}
+                        name={name}
+                        func={changeValue}
+                    />
+                ))}
+                <Link to="/my-cards">
+                    <Button type="submit">
+                        Add Card
+                    </Button>
+                </Link>
             </FormList>
         </Container>
     )

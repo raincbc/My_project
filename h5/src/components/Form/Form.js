@@ -3,6 +3,7 @@ import { FormInput } from './FormInput';
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
 import Card from "../Card";
+import MyCards from "../MyCards";
 
 const formData = [
     {
@@ -89,6 +90,7 @@ const Form = () => {
     const [cvv, setSvv] = useState('');
     const [fullName, setFullName] = useState('');
     const [type, setType] = useState('');
+    
 
     const handelSubmit = (event)=> {
         event.preventDefault()
@@ -98,7 +100,6 @@ const Form = () => {
         const name = event.target.name
         const value = event.target.value
 
-        console.log(name, value)
         switch (name) {
             case 'cardNum':
                 return setCardNum({cardNum:value});

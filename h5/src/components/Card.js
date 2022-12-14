@@ -98,7 +98,6 @@ const CardWrapper = styled.div`
 const Card = (props) => {
 
     const { cardNum, cvv, fullname, type, date } = props.data;
-    console.log(props.data)
 
     const filterNum = (cardNum.slice(0, 4))+'  '+(cardNum.slice(4, 8))+'  '+(cardNum.slice(8, 12))+'  '+(cardNum.slice(12, 16)) ;
 

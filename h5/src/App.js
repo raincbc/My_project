@@ -1,17 +1,19 @@
 import React from "react";
-import RouterApp from "./RouterApp";
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import AddCard from './pages/AddCardPage'
+import Start from "./pages/StartPage";
+import MyCardsPage from './pages/MyCardsPage'
 
-function App() {
-  return (
-    <div className="App">
-      <Router>
-        <RouterApp />
-      </Router>
-    </div>
-  );
+export default class RouterApp extends React.Component{
+    render() {
+        return (
+            <div>
+                <Routes>
+                    <Route path='/' element={<Start />} />
+                    <Route path='/add-card' element={<AddCard/>} />
+                    <Route path='/my-cards' element={<MyCardsPage />} />
+                </Routes>
+            </div>            
+        )
+    }
 }
-
-export default App;
-
-

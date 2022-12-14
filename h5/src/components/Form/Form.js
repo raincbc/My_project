@@ -70,14 +70,16 @@ export const defaultVisa = {
     cardNum: '9572840914367518',
     cvv: '315',
     fullname: 'Rick Sanchez',
-    type: 'Visa'
+    type: 'Visa',
+    date: '12/26'
 }
 
 export const defaultMastercard = {
     cardNum: '4964937567696764',
     cvv: '681',
     fullname: 'Mortie Smith',
-    type: 'Mastercard'
+    type: 'Mastercard',
+    date: '12/26'
 }
 
 

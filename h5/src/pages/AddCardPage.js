@@ -22,7 +22,7 @@ const AddCard = () => {
             <Title>
                 Create a new card
             </Title>
-            {defaultCards.map((elem) => (
+            {defaultCards.slice(0, 1).map((elem) => (
                 <Card
                     key={elem.id}
                     cardNum={elem.cardNum}

@@ -5,10 +5,10 @@ import Visa from '../assets/Visa.png';
 import mastercard from '../assets/mastercard.webp';
 import back from '../assets/back.jpg'
 
-const CardPlace = styled.div`
+const CardFront = styled.div`
     position:absolute;
-    width:540px;
-    height:335px;
+    width:100%;
+    height:100%;
     border-radius:50px;
     background-image: ${(props) => (props.type === 'Visa' ? `url(${visa})` : `url(${mastercard})`)};
     background-size: cover;
@@ -53,11 +53,12 @@ const CardDataImg = styled.img`
     `;
     
 const CardBack = styled.div`
+    position:absolute;
     display:flex;
     justify-content: space-between;
     align-items:flex-end;
-    width:540px;
-    height:335px;
+    width:100%;
+    height:100%;
     border-radius:50px;
     background-image: url(${back});
     background-size: cover;
@@ -83,42 +84,46 @@ const CardBack = styled.div`
 `;
 
 const CardWrapper = styled.div`
+    width:540px;
+    height:335px;
     position: relative;
     perspective: 1000px;
+    margin-bottom:30px;
     
-    &:hover >${CardPlace} {
-        transform: rotateY(180deg);
-    }
+    // &:hover >${CardFront} {
+    //     transform: rotateY(180deg);
+    // }
 
-    &:hover >${CardBack} {
-        transform: rotateY(360deg);
-    }
+    // &:hover >${CardBack} {
+    //     transform: rotateY(360deg);
+    // }
 `;
 
 const Card = (props) => {
 
     const { cardNum, cvv, fullname, type, date } = props;
 
-    const filterNum = (cardNum.slice(0, 4))+'  '+(cardNum.slice(4, 8))+'  '+(cardNum.slice(8, 12))+'  '+(cardNum.slice(12, 16)) ;
+    // const filterNum = (cardNum.slice(0, 4))+'  '+(cardNum.slice(4, 8))+'  '+(cardNum.slice(8, 12))+'  '+(cardNum.slice(12, 16)) ;
 
-    const stars = '****  ****  ****  ' + cardNum.slice(12, 16);
+    // const stars = '****  ****  ****  ' + cardNum.slice(12, 16);
 
     const handleClick = (event) => {
         const value = event.target.innerText;
 
-        if (value.includes('*')) {
-            event.target.innerText = filterNum;
-        } else {
-            event.target.innerText = stars;
-        }
+        // if (value.includes('*')) {
+        //     event.target.innerText = filterNum;
+        // } else {
+        //     event.target.innerText = stars;
+        // }
     }
     
     return (
         <CardWrapper>
-            <CardPlace type={type}>
+            <CardFront type={type}>
                 <Chip src={chip}/>
                     <span onClick={handleClick}>
-                        {stars}
+                    {/* {stars} */}
+                    {cardNum}
                     </span>
                 <CardData>
                     <span>
@@ -126,7 +131,7 @@ const Card = (props) => {
                     </span>
                     <CardDataImg src={Visa}/>
                 </CardData>
-            </CardPlace>
+            </CardFront>
             <CardBack type={type}>
                 <span>
                     {date}

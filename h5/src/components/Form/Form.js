@@ -2,8 +2,6 @@ import React, { useState, useContext } from "react";
 import { FormInput } from './FormInput';
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
-import Card from "../Card";
-import MyCards from "../MyCards";
 import { CardsContext } from "../../context/context";
 
 const formData = [
@@ -86,7 +84,8 @@ const Form = () => {
 
     const handelSubmit = (event)=> {
         event.preventDefault()
-        setNum([cardNum, cvv, fullName, type ])
+
+        setNum({cardNum, cvv, fullName, type})
     }
 
     const changeValue = (event) => {
@@ -113,7 +112,7 @@ const Form = () => {
         }
     }
 
-    return (
+    return (        
         <FormList onSubmit={handelSubmit}>
             {formData.map(({ id, title, placeholder, name }) => (
                 <FormInput

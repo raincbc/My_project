@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { FormInput } from './FormInput';
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
 import Card from "../Card";
 import MyCards from "../MyCards";
+import { CardsContext } from "../../context/context";
 
 const formData = [
     {
@@ -32,19 +33,6 @@ const formData = [
     },
 ]
 
-const Container = styled.div`
-    padding: 0 80px;
-`;
-
-const Title = styled.h4`
-    font-family: 'Abel';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 48px;
-    line-height: 61px;
-    letter-spacing: 4.17391px;
-`;
-
 const FormList = styled.form`
     
 `;
@@ -67,22 +55,24 @@ const Button = styled.button`
     cursor:pointer;
 `;
 
-export const defaultVisa = {
-    cardNum: '9572840914367518',
-    cvv: '315',
-    fullname: 'Rick Sanchez',
-    type: 'Visa',
-    date: '12/26'
-}
-
-export const defaultMastercard = {
-    cardNum: '4964937567696764',
-    cvv: '681',
-    fullname: 'Mortie Smith',
-    type: 'Mastercard',
-    date: '12/26'
-}
-
+export const defaultCards = [
+    {
+        id: '1',
+        cardNum: '9572840914367518',
+        cvv: '315',
+        fullname: 'Rick Sanchez',
+        type: 'Visa',
+        date: '12/26'
+    },
+    {
+        id: '2',
+        cardNum: '4964937567696764',
+        cvv: '681',
+        fullname: 'Mortie Smith',
+        type: 'Mastercard',
+        date: '12/26'
+    }
+]
 
 const Form = () => {
     
@@ -90,10 +80,13 @@ const Form = () => {
     const [cvv, setSvv] = useState('');
     const [fullName, setFullName] = useState('');
     const [type, setType] = useState('');
+
+    const { setNum } = useContext(CardsContext);
     
 
     const handelSubmit = (event)=> {
         event.preventDefault()
+        setNum([cardNum, cvv, fullName, type ])
     }
 
     const changeValue = (event) => {
@@ -121,30 +114,23 @@ const Form = () => {
     }
 
     return (
-        <Container>
-            <Title>
-                Create a new card
-            </Title>
-            <Card data={ defaultVisa } />
-            <FormList onSubmit={handelSubmit}>
-                {formData.map(({ id, title, placeholder, name }) => (
-                    <FormInput
-                        key={id}
-                        title={title}
-                        placeholder={placeholder}
-                        name={name}
-                        func={changeValue}
-                    />
-                ))}
-                <Link to="/my-cards">
-                    <Button type="submit">
-                        Add Card
-                    </Button>
-                </Link>
-            </FormList>
-        </Container>
+        <FormList onSubmit={handelSubmit}>
+            {formData.map(({ id, title, placeholder, name }) => (
+                <FormInput
+                    key={id}
+                    title={title}
+                    placeholder={placeholder}
+                    name={name}
+                    func={changeValue}
+                />
+            ))}
+            {/* <Link to="/my-cards"> */}
+                <Button type="submit">
+                    Add Card
+                </Button>
+            {/* </Link> */}
+        </FormList>
     )
-
 }
 
 export default Form;

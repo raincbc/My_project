@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Card from "./Card";
 import { Link } from "react-router-dom";
-import { defaultVisa, defaultMastercard } from "./Form/Form";
+import { defaultCards } from "./Form/Form";
 
 const Container = styled.div`
     width: 540px;
@@ -73,8 +73,16 @@ const StartPage = () => {
                     </NavPlus>
                 </Link>
             </Navigate>
-            <Card data={defaultVisa} />
-            <Card data={defaultMastercard}/>
+            {defaultCards.map((elem) => (
+                <Card
+                    key={elem.id}
+                    cardNum={elem.cardNum}
+                    cvv={elem.cvv}
+                    fullname={elem.fullname}
+                    type={elem.type}
+                    date={elem.date}
+                />
+            ))}
         </Container>
     )
 }

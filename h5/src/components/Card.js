@@ -86,18 +86,18 @@ const CardWrapper = styled.div`
     position: relative;
     perspective: 1000px;
     
-    // &:hover >${CardPlace} {
-    //     transform: rotateY(180deg);
-    // }
+    &:hover >${CardPlace} {
+        transform: rotateY(180deg);
+    }
 
-    // &:hover >${CardBack} {
-    //     transform: rotateY(360deg);
-    // }
+    &:hover >${CardBack} {
+        transform: rotateY(360deg);
+    }
 `;
 
 const Card = (props) => {
 
-    const { cardNum, cvv, fullname, type, date } = props.data;
+    const { cardNum, cvv, fullname, type, date } = props;
 
     const filterNum = (cardNum.slice(0, 4))+'  '+(cardNum.slice(4, 8))+'  '+(cardNum.slice(8, 12))+'  '+(cardNum.slice(12, 16)) ;
 

@@ -27,16 +27,6 @@ const Card = (props) => {
 
     const stars = '****  ****  ****  ' + cardNum.slice(12, 16);
 
-    const handleClick = (event) => {
-        const value = event.target.innerText;
-
-        // if (value.includes('*')) {
-        //     event.target.innerText = filterNum;
-        // } else {
-        //     event.target.innerText = stars;
-        // }
-    }
-
     const handleMenu = () => {
         if (cardClick === false) {
             setClick(true)
@@ -69,9 +59,9 @@ const Card = (props) => {
             >
                 <Chip src={chip}/>
                 <span>
-                    {isDataShow === false
-                        ? `${stars}`
-                        : `${filterNum}`}
+                    {isDataShow ? `${filterNum}`
+                        : `${stars}`
+                    }
                 </span>
                 <CardData>
                     <span>
@@ -113,7 +103,6 @@ const Card = (props) => {
 
 export default Card;
 
-
 const CardFront = styled.div`
     cursor:pointer;
     z-index: 3;
@@ -129,10 +118,6 @@ const CardFront = styled.div`
     box-sizing:border-box;
     transition: 0.5s;
     backface-visibility: hidden;
-
-    ${props => props.isFlip &&`
-    transform: rotateY(180 deg)
-    `}
 
     span{
         display:block;

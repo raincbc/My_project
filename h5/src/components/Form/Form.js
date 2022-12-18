@@ -43,7 +43,6 @@ const Form = () => {
     const [fullName, setFullName] = useState('');
     const [type, setType] = useState('');
     const [err, setErr] = useState('')
-    console.log(err)
 
     const { getAlbumsData } = useContext(CardsContext);    
 
@@ -57,7 +56,8 @@ const Form = () => {
 
 
         if (!cardNum || cardNum < 16) {
-            return setErr('Error')
+            setErr('Error')
+            console.log(err)
         }
 
         if (!cvv || cvv > 3) {

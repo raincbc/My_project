@@ -1,20 +1,7 @@
 import Form from "../components/Form/Form";
 import styled from "styled-components";
 import Card from "../components/Card";
-import { defaultCards } from "../components/Form/Form";
-
-const Container = styled.div`
-    padding: 0 80px;
-`;
-
-const Title = styled.h4`
-    font-family: 'Abel';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 48px;
-    line-height: 61px;
-    letter-spacing: 4.17391px;
-`;
+import { defaultCards } from "../data/data";
 
 const AddCard = () => {
     return (
@@ -39,3 +26,17 @@ const AddCard = () => {
 }
 
 export default AddCard;
+
+
+const Container = styled.div`
+    padding: 0 80px;
+`;
+
+const Title = styled.h4`
+    font-family: 'Abel';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 61px;
+    letter-spacing: 4.17391px;
+`;

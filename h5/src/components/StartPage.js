@@ -1,31 +1,52 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import Card from "./Card";
 import { Link } from "react-router-dom";
-import { defaultCards } from "./Form/Form";
+import { CardsContext } from "../context/context";
+
+
+const StartPage = () => {
+    const { albumsData } = useContext(CardsContext);
+    console.log(albumsData)
+    return (
+        <Container>
+            <Navigate> 
+                <TitleText>
+                    Your Cards
+                </TitleText>
+                <Link to='/add-card'>
+                    <NavPlus>
+                        <FirstLine/>
+                        <SecondLine/>
+                    </NavPlus>
+                </Link>
+            </Navigate>
+            {albumsData.map((elem) => (
+                <Card
+                    key={elem.id}
+                    cardNum={elem.cardNum}
+                    cvv={elem.cvv}
+                    fullname={elem.fullname}
+                    type={elem.type}
+                    date={elem.date}
+                />
+            ))}
+        </Container>
+    )
+}
+
+export default StartPage;
+
 
 const Container = styled.div`
     width: 540px;
-    padding: 50px 80px 0;
+    padding: 0 80px;
 `;
 
 const Navigate = styled.nav`
     display:flex;
     justify-content: space-between;
-    margin-bottom:80px;
-`;
-
-const NavBtn = styled.button`
-    font-family: 'Abel';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 47px;
-    line-height: 61px;
-    letter-spacing: 4.17391px;
-    color: #000000;
-    border:none;
-    background-color:transparent;
-    cursor:pointer;
+    align-items:center;
 `;
 
 const NavPlus = styled.div`
@@ -57,34 +78,11 @@ const SecondLine = styled.div`
     left:10px;
 `;
 
-const StartPage = () => {
-    return (
-        <Container>
-            <Navigate> 
-                <Link to='/my-cards'>
-                    <NavBtn>
-                        Your cards                    
-                    </NavBtn>
-                </Link>
-                <Link to='/add-card'>
-                    <NavPlus>
-                        <FirstLine/>
-                        <SecondLine/>
-                    </NavPlus>
-                </Link>
-            </Navigate>
-            {defaultCards.map((elem) => (
-                <Card
-                    key={elem.id}
-                    cardNum={elem.cardNum}
-                    cvv={elem.cvv}
-                    fullname={elem.fullname}
-                    type={elem.type}
-                    date={elem.date}
-                />
-            ))}
-        </Container>
-    )
-}
-
-export default StartPage;
+const TitleText = styled.h4`
+    font-family: 'Abel';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 47px;
+    letter-spacing: 4.17391px;
+    color: #000000;
+`;

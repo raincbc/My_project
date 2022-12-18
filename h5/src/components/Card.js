@@ -1,9 +1,58 @@
+
 import styled from "styled-components";
 import visa from '../assets/visa.jpg';
 import chip from '../assets/chip.png';
 import Visa from '../assets/Visa.png';
 import mastercard from '../assets/mastercard.webp';
 import back from '../assets/back.jpg'
+
+const Card = (props) => {
+    
+    const { cardNum, cvv, fullname, type, date } = props;
+
+    // const filterNum = (cardNum.slice(0, 4))+'  '+(cardNum.slice(4, 8))+'  '+(cardNum.slice(8, 12))+'  '+(cardNum.slice(12, 16)) ;
+
+    // const stars = '****  ****  ****  ' + cardNum.slice(12, 16);
+
+    const handleClick = (event) => {
+        const value = event.target.innerText;
+
+        // if (value.includes('*')) {
+        //     event.target.innerText = filterNum;
+        // } else {
+        //     event.target.innerText = stars;
+        // }
+    }
+    
+    return (
+        <CardWrapper>
+            <CardFront type={type}>
+                <Chip src={chip}/>
+                    <span onClick={handleClick}>
+                    {/* {stars} */}
+                    {cardNum}
+                    </span>
+                <CardData>
+                    <span>
+                        {fullname}
+                    </span>
+                    <CardDataImg src={Visa}/>
+                </CardData>
+            </CardFront>
+            <CardBack type={type}>
+                <span>
+                    {date}
+                </span>
+                <span>
+                    {cvv}
+                </span>
+            </CardBack>            
+        </CardWrapper>
+    )
+}
+
+export default Card;
+
 
 const CardFront = styled.div`
     position:absolute;
@@ -98,50 +147,3 @@ const CardWrapper = styled.div`
     //     transform: rotateY(360deg);
     // }
 `;
-
-const Card = (props) => {
-
-    const { cardNum, cvv, fullname, type, date } = props;
-
-    // const filterNum = (cardNum.slice(0, 4))+'  '+(cardNum.slice(4, 8))+'  '+(cardNum.slice(8, 12))+'  '+(cardNum.slice(12, 16)) ;
-
-    // const stars = '****  ****  ****  ' + cardNum.slice(12, 16);
-
-    const handleClick = (event) => {
-        const value = event.target.innerText;
-
-        // if (value.includes('*')) {
-        //     event.target.innerText = filterNum;
-        // } else {
-        //     event.target.innerText = stars;
-        // }
-    }
-    
-    return (
-        <CardWrapper>
-            <CardFront type={type}>
-                <Chip src={chip}/>
-                    <span onClick={handleClick}>
-                    {/* {stars} */}
-                    {cardNum}
-                    </span>
-                <CardData>
-                    <span>
-                        {fullname}
-                    </span>
-                    <CardDataImg src={Visa}/>
-                </CardData>
-            </CardFront>
-            <CardBack type={type}>
-                <span>
-                    {date}
-                </span>
-                <span>
-                    {cvv}
-                </span>
-            </CardBack>            
-        </CardWrapper>
-    )
-}
-
-export default Card;

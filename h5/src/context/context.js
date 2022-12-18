@@ -1,23 +1,21 @@
 import React, { useState } from "react";
+import { defaultCards } from "../data/data";
 
 export const CardsContext = React.createContext();
 
 export const CardsProvider = (props) => {
 
-    const [albumsData, setAlbumsData] = useState([]);
+    const [albumsData, setAlbumsData] = useState(defaultCards);
 
-    const setNum = (props) => {
-        console.log(props)
-        const cardNum = props.cardNum.cardNum;
+    const getAlbumsData = (props) => {
         
-        return setAlbumsData({albumsData:cardNum})
+        setAlbumsData(prevState => {
+            return[props, prevState]
+        })
     }
 
-    console.log(albumsData)
-
-
     return (
-        <CardsContext.Provider value={{ setNum }}>
+        <CardsContext.Provider value={{ getAlbumsData, albumsData }}>
             {props.children}
         </CardsContext.Provider>
     )

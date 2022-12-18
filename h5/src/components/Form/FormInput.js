@@ -1,5 +1,22 @@
 import styled from "styled-components";
 
+export const FormInput = ({title, placeholder, name, err, func}) => {
+
+    return (
+        <InputWrapper>
+            <Label>{ title }</Label>
+            <Input
+                name={name}
+                placeholder={placeholder}
+                onChange={func}
+            />
+            <span id={name}>
+                {err}
+            </span>
+        </InputWrapper>
+    )
+}
+
 const InputWrapper = styled.div`
     
 `;
@@ -45,17 +62,3 @@ const Label = styled.label`
     color: #010000;
 `;
 
-
-export const FormInput = ({title, placeholder, name, func}) => {
-
-    return (
-        <InputWrapper>
-            <Label>{ title }</Label>
-            <Input
-                name={name}
-                placeholder={placeholder}
-                onChange={func}
-            />
-        </InputWrapper>
-    )
-}

@@ -52,21 +52,21 @@ const Form = () => {
     const { getAlbumsData } = useContext(CardsContext);  
     
     const setError = () => {
-        if (!cardNum || cardNum < 16 || cardNum !== Number) {
-            setErr(prev=> ({prev, cardNum:'Wrong card number'}))
+        if (cardNum ==='' || cardNum < 16 || cardNum !== Number) {
+            setErr(prev=> ({...prev, cardNum:'Wrong card number'}))
 
         }
 
-        if (!cvv || 3 < cvv < 3 || cvv !== Number) {
-            setErr(prev=> ({prev, cvv:'Wrong cvv number'}))
+        if (!cvv|| 3 < cvv < 3 || cvv !== Number) {
+            setErr(prev=> ({...prev, cvv:'Wrong cvv number'}))
         }
 
-        if (!fullName || fullName < 6) {
-            setErr(prev=> ({prev, fullName:'Wrong name'}))
+        if (fullName === '' || fullName < 6) {
+            setErr(prev=> ({...prev, fullName:'Wrong name'}))
         }
 
-        if (!type || type !== 'Visa' || type !== 'Mastercard') {
-            setErr(prev=> ({prev, type:'Wrong card type'}))
+        if (type ==='' || type !== 'Visa' || type !== 'Mastercard') {
+            setErr(prev=> ({...prev, type:'Wrong card type'}))
         }
     }
 

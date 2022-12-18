@@ -43,11 +43,11 @@ const Card = (props) => {
         }
     }
 
-    const handleDataShow = () => {
-        if (isDataShow === false) {
-            setData(true)
+    const handleCardNumShow = () => {
+        if (isNumShow === false) {
+            setNumShow(true)
         } else {
-            setData(false)
+            setNumShow(false)
         }
     }
     
@@ -59,7 +59,7 @@ const Card = (props) => {
             >
                 <Chip src={chip}/>
                 <span>
-                    {isDataShow ? `${filterNum}`
+                    {isNumShow ? `${filterNum}`
                         : `${stars}`
                     }
                 </span>
@@ -84,7 +84,7 @@ const Card = (props) => {
             <CardMenu cardClick={cardClick}>
                 <ShowImg
                     src={show}
-                    onClick={handleDataShow}
+                    onClick={handleCardNumShow}
                 />
                 <LineImg src={line} />
                 <FlipImg
@@ -118,6 +118,8 @@ const CardFront = styled.div`
     box-sizing:border-box;
     transition: 0.5s;
     backface-visibility: hidden;
+
+    ${(props) => props.isFlip  ? `transform: rotateY(0deg);` : `transform: rotateY(180deg);`}
 
     span{
         display:block;
@@ -172,7 +174,7 @@ const CardBack = styled.div`
     backface-visibility: hidden;
     transform: rotateY(180deg);
 
-    // ${(props) => (props.isFlip === false ? (`transform: rotateY(360deg);`) : (`transform: rotateY(-360deg);`))}
+    ${(props) => props.isFlip === false ? `transform: rotateY(360deg);` : `transform: rotateY(180deg);`}
 
     span{
         display:block;
@@ -193,15 +195,6 @@ const CardWrapper = styled.div`
     position: relative;
     perspective: 1000px;
     margin-bottom:70px;
-    
-
-    // &:hover >${CardFront} {
-    //     transform: rotateY(180deg);
-    // }
-
-    // &:hover >${CardBack} {
-    //     transform: rotateY(360deg);
-    // }
 `;
 
 const CardMenu = styled.div`
@@ -226,13 +219,10 @@ const ShowImg = styled.img`
 `;
 
 const FlipImg = styled(ShowImg)`
-
 `;
 
 const DataImg = styled(ShowImg)`
-
 `;
 
 const LineImg = styled.img`
-
 `;

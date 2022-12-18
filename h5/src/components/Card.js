@@ -1,18 +1,31 @@
-
+import React, { useState } from "react";
 import styled from "styled-components";
 import visa from '../assets/visa.jpg';
 import chip from '../assets/chip.png';
 import Visa from '../assets/Visa.png';
 import mastercard from '../assets/mastercard.webp';
-import back from '../assets/back.jpg'
+import back from '../assets/back.jpg';
+import show from '../assets/show.png';
+import flip from '../assets/flip.png';
+import data from '../assets/data.png';
+import line from '../assets/line.png';
+
+
+
 
 const Card = (props) => {
     
     const { cardNum, cvv, fullname, type, date } = props;
 
-    // const filterNum = (cardNum.slice(0, 4))+'  '+(cardNum.slice(4, 8))+'  '+(cardNum.slice(8, 12))+'  '+(cardNum.slice(12, 16)) ;
+    const [isNumShow, setNumShow] = useState(false);
+    const [isFlip, setFlip] = useState(false);
+    const [isDataShow, setData] = useState(false);
+    const [cardClick, setClick] = useState(false);
+    console.log(isFlip)
 
-    // const stars = '****  ****  ****  ' + cardNum.slice(12, 16);
+    const filterNum = (cardNum.slice(0, 4))+'  '+(cardNum.slice(4, 8))+'  '+(cardNum.slice(8, 12))+'  '+(cardNum.slice(12, 16)) ;
+
+    const stars = '****  ****  ****  ' + cardNum.slice(12, 16);
 
     const handleClick = (event) => {
         const value = event.target.innerText;
@@ -23,15 +36,43 @@ const Card = (props) => {
         //     event.target.innerText = stars;
         // }
     }
+
+    const handleMenu = () => {
+        if (cardClick === false) {
+            setClick(true)
+        } else {
+            setClick(false)
+        }
+    }
+
+    const handleFlipClick = () => {
+        if (isFlip === false) {
+            setFlip(true)
+        } else {
+            setFlip(false)
+        }
+    }
+
+    const handleDataShow = () => {
+        if (isDataShow === false) {
+            setData(true)
+        } else {
+            setData(false)
+        }
+    }
     
     return (
         <CardWrapper>
-            <CardFront type={type}>
+            <CardFront
+                type={type}
+                onClick={handleMenu}
+            >
                 <Chip src={chip}/>
-                    <span onClick={handleClick}>
-                    {/* {stars} */}
-                    {cardNum}
-                    </span>
+                <span>
+                    {isDataShow === false
+                        ? `${stars}`
+                        : `${filterNum}`}
+                </span>
                 <CardData>
                     <span>
                         {fullname}
@@ -39,14 +80,33 @@ const Card = (props) => {
                     <CardDataImg src={Visa}/>
                 </CardData>
             </CardFront>
-            <CardBack type={type}>
+            <CardBack
+                type={type}
+                onClick={handleMenu}
+            >
                 <span>
                     {date}
                 </span>
                 <span>
                     {cvv}
                 </span>
-            </CardBack>            
+            </CardBack>
+            <CardMenu cardClick={cardClick}>
+                <ShowImg
+                    src={show}
+                    onClick={handleDataShow}
+                />
+                <LineImg src={line} />
+                <FlipImg
+                    src={flip}
+                    onClick={handleFlipClick}
+                    isFlip={isFlip}
+                />
+                <LineImg src={line} />
+                <DataImg
+                    src={data}
+                />
+            </CardMenu>
         </CardWrapper>
     )
 }
@@ -55,6 +115,8 @@ export default Card;
 
 
 const CardFront = styled.div`
+    cursor:pointer;
+    z-index: 3;
     position:absolute;
     width:100%;
     height:100%;
@@ -65,8 +127,12 @@ const CardFront = styled.div`
     padding-top:85px;
     margin-bottom:50px;
     box-sizing:border-box;
-    transition: 1s;
+    transition: 0.5s;
     backface-visibility: hidden;
+
+    ${props => props.isFlip &&`
+    transform: rotateY(180 deg)
+    `}
 
     span{
         display:block;
@@ -102,6 +168,8 @@ const CardDataImg = styled.img`
     `;
     
 const CardBack = styled.div`
+    cursor:pointer;
+    z-index: 3;
     position:absolute;
     display:flex;
     justify-content: space-between;
@@ -115,9 +183,11 @@ const CardBack = styled.div`
     padding-top:85px;
     margin-bottom:50px;
     box-sizing:border-box;
-    transition: 1s;
+    transition: 0.5s;
     backface-visibility: hidden;
     transform: rotateY(180deg);
+
+    // ${(props) => (props.isFlip === false ? (`transform: rotateY(360deg);`) : (`transform: rotateY(-360deg);`))}
 
     span{
         display:block;
@@ -137,8 +207,9 @@ const CardWrapper = styled.div`
     height:335px;
     position: relative;
     perspective: 1000px;
-    margin-bottom:30px;
+    margin-bottom:70px;
     
+
     // &:hover >${CardFront} {
     //     transform: rotateY(180deg);
     // }
@@ -146,4 +217,37 @@ const CardWrapper = styled.div`
     // &:hover >${CardBack} {
     //     transform: rotateY(360deg);
     // }
+`;
+
+const CardMenu = styled.div`
+    height:70px;
+    width:490px;
+    position:absolute;
+    display:flex;
+    padding-bottom:5px;
+    justify-content: space-between;
+    align-items:flex-end;
+    z-index:1 ;
+    left: 25px;
+    bottom:${(props) => (props.cardClick === false ? '0' : '-55px')};
+    transition:0.5s;
+    background-color:white;
+    border-radius:0 0 50px 50px ;
+`;
+
+const ShowImg = styled.img`
+    margin:0 auto;
+    cursor:pointer;
+`;
+
+const FlipImg = styled(ShowImg)`
+
+`;
+
+const DataImg = styled(ShowImg)`
+
+`;
+
+const LineImg = styled.img`
+
 `;

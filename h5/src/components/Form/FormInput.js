@@ -10,9 +10,9 @@ export const FormInput = ({title, placeholder, name, err, func}) => {
                 placeholder={placeholder}
                 onChange={func}
             />
-            <span>
-                {err !== ''? {err} : ''}
-            </span>
+            {err !== ''
+                ? <span>{err}</span>
+                : ''}            
         </InputWrapper>
     )
 }

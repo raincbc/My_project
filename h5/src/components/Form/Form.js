@@ -42,33 +42,33 @@ const Form = () => {
     const [cvv, setSvv] = useState('');
     const [fullName, setFullName] = useState('');
     const [type, setType] = useState('');
-    const [err, setErr] = useState({
-        cardNum: '',
-        cvv: '',
-        fullName: '',
-        type: ''
-    })
+    // const [err, setErr] = useState({
+    //     cardNum: '',
+    //     cvv: '',
+    //     fullName: '',
+    //     type: ''
+    // })
+    
+    // const setError = () => {
+    //     if (!cardNum || cardNum < 16 || cardNum !== Number) {
+    //         setErr(prev=> ({...prev, cardNum:'Wrong card number'}))
+
+    //     }
+
+    //     if (!cvv || 3 < cvv < 3 || cvv !== Number) {
+    //         setErr(prev=> ({...prev, cvv:'Wrong cvv number'}))
+    //     }
+
+    //     if (fullName === '' || fullName < 6) {
+    //         setErr(prev=> ({...prev, fullName:'Wrong name'}))
+    //     }
+
+    //     if (type ==='' || type !== 'Visa' || type !== 'Mastercard') {
+    //         setErr(prev=> ({...prev, type:'Wrong card type'}))
+    //     }
+    // }
 
     const { getAlbumsData } = useContext(CardsContext);  
-    
-    const setError = () => {
-        if (cardNum ==='' || cardNum < 16 || cardNum !== Number) {
-            setErr(prev=> ({...prev, cardNum:'Wrong card number'}))
-
-        }
-
-        if (!cvv|| 3 < cvv < 3 || cvv !== Number) {
-            setErr(prev=> ({...prev, cvv:'Wrong cvv number'}))
-        }
-
-        if (fullName === '' || fullName < 6) {
-            setErr(prev=> ({...prev, fullName:'Wrong name'}))
-        }
-
-        if (type ==='' || type !== 'Visa' || type !== 'Mastercard') {
-            setErr(prev=> ({...prev, type:'Wrong card type'}))
-        }
-    }
 
     const handelSubmit = (event)=> {
         event.preventDefault()
@@ -77,7 +77,7 @@ const Form = () => {
         const date = Math.floor(Math.random(1) * 12) + '/' + Math.floor(Math.random(22) * 35);
 
         console.log(event.target)
-        setError()
+        // setError()
 
         getAlbumsData({ cardNum, cvv, fullName, type, id, date })
     }
@@ -117,7 +117,7 @@ const Form = () => {
                     placeholder={placeholder}
                     name={name}
                     func={changeValue}
-                    err={err[name]}
+                    // err={err[name]}
                 />
             ))}
             {/* <Link to="/"> */}

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import visa from '../assets/visa.jpg';
 import chip from '../assets/chip.png';
 import Visa from '../assets/Visa.png';
-import mastercard from '../assets/mastercard.webp';
+import mastercard from '../assets/mastercard.jpeg';
 import back from '../assets/back.jpg';
 import show from '../assets/show.png';
 import flip from '../assets/flip.png';
@@ -29,25 +29,33 @@ const Card = (props) => {
 
     const handleMenu = () => {
         if (cardClick === false) {
-            setClick(true)
+            setClick(prev => !prev)
         } else {
-            setClick(false)
+            setClick(prev => !prev)
         }
     }
 
     const handleFlipClick = () => {
         if (isFlip === false) {
-            setFlip(true)
+            setFlip(prev => !prev)
         } else {
-            setFlip(false)
+            setFlip(prev => !prev)
         }
     }
 
     const handleCardNumShow = () => {
         if (isNumShow === false) {
-            setNumShow(true)
+            setNumShow(prev => !prev)
         } else {
-            setNumShow(false)
+            setNumShow(prev => !prev)
+        }
+    }
+
+    const handleDataShow = () => {
+        if (isDataShow === false) {
+            setData(prev => !prev)
+        } else {
+            setData(prev => !prev)
         }
     }
     
@@ -56,6 +64,7 @@ const Card = (props) => {
             <CardFront
                 type={type}
                 onClick={handleMenu}
+                isFlip={isFlip}
             >
                 <Chip src={chip}/>
                 <span>
@@ -73,6 +82,7 @@ const Card = (props) => {
             <CardBack
                 type={type}
                 onClick={handleMenu}
+                isFlip={isFlip}
             >
                 <span>
                     {date}
@@ -90,11 +100,11 @@ const Card = (props) => {
                 <FlipImg
                     src={flip}
                     onClick={handleFlipClick}
-                    isFlip={isFlip}
                 />
                 <LineImg src={line} />
                 <DataImg
                     src={data}
+                    onClick={handleDataShow}
                 />
             </CardMenu>
         </CardWrapper>
@@ -119,7 +129,7 @@ const CardFront = styled.div`
     transition: 0.5s;
     backface-visibility: hidden;
 
-    ${(props) => props.isFlip  ? `transform: rotateY(0deg);` : `transform: rotateY(180deg);`}
+    ${(props) => props.isFlip  ? `transform: rotateY(180deg);` : `transform: rotateY(0deg);`}
 
     span{
         display:block;
@@ -129,7 +139,7 @@ const CardFront = styled.div`
         font-size: 30px;
         line-height: 38px;
         letter-spacing: 4.17391px;
-        color: ${(props) => (props.type === 'Visa' ? `blue` : `red`)};
+        color: black;
     }
 `; 
 
@@ -174,7 +184,7 @@ const CardBack = styled.div`
     backface-visibility: hidden;
     transform: rotateY(180deg);
 
-    ${(props) => props.isFlip === false ? `transform: rotateY(360deg);` : `transform: rotateY(180deg);`}
+    ${(props) => props.isFlip === false ? `transform: rotateY(180deg);` : `transform: rotateY(360deg);`}
 
     span{
         display:block;
@@ -184,7 +194,7 @@ const CardBack = styled.div`
         font-size: 30px;
         line-height: 38px;
         letter-spacing: 4.17391px;
-        color:${(props) => (props.type === 'Visa' ? `blue` : `red`)};
+        color: black;
 
     }
 `;
@@ -207,7 +217,7 @@ const CardMenu = styled.div`
     align-items:flex-end;
     z-index:1 ;
     left: 25px;
-    bottom:${(props) => (props.cardClick === false ? '0' : '-55px')};
+    bottom:${(props) => (props.cardClick === false ? '1px' : '-55px')};
     transition:0.5s;
     background-color:white;
     border-radius:0 0 50px 50px ;

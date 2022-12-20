@@ -5,17 +5,16 @@ export const CardsContext = React.createContext();
 
 export const CardsProvider = (props) => {
 
-    const [albumsData, setAlbumsData] = useState(defaultCards);
+    const [cardsData, setCardsData] = useState(defaultCards);
 
-    const getAlbumsData = (props) => {
-        console.log(props)
-        setAlbumsData(prevState => {
-            return[props, prevState]
+    const getCardsData = (props) => {
+        setCardsData(prevState => {
+            return[props, ...prevState]
         })
     }
 
     return (
-        <CardsContext.Provider value={{ getAlbumsData, albumsData }}>
+        <CardsContext.Provider value={{ getCardsData, cardsData }}>
             {props.children}
         </CardsContext.Provider>
     )

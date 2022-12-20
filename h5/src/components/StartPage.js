@@ -6,8 +6,9 @@ import { CardsContext } from "../context/context";
 
 
 const StartPage = () => {
-    const { albumsData } = useContext(CardsContext);
-    console.log(albumsData)
+    const { cardsData } = useContext(CardsContext);
+    console.log(cardsData)
+
     return (
         <Container>
             <Navigate> 
@@ -21,7 +22,7 @@ const StartPage = () => {
                     </NavPlus>
                 </Link>
             </Navigate>
-            {albumsData.map((elem) => (
+            {cardsData.map((elem) => (
                 <Card
                     key={elem.id}
                     cardNum={elem.cardNum}

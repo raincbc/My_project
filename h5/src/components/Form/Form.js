@@ -68,18 +68,15 @@ const Form = () => {
     //     }
     // }
 
-    const { getAlbumsData } = useContext(CardsContext);  
+    const { getCardsData } = useContext(CardsContext);  
 
     const handelSubmit = (event)=> {
         event.preventDefault()
-        const {cardNum, cvv, fullName, type} = event.target
+        // const {cardNum, cvv, fullName, type} = event.target
         const id = Date.now()
         const date = Math.floor(Math.random(1) * 12) + '/' + Math.floor(Math.random(22) * 35);
 
-        console.log(event.target)
-        // setError()
-
-        getAlbumsData({ cardNum, cvv, fullName, type, id, date })
+        getCardsData({ cardNum, cvv, fullName, type, id, date })
     }
 
     
@@ -120,11 +117,11 @@ const Form = () => {
                     // err={err[name]}
                 />
             ))}
-            {/* <Link to="/"> */}
+            <Link to="/">
                 <Button type="submit">
                     Add Card
                 </Button>
-            {/* </Link> */}
+            </Link>
         </FormList>
     )
 }

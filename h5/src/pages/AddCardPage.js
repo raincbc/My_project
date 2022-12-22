@@ -27,7 +27,6 @@ const AddCard = () => {
 
 export default AddCard;
 
-
 const Container = styled.div`
     padding: 0 80px;
 `;

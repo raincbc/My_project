@@ -1,14 +1,18 @@
 import styled from "styled-components";
 
-export const FormInput = ({title, placeholder, name, err, func}) => {
-
+export const FormInput = ({ title, placeholder, name, err, func, focus, value }) => {
+    console.log(value)
+    
     return (
+        
         <InputWrapper>
             <Label>{ title }</Label>
             <Input
                 name={name}
                 placeholder={placeholder}
                 onChange={func}
+                onFocus={focus}
+                value={value}
             />
             {err !== ''
                 ? <span>{err}</span>
@@ -51,6 +55,7 @@ const Input = styled.input`
 
     
 `;
+
 const Label = styled.label`
     font-family: 'Abel';
     font-style: normal;

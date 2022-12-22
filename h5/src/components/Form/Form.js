@@ -1,9 +1,8 @@
 import React, { useState, useContext } from "react";
 import { FormInput } from './FormInput';
 import styled from 'styled-components';
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { CardsContext } from "../../context/context";
-
 
 const formData = [
     {
@@ -42,44 +41,54 @@ const Form = () => {
     const [cvv, setSvv] = useState('');
     const [fullName, setFullName] = useState('');
     const [type, setType] = useState('');
-    // const [err, setErr] = useState({
-    //     cardNum: '',
-    //     cvv: '',
-    //     fullName: '',
-    //     type: ''
-    // })
+    const [err, setErr] = useState({
+        cardNum: '',
+        cvv: '',
+        fullName: '',
+        type: ''
+    })
     
-    // const setError = () => {
-    //     if (!cardNum || cardNum < 16 || cardNum !== Number) {
-    //         setErr(prev=> ({...prev, cardNum:'Wrong card number'}))
+    const setError = () => {
+        if (!cardNum || +cardNum.length < 16) {
+            setErr(prev=> ({...prev, cardNum:'Wrong card number'}))
+        }
 
-    //     }
+        if (!cvv || +cvv.length > 3 || +cvv.length < 3 ) {
+            setErr(prev=> ({...prev, cvv:'Wrong cvv number'}))
+        } else {
+            
+        }
 
-    //     if (!cvv || 3 < cvv < 3 || cvv !== Number) {
-    //         setErr(prev=> ({...prev, cvv:'Wrong cvv number'}))
-    //     }
+        if (fullName === '') {
+            setErr(prev=> ({...prev, fullName:'Wrong name'}))
+        }
 
-    //     if (fullName === '' || fullName < 6) {
-    //         setErr(prev=> ({...prev, fullName:'Wrong name'}))
-    //     }
+        if (type ==='' || !(type === 'Visa' || type === 'Mastercard')) {
+            setErr(prev=> ({...prev, type:'Wrong card type'}))
+        }
+    }
 
-    //     if (type ==='' || type !== 'Visa' || type !== 'Mastercard') {
-    //         setErr(prev=> ({...prev, type:'Wrong card type'}))
-    //     }
-    // }
-
-    const { getCardsData } = useContext(CardsContext);  
+    const { getCardsData } = useContext(CardsContext); 
+    const navigate = useNavigate()
 
     const handelSubmit = (event)=> {
         event.preventDefault()
-        // const {cardNum, cvv, fullName, type} = event.target
+
         const id = Date.now()
         const date = Math.floor(Math.random(1) * 12) + '/' + Math.floor(Math.random(22) * 35);
 
-        getCardsData({ cardNum, cvv, fullName, type, id, date })
+        setError()
+
+        if (!setError) {
+            getCardsData({ cardNum, cvv, fullName, type, id, date });
+
+            navigate('/')
+        }
     }
 
-    
+    const handleFocus = (event) => {
+        event.target = setErr('')
+    }
 
     const changeValue = (event) => {
         const name = event.target.name
@@ -105,6 +114,27 @@ const Form = () => {
         }
     }
 
+    const setValue = (name) => {
+        switch (name) {
+            case 'cardNum':
+                return cardNum;
+            
+            case 'cvv':
+                return cvv;
+
+
+            case 'fullName':
+                return fullName;
+
+
+            case 'type':
+                return type;
+            
+            default:
+                alert('1')
+        }
+    }
+
     return (        
         <FormList onSubmit={handelSubmit}>
             {formData.map(({ id, title, placeholder, name }) => (
@@ -114,14 +144,14 @@ const Form = () => {
                     placeholder={placeholder}
                     name={name}
                     func={changeValue}
-                    // err={err[name]}
+                    err={err[name]}
+                    focus={handleFocus}
+                    value={setValue(name)}
                 />
             ))}
-            <Link to="/">
-                <Button type="submit">
-                    Add Card
-                </Button>
-            </Link>
+            <Button type="submit">
+                Add Card
+            </Button>
         </FormList>
     )
 }

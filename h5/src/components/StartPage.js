@@ -7,7 +7,6 @@ import { CardsContext } from "../context/context";
 
 const StartPage = () => {
     const { cardsData } = useContext(CardsContext);
-    console.log(cardsData)
 
     return (
         <Container>

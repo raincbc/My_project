@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const FormInput = ({ title, placeholder, name, err, func, focus, value }) => {
+export const FormInput = ({ title, placeholder, name, err, func, value, type }) => {
     console.log(value)
     
     return (
@@ -11,8 +11,8 @@ export const FormInput = ({ title, placeholder, name, err, func, focus, value })
                 name={name}
                 placeholder={placeholder}
                 onChange={func}
-                onFocus={focus}
                 value={value}
+                type={type}
             />
             {err !== ''
                 ? <span>{err}</span>

@@ -9,6 +9,7 @@ import show from '../assets/show.png';
 import flip from '../assets/flip.png';
 import data from '../assets/data.png';
 import line from '../assets/line.png';
+import { defaultStatsVisa, defaultStatsMastercard } from "../data/data";
 
 
 
@@ -21,7 +22,6 @@ const Card = (props) => {
     const [isFlip, setFlip] = useState(false);
     const [isDataShow, setData] = useState(false);
     const [cardClick, setClick] = useState(false);
-    console.log(isFlip)
 
     const filterNum = (cardNum.slice(0, 4))+'  '+(cardNum.slice(4, 8))+'  '+(cardNum.slice(8, 12))+'  '+(cardNum.slice(12, 16)) ;
 
@@ -32,6 +32,10 @@ const Card = (props) => {
             setClick(prev => !prev)
         } else {
             setClick(prev => !prev)
+        }
+
+        if (isDataShow) {
+            setData(!isDataShow)
         }
     }
 
@@ -58,21 +62,39 @@ const Card = (props) => {
             setData(prev => !prev)
         }
     }
+
+    const getCardStats = () => {
+        let cardStats = [];
+
+        if (props.type === 'Visa') {
+            cardStats = defaultStatsVisa
+        } else {
+            cardStats = defaultStatsMastercard
+        }
+
+        return cardStats
+    }
     
     return (
-        <CardWrapper>
+        <CardWrapper isDataShow={isDataShow}>
             <CardFront
                 type={type}
                 onClick={handleMenu}
                 isFlip={isFlip}
+                isDataShow={isDataShow}
             >
-                <Chip src={chip}/>
+                <Chip
+                    src={chip}
+                    isDataShow={isDataShow}
+                />
                 <span>
                     {isNumShow ? `${filterNum}`
                         : `${stars}`
                     }
                 </span>
-                <CardData>
+                <CardData
+                    isDataShow={isDataShow}
+                >
                     <span>
                         {fullname}
                     </span>
@@ -91,20 +113,44 @@ const Card = (props) => {
                     {cvv}
                 </span>
             </CardBack>
-            <CardMenu cardClick={cardClick}>
+            <CardMenu
+                cardClick={cardClick}
+                isDataShow={isDataShow}
+            >
+            <CardStatsMenu isDataShow={isDataShow}>
+                <CardStatsTitle>
+                    Card Stats
+                </CardStatsTitle>
+                {getCardStats().map(({ id, date, place, price }) => (
+                    <CardStatsInfo key={id}>
+                        <span>{date}</span>
+                        <span>{place}</span>
+                        <span>{price}</span>
+                    </CardStatsInfo>
+                ))}
+                </CardStatsMenu>
                 <ShowImg
                     src={show}
                     onClick={handleCardNumShow}
+                    isDataShow={isDataShow}
                 />
-                <LineImg src={line} />
+                <LineImg
+                    src={line}
+                    isDataShow={isDataShow}
+                />
                 <FlipImg
                     src={flip}
                     onClick={handleFlipClick}
+                    isDataShow={isDataShow}
                 />
-                <LineImg src={line} />
+                <LineImg
+                    src={line}
+                    isDataShow={isDataShow}
+                />
                 <DataImg
                     src={data}
                     onClick={handleDataShow}
+                    isDataShow={isDataShow}
                 />
             </CardMenu>
         </CardWrapper>
@@ -118,12 +164,12 @@ const CardFront = styled.div`
     z-index: 3;
     position:absolute;
     width:100%;
-    height:100%;
+    height:${(props) => props.isDataShow ? '200px;' : '100%'};
     border-radius:50px;
     background-image: ${(props) => (props.type === 'Visa' ? `url(${visa})` : `url(${mastercard})`)};
     background-size: cover;
     padding: 0 55px;
-    padding-top:85px;
+    padding-top:${(props) => props.isDataShow ? '45px;' : '85px'};
     margin-bottom:50px;
     box-sizing:border-box;
     transition: 0.5s;
@@ -144,7 +190,7 @@ const CardFront = styled.div`
 `; 
 
 const Chip = styled.img`
-    display:block;
+    display:${(props) => props.isDataShow ? 'none' : 'block'};;
     width:50px;
     margin-bottom:50px;
 `;
@@ -158,6 +204,8 @@ const CardData = styled.div`
         line-height: 31px;
         letter-spacing: 2.4px;
     }
+
+    ${(props) => props.isDataShow ? 'margin-top:25px;' : 'margin-top:0;'};
 `;
 
 const CardDataImg = styled.img`
@@ -201,14 +249,15 @@ const CardBack = styled.div`
 
 const CardWrapper = styled.div`
     width:540px;
-    height:335px;
+    height:${(props) => props.isDataShow ? '600px;' : '335px'};
     position: relative;
     perspective: 1000px;
     margin-bottom:70px;
+    transition:1s;
 `;
 
 const CardMenu = styled.div`
-    height:70px;
+    height:${(props) => props.isDataShow ? '600px;' : '70px'};;
     width:490px;
     position:absolute;
     display:flex;
@@ -217,7 +266,7 @@ const CardMenu = styled.div`
     align-items:flex-end;
     z-index:1 ;
     left: 25px;
-    bottom:${(props) => (props.cardClick === false ? '1px' : '-55px')};
+    bottom:${(props) => (props.cardClick ? '-55px' : '1px' )};
     transition:0.5s;
     background-color:white;
     border-radius:0 0 50px 50px ;
@@ -226,13 +275,52 @@ const CardMenu = styled.div`
 const ShowImg = styled.img`
     margin:0 auto;
     cursor:pointer;
+    ${(props) => props.isDataShow ? 'display:none;' : 'display:block;'};
+    
 `;
 
 const FlipImg = styled(ShowImg)`
+
 `;
 
 const DataImg = styled(ShowImg)`
+
 `;
 
 const LineImg = styled.img`
+    ${(props) => props.isDataShow ? 'display:none;' : 'display:block;'};
+`;
+
+const CardStatsMenu = styled.div`
+    position:absolute;
+    top:150px;
+    width:490px;
+    height:60%;
+    display:${(props) => props.isDataShow ? 'block' : 'none'};;
+`;
+
+const CardStatsTitle = styled.h4`
+    font-family: 'Abel';
+    font-weight: 400;
+    font-size: 48px;
+    margin:30px 0 30px 40px;
+`;
+
+const CardStatsInfo = styled.div`
+    padding: 0 30px;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    align-content: flex-start;
+
+
+    span{
+        font-family: 'Abel';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 31px;
+        letter-spacing: 2.4px;
+        display:inline-block;
+    }
 `;

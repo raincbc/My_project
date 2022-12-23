@@ -10,28 +10,28 @@ const formData = [
         name:'cardNum',
         title: 'Card number',
         placeholder: '0000000000000000',
-        err: ''
+        type: 'number'
     },
     {
         id: '2',
         name:'cvv',
         title: 'CVV',
         placeholder: '000',
-        err: ''
+        type: 'number'
     },
     {
         id: '3',
         name:'fullName',
         title: 'Your fullname',
         placeholder: 'Rick Sanchez',
-        err: ''
+        type: 'text'
     },
     {
         id: '4',
         name:'type',
         title: 'Visa or Mastercard',
         placeholder: 'Visa',
-        err: ''
+        type: 'text'
     },
 ]
 
@@ -49,23 +49,29 @@ const Form = () => {
     })
     
     const setError = () => {
-        if (!cardNum || +cardNum.length < 16) {
-            setErr(prev=> ({...prev, cardNum:'Wrong card number'}))
+        let isErr = false;
+
+        if (!cardNum || cardNum.length < 16) {
+            setErr(prev => ({ ...prev, cardNum: 'Wrong card number' }))
+            isErr = true
         }
 
-        if (!cvv || +cvv.length > 3 || +cvv.length < 3 ) {
-            setErr(prev=> ({...prev, cvv:'Wrong cvv number'}))
-        } else {
-            
+        if (!cvv || cvv.length > 3 || cvv.length < 3 ) {
+            setErr(prev => ({ ...prev, cvv: 'Wrong cvv number' }))
+            isErr = true
         }
 
         if (fullName === '') {
-            setErr(prev=> ({...prev, fullName:'Wrong name'}))
+            setErr(prev => ({ ...prev, fullName: 'Wrong name' }))
+            isErr = true
         }
 
         if (type ==='' || !(type === 'Visa' || type === 'Mastercard')) {
-            setErr(prev=> ({...prev, type:'Wrong card type'}))
+            setErr(prev => ({ ...prev, type: 'Wrong card type' }))
+            isErr = true
         }
+
+        return isErr;
     }
 
     const { getCardsData } = useContext(CardsContext); 
@@ -77,17 +83,11 @@ const Form = () => {
         const id = Date.now()
         const date = Math.floor(Math.random(1) * 12) + '/' + Math.floor(Math.random(22) * 35);
 
-        setError()
-
-        if (!setError) {
+        if (!setError()) {
             getCardsData({ cardNum, cvv, fullName, type, id, date });
 
             navigate('/')
         }
-    }
-
-    const handleFocus = (event) => {
-        event.target = setErr('')
     }
 
     const changeValue = (event) => {
@@ -96,18 +96,24 @@ const Form = () => {
 
         switch (name) {
             case 'cardNum':
-                return setCardNum(value);
+                setCardNum(value);
+                if(err.cardNum) setErr(prevState => ({...prevState, cardNum:''}))
+                return 
             
             case 'cvv':
-                return setSvv(value);
-
+                setSvv(value);
+                if(err.cvv) setErr(prevState => ({...prevState, cvv:''}))            
+                return 
 
             case 'fullName':
-                return setFullName(value);
-
+                setFullName(value);
+                if(fullName.cardNum) setErr(prevState => ({...prevState, fullName:''}))            
+                return
 
             case 'type':
-                return setType(value);
+                setType(value);
+                if(err.type) setErr(prevState => ({...prevState, type:''}))
+                return
             
             default:
                 alert('1')
@@ -137,7 +143,7 @@ const Form = () => {
 
     return (        
         <FormList onSubmit={handelSubmit}>
-            {formData.map(({ id, title, placeholder, name }) => (
+            {formData.map(({ id, title, placeholder, name, type }) => (
                 <FormInput
                     key={id}
                     title={title}
@@ -145,8 +151,8 @@ const Form = () => {
                     name={name}
                     func={changeValue}
                     err={err[name]}
-                    focus={handleFocus}
                     value={setValue(name)}
+                    type={type}
                 />
             ))}
             <Button type="submit">

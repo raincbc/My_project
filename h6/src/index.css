@@ -1,0 +1,41 @@
+body, html{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+.container{
+    width: 1100px;
+    margin: 0 auto;
+}
+
+.row{
+    display: flex;
+}
+
+.col{
+    flex:1;
+}
+
+.container{
+    padding: 100px;
+}
+.form>input{
+    display: block;
+    padding: 10px 50px 10px 10px;
+    margin-top: 30px;
+    border:2px solid black;
+    border-radius: 5px;
+}
+
+.form>input::placeholder{
+    color:black;
+}
+
+.form>button{
+    padding: 10px 50px;
+    background-color: transparent;
+    border:2px solid black;
+    border-radius: 5px;
+    margin-top: 30px;
+}

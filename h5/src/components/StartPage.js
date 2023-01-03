@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import Card from "./Card";
+import Card from "./Cards/Card";
 import { Link } from "react-router-dom";
 import { CardsContext } from "../context/context";
 

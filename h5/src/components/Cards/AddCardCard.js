@@ -1,8 +1,8 @@
 // import React, { useState } from "react";
 import styled from "styled-components";
-import chip from '../assets/chip.png';
-import Visa from '../assets/Visa.png';
-import back from '../assets/back.jpg';
+import chip from '../../assets/chip.png';
+import Visa from '../../assets/Visa.png';
+import back from '../../assets/back.jpg';
 
 const AddCardCard = (props) => {
     

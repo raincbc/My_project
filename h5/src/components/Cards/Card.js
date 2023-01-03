@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import visa from '../assets/visa.jpg';
-import chip from '../assets/chip.png';
-import Visa from '../assets/Visa.png';
-import mastercard from '../assets/mastercard.jpeg';
-import back from '../assets/back.jpg';
-import show from '../assets/show.png';
-import flip from '../assets/flip.png';
-import data from '../assets/data.png';
-import line from '../assets/line.png';
-import { defaultStatsVisa, defaultStatsMastercard } from "../data/data";
+import visa from '../../assets/visa.jpg';
+import chip from '../../assets/chip.png';
+import Visa from '../../assets/Visa.png';
+import mastercard from '../../assets/mastercard.jpeg';
+import back from '../../assets/back.jpg';
+import show from '../../assets/show.png';
+import flip from '../../assets/flip.png';
+import data from '../../assets/data.png';
+import line from '../../assets/line.png';
+import { defaultStatsVisa, defaultStatsMastercard } from "../../data/data";
 
 
 

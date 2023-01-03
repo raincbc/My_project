@@ -5,7 +5,7 @@ import styled from "styled-components";
 import React, { useState, useContext } from "react";
 import { CardsContext } from "../context/context";
 import { useNavigate } from "react-router-dom";
-import AddCardCard from "../components/AddCardCard";
+import AddCardCard from "../components/Cards/AddCardCard";
 
 const AddCard = () => {
 

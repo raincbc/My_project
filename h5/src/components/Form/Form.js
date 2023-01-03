@@ -1,8 +1,8 @@
-import React, { useState, useContext } from "react";
+// import React, { useState, useContext } from "react";
 import { FormInput } from './FormInput';
 import styled from 'styled-components';
-import { useNavigate } from "react-router-dom";
-import { CardsContext } from "../../context/context";
+// import { useNavigate } from "react-router-dom";
+// import { CardsContext } from "../../context/context";
 
 const formData = [
     {
@@ -35,111 +35,111 @@ const formData = [
     },
 ]
 
-const Form = () => {
+const Form = ({handelSubmit, changeValue, err, setValue}) => {
     
-    const [cardNum, setCardNum] = useState('');
-    const [cvv, setSvv] = useState('');
-    const [fullName, setFullName] = useState('');
-    const [type, setType] = useState('');
-    const [err, setErr] = useState({
-        cardNum: '',
-        cvv: '',
-        fullName: '',
-        type: ''
-    })
+    // const [cardNum, setCardNum] = useState('');
+    // const [cvv, setSvv] = useState('');
+    // const [fullName, setFullName] = useState('');
+    // const [type, setType] = useState('');
+    // const [err, setErr] = useState({
+    //     cardNum: '',
+    //     cvv: '',
+    //     fullName: '',
+    //     type: ''
+    // })
     
-    const setError = () => {
-        let isErr = false;
+    // const setError = () => {
+    //     let isErr = false;
 
-        if (!cardNum || cardNum.length < 16) {
-            setErr(prev => ({ ...prev, cardNum: 'Wrong card number' }))
-            isErr = true
-        }
+    //     if (!cardNum || cardNum.length < 16) {
+    //         setErr(prev => ({ ...prev, cardNum: 'Wrong card number' }))
+    //         isErr = true
+    //     }
 
-        if (!cvv || cvv.length > 3 || cvv.length < 3 ) {
-            setErr(prev => ({ ...prev, cvv: 'Wrong cvv number' }))
-            isErr = true
-        }
+    //     if (!cvv || cvv.length > 3 || cvv.length < 3 ) {
+    //         setErr(prev => ({ ...prev, cvv: 'Wrong cvv number' }))
+    //         isErr = true
+    //     }
 
-        if (fullName === '') {
-            setErr(prev => ({ ...prev, fullName: 'Wrong name' }))
-            isErr = true
-        }
+    //     if (fullName === '') {
+    //         setErr(prev => ({ ...prev, fullName: 'Wrong name' }))
+    //         isErr = true
+    //     }
 
-        if (type ==='' || !(type === 'Visa' || type === 'Mastercard')) {
-            setErr(prev => ({ ...prev, type: 'Wrong card type' }))
-            isErr = true
-        }
+    //     if (type ==='' || !(type === 'Visa' || type === 'Mastercard')) {
+    //         setErr(prev => ({ ...prev, type: 'Wrong card type' }))
+    //         isErr = true
+    //     }
 
-        return isErr;
-    }
+    //     return isErr;
+    // }
 
-    const { getCardsData } = useContext(CardsContext); 
-    const navigate = useNavigate()
+    // const { getCardsData } = useContext(CardsContext); 
+    // const navigate = useNavigate()
 
-    const handelSubmit = (event)=> {
-        event.preventDefault()
+    // const handelSubmit = (event)=> {
+    //     event.preventDefault()
 
-        const id = Date.now()
-        const date = Math.floor(Math.random(1) * 12) + '/' + Math.floor(Math.random(22) * 35);
+    //     const id = Date.now()
+    //     const date = Math.floor(Math.random(1) * 12) + '/' + Math.floor(Math.random(22) * 35);
 
-        if (!setError()) {
-            getCardsData({ cardNum, cvv, fullName, type, id, date });
+    //     if (!setError()) {
+    //         getCardsData({ cardNum, cvv, fullName, type, id, date });
 
-            navigate('/')
-        }
-    }
+    //         navigate('/')
+    //     }
+    // }
 
-    const changeValue = (event) => {
-        const name = event.target.name
-        const value = event.target.value
+    // const changeValue = (event) => {
+    //     const name = event.target.name
+    //     const value = event.target.value
 
-        switch (name) {
-            case 'cardNum':
-                setCardNum(value);
-                if(err.cardNum) setErr(prevState => ({...prevState, cardNum:''}))
-                return 
+    //     switch (name) {
+    //         case 'cardNum':
+    //             setCardNum(value);
+    //             if(err.cardNum) setErr(prevState => ({...prevState, cardNum:''}))
+    //             return 
             
-            case 'cvv':
-                setSvv(value);
-                if(err.cvv) setErr(prevState => ({...prevState, cvv:''}))            
-                return 
+    //         case 'cvv':
+    //             setSvv(value);
+    //             if(err.cvv) setErr(prevState => ({...prevState, cvv:''}))            
+    //             return 
 
-            case 'fullName':
-                setFullName(value);
-                if(fullName.cardNum) setErr(prevState => ({...prevState, fullName:''}))            
-                return
+    //         case 'fullName':
+    //             setFullName(value);
+    //             if(fullName.cardNum) setErr(prevState => ({...prevState, fullName:''}))            
+    //             return
 
-            case 'type':
-                setType(value);
-                if(err.type) setErr(prevState => ({...prevState, type:''}))
-                return
+    //         case 'type':
+    //             setType(value);
+    //             if(err.type) setErr(prevState => ({...prevState, type:''}))
+    //             return
             
-            default:
-                alert('1')
-        }
-    }
+    //         default:
+    //             alert('1')
+    //     }
+    // }
 
-    const setValue = (name) => {
-        switch (name) {
-            case 'cardNum':
-                return cardNum;
+    // const setValue = (name) => {
+    //     switch (name) {
+    //         case 'cardNum':
+    //             return cardNum;
             
-            case 'cvv':
-                return cvv;
+    //         case 'cvv':
+    //             return cvv;
 
 
-            case 'fullName':
-                return fullName;
+    //         case 'fullName':
+    //             return fullName;
 
 
-            case 'type':
-                return type;
+    //         case 'type':
+    //             return type;
             
-            default:
-                alert('1')
-        }
-    }
+    //         default:
+    //             alert('1')
+    //     }
+    // }
 
     return (        
         <FormList onSubmit={handelSubmit}>

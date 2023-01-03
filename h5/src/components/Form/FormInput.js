@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const FormInput = ({ title, placeholder, name, err, func, value, type }) => {
-    console.log(value)
     
     return (
         

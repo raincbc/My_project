@@ -309,10 +309,7 @@ const CardStatsTitle = styled.h4`
 const CardStatsInfo = styled.div`
     padding: 0 30px;
     display:flex;
-    align-items: center;
     justify-content: space-between;
-    align-content: flex-start;
-
 
     span{
         font-family: 'Abel';
@@ -322,5 +319,9 @@ const CardStatsInfo = styled.div`
         line-height: 31px;
         letter-spacing: 2.4px;
         display:inline-block;
+    }
+    
+    span:nth-child(2){
+        margin-right:auto;
     }
 `;

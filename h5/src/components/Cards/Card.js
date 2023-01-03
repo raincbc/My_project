@@ -321,6 +321,9 @@ const CardStatsInfo = styled.div`
         display:inline-block;
     }
     
+    span:first-child{
+        margin-right:70px;
+    }
     span:nth-child(2){
         margin-right:auto;
     }

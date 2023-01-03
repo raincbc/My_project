@@ -26,7 +26,7 @@ export const defaultStatsVisa = [
     },
     {
         id: '2',
-        date: '5.04',
+        date: '05.04',
         place: 'Cropp',
         price: '53 $',
 

@@ -26,7 +26,7 @@ const StartPage = () => {
                     key={elem.id}
                     cardNum={elem.cardNum}
                     cvv={elem.cvv}
-                    fullname={elem.fullname}
+                    fullName={elem.fullName}
                     type={elem.type}
                     date={elem.date}
                 />

@@ -16,7 +16,7 @@ import { defaultStatsVisa, defaultStatsMastercard } from "../data/data";
 
 const Card = (props) => {
     
-    const { cardNum, cvv, fullname, type, date } = props;
+    const { cardNum, cvv, fullName, type, date } = props;
 
     const [isNumShow, setNumShow] = useState(false);
     const [isFlip, setFlip] = useState(false);
@@ -96,7 +96,7 @@ const Card = (props) => {
                     isDataShow={isDataShow}
                 >
                     <span>
-                        {fullname}
+                        {fullName}
                     </span>
                     <CardDataImg src={Visa}/>
                 </CardData>

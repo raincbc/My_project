@@ -1,9 +1,18 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import Post from './Post'
+import { fetchedPost } from './redux/actions'
 
-const FetchedPosts = ({ posts }) => {
+const FetchedPosts = () => {
+  const dispatch = useDispatch();
+  const posts = useSelector((state) => state.posts.fetchedPost);
+
   if (!posts.length) {
-    return <div>No posts</div>
+    return <div>
+      <h2>No posts</h2>
+      <button onClick={() => dispatch(fetchedPost())} className='fetched-btn'>Download posts</button>
+    </div>
+    
   }
   
   return <div>

@@ -2,13 +2,13 @@ import React from 'react'
 import Post from './Post'
 import { connect } from 'react-redux'
 
-const Posts = ({posts}) => {
+const Posts = ({ posts }) => {
     if (!posts.length) {
         return <div>No posts</div>
     }
 
     return <div>
-        {posts.map(post => <Post key={post} post={post}/>)}
+        {posts.map(post => <Post key={post.id} post={post}/>)}
     </div>
 }
 

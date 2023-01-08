@@ -33,7 +33,7 @@ body, html{
     color:black;
 }
 
-.form>button, .redux-form>button{
+.form>button, .redux-form>button, .fetched-btn{
     padding: 15px 50px;
     background-color: transparent;
     border:2px solid black;

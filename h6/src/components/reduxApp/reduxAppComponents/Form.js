@@ -1,6 +1,7 @@
 import React from 'react'
-import { connect, useDispatch } from 'react-redux'
+import { connect } from 'react-redux'
 import { createPost } from './redux/actions'
+import { CREATE_POST } from './redux/types'
 
 class Form extends React.Component{
   state = {
@@ -9,12 +10,12 @@ class Form extends React.Component{
 
   onSubmit = (event) => {
     event.preventDefault()
-
+    
     const { title } = this.state;
-    // const { addNewPost } = this.props;
-    // if (!title.trim()) {
-    //   return
-    // }
+
+    if (!title.trim()) {
+      return
+    }
     
     const newPost = {
       title,
@@ -60,4 +61,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapDispatchToProps)(Form)
+export default connect(null, mapDispatchToProps)(Form)

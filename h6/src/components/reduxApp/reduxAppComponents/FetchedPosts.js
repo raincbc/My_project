@@ -7,6 +7,12 @@ const FetchedPosts = () => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts.fetchedPost);
 
+  const loading = useSelector((state) => state.app.loading)
+
+  if (loading) {
+    return <div>Loading...</div>
+  }
+
   if (!posts.length) {
     return <div>
       <h2>No posts</h2>

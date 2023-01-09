@@ -5,7 +5,7 @@ import { fetchedPost } from './redux/actions'
 
 const FetchedPosts = () => {
   const dispatch = useDispatch();
-  const posts = useSelector((state) => state.posts.fetchedPost);
+  const posts = useSelector((state) => state.posts.fetchedPosts);
 
   const loading = useSelector((state) => state.app.loading)
 

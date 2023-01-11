@@ -14,9 +14,7 @@ const FormInput = ({ title, placeholder, location, name, handleChange, values, t
               type={name}
               autoComplete={'on'}
           />
-          <Error>
-              {touched.name && errors.name ? <div>{errors}</div> : null}
-          </Error>
+          {touched.name && errors.name ? <div>{errors}</div> : null}
       </InputWrapper>
   )
 }
@@ -61,6 +59,3 @@ const Input = styled.input`
         outline-offset: 0;
     }
 `;
-
-const Error = styled.div`
-z-index:99;`;

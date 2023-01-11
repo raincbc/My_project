@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 
 const LoginContent = () => {
     const navigate = useNavigate();
-
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -18,7 +17,9 @@ const LoginContent = () => {
         <Container >
             <BgImages />
             <Title text={ "Welcome To Yelp App" } />
-            <Form onSubmit={handleSubmit}
+            <Form
+                btnText={'Login'}
+                handleSubmit={handleSubmit}
             />
         </Container>
     )

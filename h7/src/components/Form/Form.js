@@ -6,7 +6,7 @@ import FormBtn from './FormBtn';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom'
 
-const Form = () => {
+const Form = ({handleSubmit, btnText}) => {
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -15,7 +15,7 @@ const Form = () => {
     }
 
   return (
-      <FormPlace>
+      <FormPlace onSubmit={handleSubmit}>
           {formData.map(({ id, title, placeholder}) => (            
               <FormInput                  
                   key={id}
@@ -25,9 +25,10 @@ const Form = () => {
               />              
           ))}
           <FormBtn
-              btnText={'Login'}
+              btnText={btnText}
           />
           <CreateAccount
+              location={location.pathname}
               onClick={handleRegister}
           >
               <button>don't have an account</button>
@@ -50,6 +51,8 @@ const FormPlace = styled.form`
 const CreateAccount = styled.div`
     text-align:center;
     margin-top:10px;
+
+    ${(props) => props.location === "/register" ? 'display:none;' : 'display:block;'};
 
     button{
         border: none;

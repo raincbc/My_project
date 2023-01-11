@@ -1,0 +1,55 @@
+
+import styled from 'styled-components'
+
+const FormInput = ({ title, placeholder, location }) => {
+    console.log(location)
+  return (
+      <InputWrapper location={location}>
+          <Label>{ title }</Label>
+          <Input
+              placeholder={placeholder}
+          />
+      </InputWrapper>
+  )
+}
+
+export default FormInput
+
+const InputWrapper = styled.div`
+    width:388px;
+    margin:0 auto;
+
+    :nth-child(3){
+        ${(props) => props.location === "/register" ? 'display:block;' : 'display:none;'};
+    }
+`;
+
+const Label = styled.label`
+    display:block;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    margin-top:16px;
+`;
+
+const Input = styled.input`
+    background: #F3F3F3;
+    border-radius: 15px;
+    border:none;
+    width:100%;
+    padding:16px 13px;
+    box-sizing:border-box;
+
+    ::placeholder{
+        font-weight: 700;
+        font-size: 11px;
+        line-height: 18px;
+        text-decoration-line: underline;
+        color: #CC9696;
+    }
+
+    :focus {
+        outline: 0;
+        outline-offset: 0;
+    }
+`;

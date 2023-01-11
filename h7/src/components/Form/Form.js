@@ -5,17 +5,45 @@ import { formData } from '../Data/FormData';
 import FormBtn from './FormBtn';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom'
+import { useFormik } from 'formik';
+import * as Yup from 'yup'
 
-const Form = ({onSubmit, handleChange, btnText, values, touched, errors}) => {
+const Form = ({ btnText, nav }) => {
     const navigate = useNavigate();
     const location = useLocation();
+
+    const { handleSubmit, handleChange, values, touched, errors } = useFormik({
+        initialValues: {
+            login: '',
+            password: '',
+            confirmPassword: '',
+        },
+        validationSchema: Yup.object({
+            login: Yup
+                .string()
+                .max(15, 'Login must be shorted then 15 characters')
+                .required('Do not enter login'),
+            password: Yup
+                .string()
+                .min(6, 'Password should be longer then 6 characters')
+                .required('Do not enter password'),
+            confirmPassword: Yup
+                .string()
+                .oneOf([Yup.ref('password'), null], 'Passwords must match')
+        }),
+
+        onSubmit: (values) => {
+            console.log(values)
+            navigate(nav)
+        }
+    })
 
     const handleRegister = () => {
         navigate('/register')
     }
 
   return (
-      <FormPlace onSubmit={onSubmit}>
+      <FormPlace onSubmit={handleSubmit}>
           {formData.map(({ id, title, placeholder, name}) => (            
               <FormInput    
                   name={name}

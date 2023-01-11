@@ -1,12 +1,13 @@
 
 import styled from 'styled-components'
 
-const FormInput = ({ title, placeholder, location }) => {
+const FormInput = ({ title, placeholder, location, name }) => {
     console.log(location)
   return (
       <InputWrapper location={location}>
           <Label>{ title }</Label>
           <Input
+              name={name}
               placeholder={placeholder}
           />
       </InputWrapper>

@@ -16,8 +16,9 @@ const Form = ({handleSubmit, btnText}) => {
 
   return (
       <FormPlace onSubmit={handleSubmit}>
-          {formData.map(({ id, title, placeholder}) => (            
-              <FormInput                  
+          {formData.map(({ id, title, placeholder, name}) => (            
+              <FormInput    
+                  name={name}
                   key={id}
                   title={title}                  
                   placeholder={placeholder}  

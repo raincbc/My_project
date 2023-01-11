@@ -6,7 +6,7 @@ import FormBtn from './FormBtn';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom'
 
-const Form = ({handleSubmit, btnText}) => {
+const Form = ({onSubmit, handleChange, btnText, values, touched, errors}) => {
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -15,7 +15,7 @@ const Form = ({handleSubmit, btnText}) => {
     }
 
   return (
-      <FormPlace onSubmit={handleSubmit}>
+      <FormPlace onSubmit={onSubmit}>
           {formData.map(({ id, title, placeholder, name}) => (            
               <FormInput    
                   name={name}
@@ -23,6 +23,10 @@ const Form = ({handleSubmit, btnText}) => {
                   title={title}                  
                   placeholder={placeholder}  
                   location={location.pathname}
+                  handleChange={handleChange}
+                  values={values}
+                  touched={touched}
+                  errors={errors}
               />              
           ))}
           <FormBtn

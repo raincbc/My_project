@@ -1,15 +1,22 @@
 
 import styled from 'styled-components'
 
-const FormInput = ({ title, placeholder, location, name }) => {
-    console.log(location)
+const FormInput = ({ title, placeholder, location, name, handleChange, values, touched, errors }) => {
+
   return (
       <InputWrapper location={location}>
           <Label>{ title }</Label>
           <Input
               name={name}
               placeholder={placeholder}
+              onChange={handleChange}
+              value={values.name}
+              type={name}
+              autoComplete={'on'}
           />
+          <Error>
+              {touched.name && errors.name ? <div>{errors}</div> : null}
+          </Error>
       </InputWrapper>
   )
 }
@@ -54,3 +61,6 @@ const Input = styled.input`
         outline-offset: 0;
     }
 `;
+
+const Error = styled.div`
+z-index:99;`;

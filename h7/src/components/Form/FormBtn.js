@@ -3,7 +3,9 @@ import styled from "styled-components"
 const FormBtn = ({btnText}) => {
     return (
         <ButtonWrapper>
-            <Button>{btnText}</Button>
+            <Button type='submit'>
+                {btnText}
+            </Button>
         </ButtonWrapper>
     )
     

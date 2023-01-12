@@ -1,9 +1,12 @@
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import face from '../../assets/face.png'
 
-const Title = ({text}) => {
+const Title = ({ text }) => {
+    const location = useLocation();
+
     return (
-        <TextWrapper>
+        <TextWrapper location={location.pathname}>
             <TitleText>{text}</TitleText>
             <Face src={ face } />
         </TextWrapper>
@@ -14,13 +17,13 @@ export default Title;
 
 const TextWrapper = styled.div`
     position:relative;
-    text-align:center;
+    max-width: max-content;
+    ${(props) => props.location === '/main' ? 'text-align:start;' : 'text-align:center;'};
+    ${(props) => props.location === '/main' ? 'margin:0;' : 'margin:0 auto;'} ;
 `;
 
 const TitleText = styled.h1`
-    
     padding-top:100px;
-    margin: 0 auto;
     width:320px;
     font-family: 'Spartan';
     font-weight: 800;
@@ -31,7 +34,7 @@ const TitleText = styled.h1`
 
 const Face = styled.img`
     position:absolute;
-    right:730px;
+    right:0;
     top:162px;
     width:62px;
 `;

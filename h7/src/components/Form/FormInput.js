@@ -1,11 +1,14 @@
-
 import styled from 'styled-components'
 
-const FormInput = ({ title, placeholder, location, name, handleChange, values, touched, errors }) => {
+const registerName = 'Name'
+
+const FormInput = ({ title, placeholder, location, name, handleChange, values, isTouched, error }) => {
 
   return (
       <InputWrapper location={location}>
-          <Label>{ title }</Label>
+          <Label>
+              {location === '/register' && title === 'Login' ? registerName : title}
+          </Label>
           <Input
               name={name}
               placeholder={placeholder}
@@ -14,7 +17,9 @@ const FormInput = ({ title, placeholder, location, name, handleChange, values, t
               type={name}
               autoComplete={'on'}
           />
-          {touched.name && errors.name ? <div>{errors}</div> : null}
+          <Error>
+              {isTouched && error ? error : null}
+          </Error>
       </InputWrapper>
   )
 }
@@ -58,4 +63,11 @@ const Input = styled.input`
         outline: 0;
         outline-offset: 0;
     }
+`;
+
+const Error = styled.div`
+    color:red;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
 `;

@@ -21,6 +21,7 @@ const Form = ({ btnText, nav }) => {
         validationSchema: Yup.object({
             login: Yup
                 .string()
+                .min(5, 'Login should be longer then 5 characters')
                 .max(15, 'Login must be shorted then 15 characters')
                 .required('Do not enter login'),
             password: Yup
@@ -30,6 +31,7 @@ const Form = ({ btnText, nav }) => {
             confirmPassword: Yup
                 .string()
                 .oneOf([Yup.ref('password'), null], 'Passwords must match')
+                .required('Do not enter confirm password')
         }),
 
         onSubmit: (values) => {
@@ -53,8 +55,8 @@ const Form = ({ btnText, nav }) => {
                   location={location.pathname}
                   handleChange={handleChange}
                   values={values}
-                  touched={touched}
-                  errors={errors}
+                  isTouched={touched[name]}
+                  error={errors[name]}
               />              
           ))}
           <FormBtn

@@ -9,13 +9,13 @@ const RegisterContent = () => {
     return (
         <Container >
             <BgImages />
-            <Title text={ "Welcome To Yelp App" } />
+            <Title text={"Welcome To Yelp App"} />
             <Form
                 btnText={'Register'}
                 nav={'/'}
             />
         </Container>
     )
-}
+};
 
 export default RegisterContent;

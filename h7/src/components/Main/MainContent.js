@@ -1,23 +1,31 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import FoodMenu from "../FoodMenu/FoodMenu";
 import Title from "../Form/Title";
 import UserInfo from "./UserInfo";
 import { userData } from "../Data/MainData";
+import MainMenu from "./MainMenu";
+import Delivery from "./Delivery";
+import { deliveryData } from "../Data/MainData";
+import OrderPlace from "./OrderPlace";
 
 const MainContent = () => {
-console.log(userData)
-    const[isActive, setIsActive] = useState('true')
+    console.log(deliveryData)
     return (
         <MainWrapper>
             <MenuContainer>
                 <UserInfo userData={userData} />
+                <MainMenu />
+                <Delivery deliveryData={deliveryData} />
             </MenuContainer>
             <MainContentWrapper>
-                <MainContentContainer>
-                    <Title text={'Welcome To Lucknow'}/>
-                </MainContentContainer>
-                <FoodMenu/>
+                <div>
+                    <MainContentContainer>
+                        <Title text={'Welcome To Lucknow'}/>
+                    </MainContentContainer>
+                    <FoodMenu />
+                </div>
+                <OrderPlace/>
             </MainContentWrapper>
         </MainWrapper>
     )
@@ -38,18 +46,22 @@ const MainContentWrapper = styled.div`
     border-radius: 35px;
     background-color:white;
     width: 100%;
+    height:797px;
+    display:flex;
 `;
 
 const MainContentContainer = styled.div`
-h1{
-    text-align:start;
-    margin-left:60px;
-    padding-top:0;
-    margin-top:50px;
-}
+    max-width: max-content;
 
-img{
-    right:73px;
-    top:63px;
-}
+    h1{
+        text-align:start;
+        margin-left:60px;
+        padding-top:0;
+        margin-top:50px;
+    }
+
+    img{
+        right:73px;
+        top:63px;
+    }
 `;

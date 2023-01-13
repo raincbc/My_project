@@ -1,9 +1,12 @@
 import styled from 'styled-components'
 import * as Img from './FoodMenuPhotos'
 
-const FoodMenuItem = ({title, src}) => {
+const FoodMenuItem = ({title, src, changeActiveItem, isActive}) => {
   return (
-    <Container>
+    <Container
+      isActive={isActive}
+      onClick={changeActiveItem}
+    >
       <img src={Img[`${src}`]} />
       <p>{title}</p>
     </Container>
@@ -18,9 +21,10 @@ const Container = styled.li`
   width: 100px;
   height: 160px;
   border-radius: 60px;
-  background: #F3F3F3;
+  background-color:${(props)=>props.isActive ? 'white' : '#F3F3F3'};
   list-style-type:none;
   cursor:pointer;
+  box-shadow:${(props)=>props.isActive ? '0px 4px 46px rgba(0, 0, 0, 0.1)' : 'none'} ;
 
   img{
     position:absolute;
@@ -31,8 +35,8 @@ const Container = styled.li`
   p{
     margin-top:90px;
     font-weight: 500;
-    font-size: 14px;
+    font-size: ${(props)=>props.isActive ? '18px' : '#14px'};
     line-height: 65px;
-    color: #585858;
+    color: ${(props)=>props.isActive ? 'black' : '#585858'};
   }
 `;

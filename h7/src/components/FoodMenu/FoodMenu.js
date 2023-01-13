@@ -1,19 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { foodData } from '../Data/FoodData'
 import FoodMenuItem from './FoodMenuItem'
 
-
 const FoodMenu = () => {
+  const [isActive, setIsActive] = useState(foodData[0]);
+
+  const changeActiveItem = (item) => {
+    setIsActive(item)
+  }
+
   return (
     <MenuList>
-          {foodData.map(({ id, title, src }) => (
-              <FoodMenuItem
-                  key={id}
-                  title={title}
-                  src={src}
-              />
-            
+          {foodData.map((elem) => (
+            <FoodMenuItem              
+              key={elem.id}              
+              title={elem.title}              
+              src={elem.src}  
+              isActive={isActive.id === elem.id ? isActive : null}
+              changeActiveItem={()=>changeActiveItem(elem)}
+            />            
           ))}
     </MenuList>
   )

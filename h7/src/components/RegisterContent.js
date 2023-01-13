@@ -12,7 +12,7 @@ const RegisterContent = () => {
             <Title text={ "Welcome To Yelp App"} />
             <Form
                 btnText={'Register'}
-                nav={'/main'}
+                nav={'/'}
             />
         </Container>
     )

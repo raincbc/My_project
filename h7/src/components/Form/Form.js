@@ -6,7 +6,8 @@ import FormBtn from './FormBtn';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom'
 import { useFormik } from 'formik';
-import * as Yup from 'yup'
+import { loginValidationSchema, passwordValidationSchema } from '../Data/FormData';
+import * as Yup from 'yup';
 
 const Form = ({ btnText, nav }) => {
     const navigate = useNavigate();
@@ -18,21 +19,9 @@ const Form = ({ btnText, nav }) => {
             password: '',
             confirmPassword: '',
         },
-        validationSchema: Yup.object({
-            login: Yup
-                .string()
-                .min(5, 'Login should be longer then 5 characters')
-                .max(15, 'Login must be shorted then 15 characters')
-                .required('Do not enter login'),
-            password: Yup
-                .string()
-                .min(6, 'Password should be longer then 6 characters')
-                .required('Do not enter password'),
-            confirmPassword: Yup
-                .string()
-                .oneOf([Yup.ref('password'), null], 'Passwords must match')
-                .required('Do not enter confirm password')
-        }),
+
+        validationSchema: Yup.object(location.pathname === '/' ?
+                loginValidationSchema : Object.assign(loginValidationSchema, passwordValidationSchema) ),
 
         onSubmit: (values) => {
             console.log(values)
@@ -66,7 +55,7 @@ const Form = ({ btnText, nav }) => {
               location={location.pathname}
               onClick={handleRegister}
           >
-              <button>don't have an account</button>
+              <button type='button'>don't have an account</button>
           </CreateAccount>
       </FormPlace>
   )

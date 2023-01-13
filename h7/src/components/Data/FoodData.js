@@ -2,37 +2,37 @@ export const foodData = [
     {
         id: '1',
         title: 'All',
-        src: '../../assets/chicken.svg',
+        src: 'chicken',
     },
 
     {
         id: '2',
         title: 'Burger',
-        src: '../../assets/burger.svg',
+        src: 'burger',
     },
 
     {
         id: '3',
         title: 'Pizza',
-        src: '../../assets/pizza.svg',
+        src: 'pizza',
     },
 
     {
         id: '4',
         title: 'Salads',
-        src: '../../assets/salad.svg',
+        src: 'salad',
     },
 
     {
         id: '5',
         title: 'Donut',
-        src: '../../assets/donut.svg',
+        src: 'donut',
     },
 
     {
         id: '6',
         title: 'Drinks',
-        src: '../../assets/drinks.svg',
+        src: 'drinks',
     }
 ]
 

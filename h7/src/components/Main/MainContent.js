@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import FoodMenu from "./FoodMenu/FoodMenu";
-import Title from "./Form/Title";
+import FoodMenu from "../FoodMenu/FoodMenu";
+import Title from "../Form/Title";
+import UserInfo from "./UserInfo";
+import { userData } from "../Data/MainData";
 
 const MainContent = () => {
+console.log(userData)
+    const[isActive, setIsActive] = useState('true')
     return (
         <MainWrapper>
-            <MenuContainer />
+            <MenuContainer>
+                <UserInfo userData={userData} />
+            </MenuContainer>
             <MainContentWrapper>
                 <MainContentContainer>
                     <Title text={'Welcome To Lucknow'}/>
@@ -24,7 +30,6 @@ const MainWrapper = styled.section`
 `;
 
 const MenuContainer = styled.nav`
-    width: 254px;
     height:100vh;
 `;
 

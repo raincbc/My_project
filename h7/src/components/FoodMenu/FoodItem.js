@@ -11,6 +11,7 @@ const FoodItem = ({ type, title, description, prise, src}) => {
           <span>{description}</span>
           <div>
               <span>${prise}</span>
+              <img/>
           </div>
       </Container>      
   )
@@ -51,6 +52,7 @@ const Container = styled.div`
         line-height: 18px;
         color: #898686;
         width:130px;
+        height:65px;
         margin:8px 0 10px 28px;
     } 
 

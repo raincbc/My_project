@@ -1,19 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import arrow from '../../assets/arrow.svg'
 import { keyframes } from 'styled-components'
+import { FoodContext } from '../../context/context'
 
 const BasketPlace = () => {
+    const { activeBasket, setActiveBasket } = useContext(FoodContext);
 
-    // const handleHide = (event) => {
-    //     console.log(event.target)
-    // }
+    const handleHide = () => {
+        setActiveBasket(true);
+    }
 
   return (
-    <Container>
+    <Container active={activeBasket}>
           <BasketTitle>
               <p>Basket</p>
-              <span onClick={()=>menuHide}>
+              <span onClick={handleHide}>
                   <img src={arrow} alt='' />
               </span>
           </BasketTitle>
@@ -25,16 +27,10 @@ const BasketPlace = () => {
 
 export default BasketPlace
 
-const menuHide = keyframes`
-    from{right:43px;}
-    to{right:-235px}
-    transition:1s;
-`;
-
 const Container = styled.div`
     width:20%;
     height:100%;
-    right:43px;
+    right:${(props) => props.active ? '-290px' : '43px'};
     top:83px;
     box-shadow: 0px 4px 46px rgba(0, 0, 0, 0.2);
     border-radius: 30px 0px 0px 30px;
@@ -43,8 +39,7 @@ const Container = styled.div`
     z-index:5;
     padding:32px 21px 32px 32px;
     box-sizing:border-box;
-    // animation-name: ${menuHide};
-    // transition:1s;
+    transition:1s;
 
     button{
         border:none;

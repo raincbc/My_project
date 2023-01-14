@@ -48,7 +48,6 @@ const MainContentWrapper = styled.div`
     margin: 53px 65px 53px 0;
     border-radius: 35px;
     background-color:white;
-    width: 100%;
     height:797px;
     display:flex;
 `;

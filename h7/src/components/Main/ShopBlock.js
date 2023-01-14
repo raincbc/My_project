@@ -6,8 +6,8 @@ import styled from 'styled-components'
 const ShopBlock = () => {
   return (
     <ShopWrapper>
-      <img src={search} />
-      <img src={ shop }/>
+      <img src={search} alt=''/>
+      <img src={ shop } alt=''/>
     </ShopWrapper>
   )
 }
@@ -28,7 +28,7 @@ const ShopWrapper = styled.div`
   }
 
   img:last-child{
-    margin-right:10px;
+    margin-right:50px;
   }
 
   img:first-child{

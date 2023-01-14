@@ -21,7 +21,7 @@ const DiscountWrapper = styled.div`
     border-radius: 30px;
     height:160px;
     width:260px;
-    margin-left:50px;
+    margin-left:70px;
 
     img{
         position:absolute;

@@ -109,8 +109,68 @@ export const foodItems = [
         title: 'Hunting Pizza',
         description: `Hunting sausages, Salami, Chicken fillet
         Bacon, Mozzarella cheese, Cheddar cheese, Onion`,
-        price: '29',
+        price: '41',
         src: 'hunting'
     },
+
+    {
+        id: '8',
+        type: 'salad',
+        title: 'Tuna Salad',
+        description: `Tomato cherry, Asparagus, Tuna, Egg, 
+        Onion, Olives, Lettuce leaves, Dill, Crackers`,
+        price: '25',
+        src: 'tuna'
+    },
+
+    // {
+    //     id: '9',
+    //     type: 'salad',
+    //     title: 'Hamburger',
+    //     description: `Hamburger bun, Grilled beef steak,
+    //     Ketchup, Mayonnaise, Lettuce`,
+    //     price: '15',
+    //     src: 'hamburger'
+    // },
+
+    // {
+    //     id: '10',
+    //     type: 'salad',
+    //     title: 'Double Cheeseburger',
+    //     description: `Hamburger bun, Grilled double beef steak, 
+    //     Mustard sauce, Pickled cucumber, Cheddar cheese, Lettuce`,
+    //     price: '21',
+    //     src: 'doublechiz'
+    // },
+
+    // {
+    //     id: '11',
+    //     type: 'salad',
+    //     title: 'Sicilian Pizza',
+    //     description: `Tomato, Bell pepper, Salami
+    //     Corn, Onion, Arugula, Olives`,
+    //     price: '31',
+    //     src: 'sicil'
+    // },
+
+    // {
+    //     id: '12',
+    //     type: 'salad',
+    //     title: 'Chicken Pizza',
+    //     description: `Chicken fillet, Onion, Mushrooms,
+    //     Milk sauce, Cheese, Bell pepper, Bacon`,
+    //     price: '36',
+    //     src: 'chickenpizza'
+    // },
+
+    // {
+    //     id: '13',
+    //     type: 'salad',
+    //     title: 'Vegetable Pizza',
+    //     description: `Tomatoes, Bell pepper, Olives, 
+    //     Onion, Corn, Pickles, Mushrooms`,
+    //     price: '33',
+    //     src: 'vegetable'
+    // },
 ]
 

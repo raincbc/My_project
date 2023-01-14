@@ -27,6 +27,7 @@ const Container = styled.div`
     border-radius: 30px;
     height:180px;
     margin-bottom:100px;
+    margin-top:20px;
 
     img{
         max-width:150px;
@@ -39,7 +40,7 @@ const Container = styled.div`
         font-weight: 800;
         font-size: 14px;
         line-height: 13px;
-        margin-top:55px;
+        margin-top:60px;
         margin-left:28px;
     }
 

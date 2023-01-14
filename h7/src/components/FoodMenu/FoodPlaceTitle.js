@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 import filter from '../../assets/filter.svg'
 
-const FoodPlaceTitle = () => {
+const FoodPlaceTitle = ({title}) => {
   return (
       <Title>          
-          <p>All Items</p>
+          <p>{title} Items</p>
           <img src={filter} alt='' />          
       </Title>      
     )    

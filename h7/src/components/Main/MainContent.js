@@ -11,7 +11,7 @@ import OrderPlace from "./OrderPlace";
 import FoodPlace from "../FoodMenu/FoodPlace";
 
 const MainContent = () => {
-    console.log(deliveryData)
+
     return (
         <MainWrapper>
             <MenuContainer>

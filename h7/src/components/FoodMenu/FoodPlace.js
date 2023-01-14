@@ -6,12 +6,15 @@ import { foodItems } from '../Data/FoodData'
 import FoodItem from './FoodItem'
 
 const FoodPlace = () => {
-  const{activeMenu} = useContext(FoodContext)
+  const { activeMenu } = useContext(FoodContext)
+  console.log(activeMenu)
   return (
     <FoodWrapper>
       <FoodPlaceTitle title={activeMenu.title} />
       <FoodContainer>
-        {foodItems.map((elem) => (
+        {foodItems.filter((elem) => (
+          elem.type === activeMenu.type
+        )).map((elem) => (
           <FoodItem
             key={elem.id}
             type={elem.type}

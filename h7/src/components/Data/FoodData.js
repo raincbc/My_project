@@ -9,30 +9,35 @@ export const foodData = [
         id: '2',
         title: 'Burger',
         src: 'burger',
+        type: 'burger'
     },
 
     {
         id: '3',
         title: 'Pizza',
         src: 'pizza',
+        type: 'pizza'
     },
 
     {
         id: '4',
         title: 'Salads',
         src: 'salad',
+        type: 'salad'
     },
 
     {
         id: '5',
         title: 'Donut',
         src: 'donut',
+        type: 'donut'
     },
 
     {
         id: '6',
         title: 'Drinks',
         src: 'drinks',
+        type: 'drinks'
     }
 ]
 

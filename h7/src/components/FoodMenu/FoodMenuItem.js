@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import * as Img from './FoodMenuPhotos'
+import * as Img from '../Data/FoodMenuPhotos'
 
 const FoodMenuItem = ({title, src, changeActiveItem, isActive}) => {
   return (
@@ -7,7 +7,7 @@ const FoodMenuItem = ({title, src, changeActiveItem, isActive}) => {
       isActive={isActive}
       onClick={changeActiveItem}
     >
-      <img src={Img[`${src}`]} />
+      <img src={Img[`${src}`]} alt=''/>
       <p>{title}</p>
     </Container>
   )

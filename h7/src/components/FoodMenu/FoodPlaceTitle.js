@@ -16,6 +16,7 @@ const Title = styled.div`
     display:flex;
     align-items: center;
     margin-left:60px;
+    margin-bottom:80px;
 
     p{
         font-weight: 800;

@@ -37,7 +37,7 @@ const DiscountWrapper = styled.div`
         padding-top:77px;
         margin-left:22px;
         margin-bottom:7px;
-        
+        cursor:pointer;
     }
 
     span{

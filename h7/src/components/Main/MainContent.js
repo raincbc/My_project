@@ -8,6 +8,7 @@ import MainMenu from "./MainMenu";
 import Delivery from "./Delivery";
 import { deliveryData } from "../Data/MainData";
 import OrderPlace from "./OrderPlace";
+import FoodPlace from "../FoodMenu/FoodPlace";
 
 const MainContent = () => {
     console.log(deliveryData)
@@ -24,6 +25,7 @@ const MainContent = () => {
                         <Title text={'Welcome To Lucknow'}/>
                     </MainContentContainer>
                     <FoodMenu />
+                    <FoodPlace/>
                 </div>
                 <OrderPlace/>
             </MainContentWrapper>

@@ -73,6 +73,44 @@ export const foodItems = [
         src: 'doublechiz'
     },
 
+    {
+        id: '4',
+        type: 'pizza',
+        title: 'Sicilian Pizza',
+        description: `Tomato, Bell pepper, Salami
+        Corn, Onion, Arugula, Olives`,
+        price: '31',
+        src: 'sicil'
+    },
+
+    {
+        id: '5',
+        type: 'pizza',
+        title: 'Chicken Pizza',
+        description: `Chicken fillet, Onion, Mushrooms,
+        Milk sauce, Cheese, Bell pepper, Bacon`,
+        price: '36',
+        src: 'chickenpizza'
+    },
+
+    {
+        id: '6',
+        type: 'pizza',
+        title: 'Vegetable Pizza',
+        description: `Tomatoes, Bell pepper, Olives, 
+        Onion, Corn, Pickles, Mushrooms`,
+        price: '33',
+        src: 'vegetable'
+    },
     
+    {
+        id: '7',
+        type: 'pizza',
+        title: 'Hunting Pizza',
+        description: `Hunting sausages, Salami, Chicken fillet
+        Bacon, Mozzarella cheese, Cheddar cheese, Onion`,
+        price: '29',
+        src: 'hunting'
+    },
 ]
 

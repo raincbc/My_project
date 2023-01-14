@@ -12,9 +12,13 @@ const FoodPlace = () => {
     <FoodWrapper>
       <FoodPlaceTitle title={activeMenu.title} />
       <FoodContainer>
-        {foodItems.filter((elem) => (
-          elem.type === activeMenu.type
-        )).map((elem) => (
+        {foodItems.filter((elem) => {
+          if(activeMenu.type) {
+            return elem.type === activeMenu.type
+          } else {
+            return activeMenu
+          }
+        }).map((elem) => (
           <FoodItem
             key={elem.id}
             type={elem.type}
@@ -33,11 +37,13 @@ export default FoodPlace
 
 const FoodWrapper = styled.div`
     width: 100%;
-    height: 100%;
+    height: 50%;
+    overflow: scroll;
+
+    ::-webkit-scrollbar { width: 0; }
 `;
 
 const FoodContainer = styled.div`
-  overflow-block: scroll;
   display:grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 225px);
 `;

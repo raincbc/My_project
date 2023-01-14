@@ -26,6 +26,7 @@ const Container = styled.div`
     border: 1px solid #F2EEEE;
     border-radius: 30px;
     height:180px;
+    margin-bottom:100px;
 
     img{
         max-width:150px;

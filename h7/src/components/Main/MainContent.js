@@ -37,6 +37,7 @@ export default MainContent;
 
 const MainWrapper = styled.section`
     display:flex;
+    overflow: hidden;
 `;
 
 const MenuContainer = styled.nav`

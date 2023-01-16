@@ -46,7 +46,7 @@ const FoodWrapper = styled.div`
 `;
 
 const FoodContainer = styled.div`
-  margin-top:78px;
+  margin-top:82px;
   display:grid;
   grid-template-columns: repeat(3, 225px);
 `;

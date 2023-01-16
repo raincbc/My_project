@@ -119,58 +119,90 @@ export const foodItems = [
         title: 'Tuna Salad',
         description: `Tomato cherry, Asparagus, Tuna, Egg, 
         Onion, Olives, Lettuce leaves, Dill, Crackers`,
-        price: '25',
+        price: '33',
         src: 'tuna'
     },
 
-    // {
-    //     id: '9',
-    //     type: 'salad',
-    //     title: 'Hamburger',
-    //     description: `Hamburger bun, Grilled beef steak,
-    //     Ketchup, Mayonnaise, Lettuce`,
-    //     price: '15',
-    //     src: 'hamburger'
-    // },
+    {
+        id: '9',
+        type: 'salad',
+        title: 'Cottage cheese salad',
+        description: `Cottage cheese, Croutons, Arugula, Eggs,
+        Avocado, Mustard sauce`,
+        price: '23',
+        src: 'cottage'
+    },
+    
+    {
+        id: '10',
+        type: 'salad',
+        title: 'Chicken salad with mango',
+        description: `Chicken, Mango,Seeds, Lettuce leaves,Ndjhj;ysq cfkfnт
+        Arugula, Carrot, Bell pepper, Beetroot, Cereals`,
+        price: '29',
+        src: 'chickenmango'
+    },
 
-    // {
-    //     id: '10',
-    //     type: 'salad',
-    //     title: 'Double Cheeseburger',
-    //     description: `Hamburger bun, Grilled double beef steak, 
-    //     Mustard sauce, Pickled cucumber, Cheddar cheese, Lettuce`,
-    //     price: '21',
-    //     src: 'doublechiz'
-    // },
+    {
+        id: '11',
+        type: 'salad',
+        title: 'New York',
+        description: `Radish, Chickpeas, Crackers, Lettuce leaves,
+        Cabbage, Cream sauce`,
+        price: '21',
+        src: 'newyork'
+    },
 
-    // {
-    //     id: '11',
-    //     type: 'salad',
-    //     title: 'Sicilian Pizza',
-    //     description: `Tomato, Bell pepper, Salami
-    //     Corn, Onion, Arugula, Olives`,
-    //     price: '31',
-    //     src: 'sicil'
-    // },
 
-    // {
-    //     id: '12',
-    //     type: 'salad',
-    //     title: 'Chicken Pizza',
-    //     description: `Chicken fillet, Onion, Mushrooms,
-    //     Milk sauce, Cheese, Bell pepper, Bacon`,
-    //     price: '36',
-    //     src: 'chickenpizza'
-    // },
+    {
+        id: '12',
+        type: 'salad',
+        title: 'Fatoush salad',
+        description: `Lettuce leaves, Walnut, Apple, Dried mango,
+        Honey sauce`,
+        price: '15',
+        src: 'fatoush'
+    },
 
-    // {
-    //     id: '13',
-    //     type: 'salad',
-    //     title: 'Vegetable Pizza',
-    //     description: `Tomatoes, Bell pepper, Olives, 
-    //     Onion, Corn, Pickles, Mushrooms`,
-    //     price: '33',
-    //     src: 'vegetable'
-    // },
+    {
+        id: '13',
+        type: 'salad',
+        title: 'Meat salad',
+        description: `Dried beef, Baked beef, Corn, Cottage cheese,
+        Beans, Cabbage`,
+        price: '39',
+        src: 'meatsalad'
+    },
+
+    {
+        id: '14',
+        type: 'donut',
+        title: 'Strawberry Cream',
+        description: `The filling is custard strawberry cream,
+        covered with chocolate glaze.`,
+        price: '11',
+        src: 'strawberrycream'
+    },
+
+
+    {
+        id: '15',
+        type: 'donut',
+        title: 'Poppy Seed Donut',
+        description: `The filling is custard coconut cream, 
+        covered with poppy seed filling and ice cream.`,
+        price: '9',
+        src: 'poppydonut'
+    },
+
+    {
+        id: '16',
+        type: 'donut',
+        title: 'Banana Cream',
+        description: `The filling is custard banana cream, 
+        covered with dark and light chocolate glaze.`,
+        price: '9',
+        src: 'bananacream'
+    },
 ]
 

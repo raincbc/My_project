@@ -9,10 +9,14 @@ export const DataProvider = (props) => {
         setActiveMenu(props)
     }
 
+    const getActiveBasket = (props) => {
+        setActiveBasket(props)
+    }
+
     return (
         <FoodContext.Provider value={{
             activeMenu, getActiveMenu,
-            activeBasket, setActiveBasket
+            activeBasket, getActiveBasket
         }}>
             {props.children}
         </FoodContext.Provider>

@@ -1,13 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import shop from '../../assets/shop.svg'
 import search from '../../assets/search.svg'
 import styled from 'styled-components'
+import { FoodContext } from '../../context/context'
 
 const ShopBlock = () => {
+  const { activeBasket, getActiveBasket } = useContext(FoodContext);
   return (
     <ShopWrapper>
       <img src={search} alt=''/>
-      <img src={ shop } alt=''/>
+      <img
+        src={shop}
+        alt=''
+        onClick={()=>getActiveBasket(false)}
+        activeBasket={activeBasket}
+      />
     </ShopWrapper>
   )
 }

@@ -1,14 +1,13 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import arrow from '../../assets/arrow.svg'
-import { keyframes } from 'styled-components'
 import { FoodContext } from '../../context/context'
 
 const BasketPlace = () => {
-    const { activeBasket, setActiveBasket } = useContext(FoodContext);
+    const { activeBasket, getActiveBasket } = useContext(FoodContext);
 
     const handleHide = () => {
-        setActiveBasket(true);
+        getActiveBasket(true);
     }
 
   return (
@@ -28,11 +27,11 @@ const BasketPlace = () => {
 export default BasketPlace
 
 const Container = styled.div`
-    width:20%;
+    width:70%;
     height:100%;
-    right:${(props) => props.active ? '-290px' : '43px'};
+    right:${(props) => props.active ? '-380px' : '0'};
     top:83px;
-    box-shadow: 0px 4px 46px rgba(0, 0, 0, 0.2);
+    box-shadow: ${(props) => props.active ? '0' : '0px 4px 46px rgba(0, 0, 0, 0.2)'};
     border-radius: 30px 0px 0px 30px;
     position:absolute;
     background-color:white;

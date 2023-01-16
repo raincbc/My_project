@@ -18,5 +18,7 @@ const OrderPlace = () => {
 export default OrderPlace
 
 const OrderContainer = styled.div`
-width:370px;
+width:80%;
+position:relative;
+overflow: hidden;
 `;

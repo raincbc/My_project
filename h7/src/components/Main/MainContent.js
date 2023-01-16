@@ -38,6 +38,7 @@ export default MainContent;
 const MainWrapper = styled.section`
     display:flex;
     overflow: hidden;
+    justify-content:space-between;
 `;
 
 const MenuContainer = styled.nav`
@@ -50,6 +51,7 @@ const MainContentWrapper = styled.div`
     background-color:white;
     height:797px;
     display:flex;
+    width:100%;
 `;
 
 const MainContentContainer = styled.div`

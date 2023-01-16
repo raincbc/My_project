@@ -28,13 +28,13 @@ const TitleText = styled.h1`
     font-family: 'Spartan';
     font-weight: 800;
     font-size: 48px;
-    line-height: 65px;
+    line-height: 50px;
     font-family: 'League Spartan', sans-serif;
 `;
 
 const Face = styled.img`
     position:absolute;
     right:0;
-    top:162px;
+    top:140px;
     width:62px;
 `;

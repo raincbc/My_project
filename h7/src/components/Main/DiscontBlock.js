@@ -19,13 +19,13 @@ const DiscountWrapper = styled.div`
     position:relative;
     background: #AB97F3;
     border-radius: 30px;
-    height:160px;
+    height:145px;
     width:260px;
-    margin-left:70px;
+    margin-left:90px;
 
     img{
         position:absolute;
-        bottom:-5px;
+        bottom:-23px;
         left:25px;
     }
 

@@ -28,9 +28,9 @@ export default BasketPlace
 
 const Container = styled.div`
     width:70%;
-    height:100%;
-    right:${(props) => props.active ? '-380px' : '0'};
-    top:83px;
+    height:91%;
+    right:${(props) => props.active ? '-380px' : '0px'};
+    top:30px;
     box-shadow: ${(props) => props.active ? '0' : '0px 4px 46px rgba(0, 0, 0, 0.2)'};
     border-radius: 30px 0px 0px 30px;
     position:absolute;

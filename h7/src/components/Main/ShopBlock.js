@@ -22,20 +22,20 @@ const ShopBlock = () => {
 export default ShopBlock
 
 const ShopWrapper = styled.div`
-  height:208px;
+  height:150px;
   display:flex;
   justify-content: end;
   align-items: flex-start;
 
   img{
     display:block;
-    margin-top:50px;
+    margin-top:30px;
     cursor:pointer;  
     z-index:2;
   }
 
   img:last-child{
-    margin-right:50px;
+    margin-right:30px;
   }
 
   img:first-child{

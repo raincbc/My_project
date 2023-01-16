@@ -9,8 +9,9 @@ const FoodPlace = () => {
   const { activeMenu } = useContext(FoodContext)
   console.log(activeMenu)
   return (
-    <FoodWrapper>
+    <>
       <FoodPlaceTitle title={activeMenu.title} />
+    <FoodWrapper>
       <FoodContainer>
         {foodItems.filter((elem) => {
           if(activeMenu.type) {
@@ -29,7 +30,8 @@ const FoodPlace = () => {
           />
         ))}
       </FoodContainer>
-    </FoodWrapper>
+      </FoodWrapper>
+      </>
   )
 }
 
@@ -44,6 +46,7 @@ const FoodWrapper = styled.div`
 `;
 
 const FoodContainer = styled.div`
+  margin-top:78px;
   display:grid;
   grid-template-columns: repeat(3, 225px);
 `;

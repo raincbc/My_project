@@ -29,6 +29,6 @@ const MainMenu = () => {
 export default MainMenu
 
 const MenuList = styled.ul`
-  margin-top:57px;
+  margin-top:30px;
   margin-left:35px;
 `;

@@ -46,10 +46,10 @@ const MenuContainer = styled.nav`
 `;
 
 const MainContentWrapper = styled.div`
-    margin: 53px 65px 53px 0;
+    margin: 20px 20px 0 0;
     border-radius: 35px;
     background-color:white;
-    height:797px;
+    height:685px;
     display:flex;
     width:100%;
 `;
@@ -59,13 +59,13 @@ const MainContentContainer = styled.div`
 
     h1{
         text-align:start;
-        margin-left:60px;
+        margin-left:30px;
         padding-top:0;
-        margin-top:50px;
+        margin-top:25px;
     }
 
     img{
         right:73px;
-        top:63px;
+        top:40px;
     }
 `;

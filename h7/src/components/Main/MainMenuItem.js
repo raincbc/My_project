@@ -26,7 +26,7 @@ const MenuListItem = styled.li`
   cursor:pointer;
 
   :not(:last-child){
-    margin-bottom:40px;
+    margin-bottom:20px;
   }
 
   div:first-child{

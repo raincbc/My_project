@@ -19,7 +19,7 @@ export default FoodMenuItem
 const Container = styled.li`
   position:relative;
   width: 100px;
-  height: 160px;
+  height: 150px;
   border-radius: 60px;
   background-color:${(props)=>props.isActive ? 'white' : '#F3F3F3'};
   list-style-type:none;

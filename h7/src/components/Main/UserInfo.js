@@ -14,7 +14,7 @@ const UserInfo = ({userData}) => {
 export default UserInfo
 
 const UserContainer = styled.div`
-    margin-top:100px;
+    margin-top:35px;
     margin-left:97px;
     margin-right:77px;
 

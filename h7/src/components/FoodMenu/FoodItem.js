@@ -9,10 +9,10 @@ const FoodItem = ({ type, title, description, prise, src}) => {
           <img src={Img[`${src}`]} alt='' />  
           <p>{title}</p>
           <span>{description}</span>
-          <div>
+          <PriceMenu>
               <span>${prise}</span>
               <img/>
-          </div>
+          </PriceMenu>
       </Container>      
   )
 }
@@ -28,7 +28,7 @@ const Container = styled.div`
     border-radius: 30px;
     height:180px;
     margin-bottom:100px;
-    margin-top:20px;
+    margin-top:15px;
 
     img{
         max-width:150px;
@@ -56,11 +56,18 @@ const Container = styled.div`
         margin:8px 0 10px 28px;
     } 
 
-    span:last-child{
+    
+
+`;
+
+const PriceMenu = styled.div`
+    display:flex;
+    justify-content:space-between;
+
+    span{
         font-weight: 800;
         font-size: 14px;
         line-height: 18px;
         margin-left:28px;
     } 
-
 `;

@@ -40,6 +40,6 @@ const MenuList = styled.ul`
     margin-bottom: 20px;
 
     li:not(:last-child){
-        margin-right:12px;
+        margin-right:40px;
     }
 `;

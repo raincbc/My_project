@@ -5,14 +5,18 @@ import styled from 'styled-components'
 import { FoodContext } from '../../context/context'
 
 const ShopBlock = () => {
-  const { activeBasket, getActiveBasket } = useContext(FoodContext);
+  const { activeBasket, getActiveBasket} = useContext(FoodContext);
+
+  const handleBasket = () => {
+      getActiveBasket(true)
+  }
   return (
     <ShopWrapper>
       <img src={search} alt=''/>
       <img
         src={shop}
         alt=''
-        onClick={()=>getActiveBasket(false)}
+        onClick={handleBasket}
         activeBasket={activeBasket}
       />
     </ShopWrapper>

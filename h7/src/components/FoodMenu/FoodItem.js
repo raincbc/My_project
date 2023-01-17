@@ -1,17 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
 import * as Img from '../Data/FoodPhotos'
+import plus from '../../assets/plus.svg'
+import bird from '../../assets/bird.svg'
 
-const FoodItem = ({ type, title, description, prise, src}) => {
+const FoodItem = ({ title, description, prise, src, handleClick, chosenFoodElem}) => {
 
-  return (
-      <Container>          
-          <img src={Img[`${src}`]} alt=''/>  
+    return (
+      <Container chosenFoodElem={chosenFoodElem}>          
+          <FoodImg src={Img[`${src}`]} alt=''/>  
           <p>{title}</p>
           <span>{description}</span>
           <PriceMenu>
               <span>${prise}</span>
-              <img/>
+                <Plus
+                    onClick={handleClick}
+                    src={chosenFoodElem ? bird : plus} />
           </PriceMenu>
       </Container>      
   )
@@ -29,13 +33,7 @@ const Container = styled.div`
     height:180px;
     margin-bottom:100px;
     margin-top:15px;
-
-    img{
-        max-width:150px;
-        position:absolute;
-        bottom:125px;
-        left:20px;
-    }
+    background-color: ${(props) => props.chosenFoodElem ? '#F2EEEE' : 'white'};
 
     p{
         font-weight: 800;
@@ -55,14 +53,10 @@ const Container = styled.div`
         height:65px;
         margin:8px 0 10px 28px;
     } 
-
-    
-
 `;
 
 const PriceMenu = styled.div`
-    display:flex;
-    justify-content:space-between;
+    position:relative;
 
     span{
         font-weight: 800;
@@ -70,4 +64,18 @@ const PriceMenu = styled.div`
         line-height: 18px;
         margin-left:28px;
     } 
+`;
+
+const FoodImg = styled.img`
+    max-width:150px;
+    position:absolute;
+    bottom:125px;
+    left:20px;
+`;
+
+const Plus = styled.img`
+    position:absolute;
+    right:17px;
+    top:-20px;
+    cursor:pointer;
 `;

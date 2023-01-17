@@ -4,10 +4,15 @@ import arrow from '../../assets/arrow.svg'
 import { FoodContext } from '../../context/context'
 
 const BasketPlace = () => {
-    const { activeBasket, getActiveBasket } = useContext(FoodContext);
+    const { activeBasket, getActiveBasket, setSelectedFoodItem, selectedItem, setChosenFoodElem } = useContext(FoodContext);
 
     const handleHide = () => {
-        getActiveBasket(true);
+        getActiveBasket(false);
+        setChosenFoodElem(false)
+    }
+
+    const handleClick = () => {
+        setSelectedFoodItem('')
     }
 
   return (
@@ -19,7 +24,7 @@ const BasketPlace = () => {
               </span>
           </BasketTitle>
           <BasketOrder></BasketOrder>
-          <button>Order - $</button>
+          <button onClick={handleClick}>Order - $</button>
     </Container>
   )
 }
@@ -29,7 +34,7 @@ export default BasketPlace
 const Container = styled.div`
     width:70%;
     height:91%;
-    right:${(props) => props.active ? '-415px' : '0px'};
+    right:${(props) => props.active ? '0' : '-415px'};
     top:30px;
     box-shadow: ${(props) => props.active ? '0' : '0px 4px 46px rgba(0, 0, 0, 0.2)'};
     border-radius: 30px 0px 0px 30px;

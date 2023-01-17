@@ -204,5 +204,61 @@ export const foodItems = [
         price: '9',
         src: 'bananacream'
     },
+    
+    {
+        id: '17',
+        type: 'drinks',
+        title: 'Mint tea',
+        description: `Mint tea, Green tea, Lemon`,
+        price: '5',
+        src: 'mint'
+    },
+    
+    {
+        id: '18',
+        type: 'drinks',
+        title: 'Chamomile',
+        description: `Chamomile tea, Mint tea, Green tea`,
+        price: '9',
+        src: 'chamomile'
+    },
+    
+    {
+        id: '19',
+        type: 'drinks',
+        title: 'Ice tea',
+        description: `Black tea, Green tea, Lemon, Mint, Ice`,
+        price: '7',
+        src: 'icetea'
+    },
+
+    {
+        id: '20',
+        type: 'drinks',
+        title: 'Rum with Cola',
+        description: `Rum, Cola, Ice, Lime`,
+        price: '11',
+        src: 'rum'
+    },
+    
+    {
+        id: '21',
+        type: 'drinks',
+        title: 'Juices',
+        description: `In assortment: Cherry juice, Pineapple juice, 
+        Orange juice, `,
+        price: '6',
+        src: 'juices'
+    },
+    
+    {
+        id: '22',
+        type: 'drinks',
+        title: 'Raspberry delight',
+        description: `Raspberry, Pineapple juice, Ice, Lemon`,
+        price: '8',
+        src: 'raspberry'
+    },
+
 ]
 

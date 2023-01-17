@@ -6,7 +6,7 @@ const FoodItem = ({ type, title, description, prise, src}) => {
 
   return (
       <Container>          
-          <img src={Img[`${src}`]} alt='' />  
+          <img src={Img[`${src}`]} alt=''/>  
           <p>{title}</p>
           <span>{description}</span>
           <PriceMenu>

@@ -14,9 +14,16 @@ import meatsalad from '../../assets/meatsalad.png';
 import strawberrycream from '../../assets/strawberrycream.png';
 import poppydonut from '../../assets/poppydonut.png';
 import bananacream from '../../assets/bananacream.png';
+import mint from '../../assets/mint.png';
+import chamomile from '../../assets/chamomile.png';
+import icetea from '../../assets/icetea.png';
+import rum from '../../assets/rum.png';
+import juices from '../../assets/juices.png';
+import raspberry from '../../assets/raspberry.png';
 
 export {
     bigburg, doublechiz, hamburger, sicil, chickenpizza,
     vegetable, hunting, tuna, chickenmango, newyork, cottage,
-    fatoush, meatsalad, strawberrycream, poppydonut, bananacream
+    fatoush, meatsalad, strawberrycream, poppydonut, bananacream,
+    mint, chamomile, icetea, rum, juices, raspberry
 }

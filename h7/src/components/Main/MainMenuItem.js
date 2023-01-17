@@ -1,10 +1,10 @@
 import styled from "styled-components"
 
-const MainMenuItem = ({ title, src, changeActiveItem, isActive}) => {
+const MainMenuItem = ({ title, src, changeActiveItem, isActiveMainMenu}) => {
 
   return (
     <MenuListItem
-      isActive={isActive}
+      isActiveMainMenu={isActiveMainMenu}
       onClick={changeActiveItem}
     >
       <div>
@@ -22,7 +22,7 @@ const MenuListItem = styled.li`
   align-items:center;
   width:185px;
   border-radius:15px;
-  background-color:${(props)=>props.isActive ? '#FF5454' : 'white'};
+  background-color:${(props)=>props.isActiveMainMenu ? '#FF5454' : 'white'};
   cursor:pointer;
 
   :not(:last-child){
@@ -35,7 +35,7 @@ const MenuListItem = styled.li`
     justify-content:center;
     width: 46px;
     height: 44px;
-    background-color:${(props)=>props.isActive ? '#DF4545' : 'white'};
+    background-color:${(props)=>props.isActiveMainMenu ? '#DF4545' : 'white'};
     border-radius:15px;
     margin-right:25px;
 
@@ -48,7 +48,7 @@ const MenuListItem = styled.li`
   p{
     width:50%;
     text-align:center;
-    color:${(props)=>props.isActive ? 'white' : '#919191'};
+    color:${(props)=>props.isActiveMainMenu ? 'white' : '#919191'};
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;

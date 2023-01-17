@@ -1,13 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext} from 'react'
 import MainMenuItem from './MainMenuItem'
 import { menuData } from '../Data/MainData'
 import styled from 'styled-components'
+import { FoodContext } from '../../context/context'
 
 const MainMenu = () => {
-  const [isActive, setIsActive] = useState(menuData[0]);
+  const { isActiveMainMenu, getActiveMainMenu } = useContext(FoodContext)  
 
   const changeActiveItem = (item) => {
-    setIsActive(item)
+    getActiveMainMenu(item)
   }
 
   return (
@@ -18,7 +19,7 @@ const MainMenu = () => {
           id={elem.id}
           title={elem.title}
           src={elem.src} 
-          isActive={isActive.id===elem.id ? isActive : null}
+          isActiveMainMenu={isActiveMainMenu.id===elem.id ? isActiveMainMenu : null}
           changeActiveItem={()=>changeActiveItem(elem)}
         />        
       ))}

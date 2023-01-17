@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const Delivery = ({ deliveryData }) => {
     const{src, title, text, link} = deliveryData;
-    console.log(src)
+
   return (
     <DeliveryContent>
         <img src={src} alt=''/>

@@ -7,7 +7,7 @@ import FoodItem from './FoodItem'
 
 const FoodPlace = () => {
   const { activeMenu } = useContext(FoodContext)
-  console.log(activeMenu)
+  
   return (
     <>
       <FoodPlaceTitle title={activeMenu.title} />

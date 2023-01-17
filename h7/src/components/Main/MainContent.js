@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
-import FoodMenu from "../FoodMenu/FoodMenu";
-import Title from "../Form/Title";
 import UserInfo from "./UserInfo";
 import { userData } from "../Data/MainData";
 import MainMenu from "./MainMenu";
 import Delivery from "./Delivery";
 import { deliveryData } from "../Data/MainData";
-import OrderPlace from "./OrderPlace";
-import FoodPlace from "../FoodMenu/FoodPlace";
+import HomePlace from "./HomePlace";
+import { FoodContext } from "../../context/context";
+import MenuPlace from './MenuPlace';
+import TrendingPlace from './TrendingPlace';
+import SettingsPlace from './SettingsPlace'
 
 const MainContent = () => {
+    const { isActiveMainMenu } = useContext(FoodContext)
 
     return (
         <MainWrapper>
@@ -20,14 +22,22 @@ const MainContent = () => {
                 <Delivery deliveryData={deliveryData} />
             </MenuContainer>
             <MainContentWrapper>
-                <div>
-                    <MainContentContainer>
-                        <Title text={'Welcome To Lucknow'}/>
-                    </MainContentContainer>
-                    <FoodMenu />
-                    <FoodPlace/>
-                </div>
-                <OrderPlace/>
+                {isActiveMainMenu.type === 'home' ?
+                    <HomePlace/> : <></>
+                }
+
+                {isActiveMainMenu.type === 'menu' ?
+                    <MenuPlace/> : <></>
+                }
+
+                {isActiveMainMenu.type === 'trending' ?
+                    <TrendingPlace/> : <></>
+                }
+
+                {isActiveMainMenu.type === 'settings' ?
+                    <SettingsPlace/> : <></>
+                }
+            
             </MainContentWrapper>
         </MainWrapper>
     )
@@ -54,18 +64,18 @@ const MainContentWrapper = styled.div`
     width:100%;
 `;
 
-const MainContentContainer = styled.div`
-    max-width: max-content;
+// const MainContentContainer = styled.div`
+//     max-width: max-content;
 
-    h1{
-        text-align:start;
-        margin-left:30px;
-        padding-top:0;
-        margin-top:25px;
-    }
+//     h1{
+//         text-align:start;
+//         margin-left:30px;
+//         padding-top:0;
+//         margin-top:25px;
+//     }
 
-    img{
-        right:73px;
-        top:40px;
-    }
-`;
+//     img{
+//         right:73px;
+//         top:40px;
+//     }
+// `;

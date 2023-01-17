@@ -15,24 +15,28 @@ export const userData = {
 export const menuData = [
     {
         id: '1',
+        type: 'home',
         title: "Home",
         src: home
     },
 
     {
         id: '2',
+        type: 'menu',
         title: "Menu",
         src: menu
     },
 
     {
         id: '3',
+        type: 'trending',
         title: "Trending",
         src: trending
     },
 
     {
         id: '4',
+        type: 'settings',
         title: "Settings",
         src: settings
     },

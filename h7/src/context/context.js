@@ -10,7 +10,6 @@ export const DataProvider = (props) => {
     const [selectedFoodItem, setSelectedFoodItem] = useState([])
     const [chosenFoodElem, setChosenFoodElem] = useState(false)
     const [selectedItem, setSelectedItem] = useState('')
-    console.log(selectedFoodItem)
 
     const getActiveMenu = (props) => {
         setActiveMenu(props)
@@ -26,7 +25,7 @@ export const DataProvider = (props) => {
 
     const getSelectedFoodItem = (props) => {
         setSelectedFoodItem(prevState => {
-            return[props, ...prevState]
+            return[...prevState, props]
         })
     }
 

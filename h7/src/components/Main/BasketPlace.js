@@ -2,9 +2,10 @@ import React, { useContext } from 'react'
 import styled from 'styled-components'
 import arrow from '../../assets/arrow.svg'
 import { FoodContext } from '../../context/context'
+import BasketOrderItem from './BasketOrderItem'
 
 const BasketPlace = () => {
-    const { activeBasket, getActiveBasket, setSelectedFoodItem, selectedItem, setChosenFoodElem } = useContext(FoodContext);
+    const { activeBasket, getActiveBasket, setSelectedFoodItem, selectedFoodItem, setChosenFoodElem } = useContext(FoodContext);
 
     const handleHide = () => {
         getActiveBasket(false);
@@ -13,17 +14,27 @@ const BasketPlace = () => {
 
     const handleClick = () => {
         setSelectedFoodItem('')
+        setChosenFoodElem(false)
     }
 
   return (
-    <Container active={activeBasket}>
+    <Container activeBasket={activeBasket}>
           <BasketTitle>
               <p>Basket</p>
               <span onClick={handleHide}>
                   <img src={arrow} alt='' />
               </span>
           </BasketTitle>
-          <BasketOrder></BasketOrder>
+          <BasketOrder>
+              {selectedFoodItem ? (selectedFoodItem.map((elem) => (
+                  <BasketOrderItem
+                      type={elem.type}
+                      title={elem.title}
+                      description={elem.description}
+                      price={elem.price}
+                  />
+              ))) : ''}
+          </BasketOrder>
           <button onClick={handleClick}>Order - $</button>
     </Container>
   )
@@ -34,14 +45,14 @@ export default BasketPlace
 const Container = styled.div`
     width:70%;
     height:91%;
-    right:${(props) => props.active ? '0' : '-415px'};
+    right:${(props) => props.activeBasket ? '0' : '-415px'};
     top:30px;
-    box-shadow: ${(props) => props.active ? '0' : '0px 4px 46px rgba(0, 0, 0, 0.2)'};
+    box-shadow: ${(props) => props.activeBasket ? '0px 4px 46px rgba(0, 0, 0, 0.2)' :'0'};
     border-radius: 30px 0px 0px 30px;
     position:absolute;
     background-color:white;
     z-index:5;
-    padding:32px 21px 32px 32px;
+    padding:25px 15px 25px 25px;
     box-sizing:border-box;
     transition:1s;
 

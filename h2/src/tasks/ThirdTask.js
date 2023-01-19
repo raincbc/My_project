@@ -7,14 +7,17 @@ export default class Title extends React.Component{
     }
 
     componentDidMount() {
+        this.setTitle()
+    }
+
+    setTitle = () => {
         document.title = this.state.title
     }
 
     componentDidUpdate(prevState) {
-        if (this.state.title != prevState.title) {
+        if (this.state.title !== prevState.title) {
     
-            document.title = this.state.title
-
+            this.setTitle()     
         }
     }
 

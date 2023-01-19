@@ -7,13 +7,13 @@ export const createPost = (post) => {
     }
 }
 
-export function showLoader() {
+function showLoader() {
     return {
         type: SHOW_LOADER
     }
 }
 
-export function hideLoader() {
+function hideLoader() {
     return {
         type: HIDE_LOADER
     }

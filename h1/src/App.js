@@ -28,7 +28,7 @@ class App extends React.Component {
         return <News />;
 
       
-      case 'callBack':
+      case 'callback':
         return <CallBack />;
 
       case 'contacts':

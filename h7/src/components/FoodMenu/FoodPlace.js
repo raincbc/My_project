@@ -24,12 +24,14 @@ const FoodPlace = () => {
     getSelectedItem(item)
     getActiveBasket(true)
     
-    selectedFoodItem.forEach(elem => {
-      if (elem.id === item.id) {
-        elem.count = elem.count + 1;
-        isInArray = true
-      }
-    })
+    if (selectedFoodItem) {
+      selectedFoodItem.forEach(elem => {
+        if (elem.id === item.id) {
+          elem.count = elem.count + 1;
+          isInArray = true
+        }
+      })
+    }
 
     if (!isInArray) {
       getSelectedFoodItem(item)

@@ -6,10 +6,11 @@ import BasketOrderItem from './BasketOrderItem'
 import BasketCooked from './BasketCooked'
 
 const BasketPlace = () => {
-    const [finishOrder, setFinishOrder] = useState(false)
+    
 
     const { activeBasket, getActiveBasket, setSelectedFoodItem,
-        selectedFoodItem, setChosenFoodElem } = useContext(FoodContext);
+        selectedFoodItem, setChosenFoodElem, finishOrder,
+        setFinishOrder } = useContext(FoodContext);
     
     const fullPrise = () => {
         let allPrice = 0;

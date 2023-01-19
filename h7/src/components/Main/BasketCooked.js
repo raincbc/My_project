@@ -3,18 +3,18 @@ import coocked from '../../assets/coocked.png'
 
 const BasketCooked = () => {
     return (
-        <Conteiner>
+        <Container>
             <img src={coocked} alt=''/>
             <p>
                 in the process of cooking...
             </p>
-        </Conteiner>
+        </Container>
   )
 }
 
 export default BasketCooked
 
-const Conteiner = styled.div`
+const Container = styled.div`
     text-align:center;
     img{
         width:165px;

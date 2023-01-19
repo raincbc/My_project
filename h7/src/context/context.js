@@ -10,6 +10,7 @@ export const DataProvider = (props) => {
     const [selectedFoodItem, setSelectedFoodItem] = useState([]);
     const [chosenFoodElem, setChosenFoodElem] = useState(false);
     const [selectedItem, setSelectedItem] = useState('');
+    const [finishOrder, setFinishOrder] = useState(false)
 
     const getActiveMenu = (props) => {
         setActiveMenu(props)
@@ -42,7 +43,8 @@ export const DataProvider = (props) => {
             selectedFoodItem, getSelectedFoodItem,
             chosenFoodElem, setChosenFoodElem,
             selectedItem, getSelectedItem,
-            setSelectedFoodItem,
+            setSelectedFoodItem, finishOrder,
+            setFinishOrder
         }}>
             {props.children}
         </FoodContext.Provider>

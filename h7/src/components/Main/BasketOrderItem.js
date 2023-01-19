@@ -1,22 +1,29 @@
-import styled from "styled-components"
-import pizzabasket from '../../assets/pizzabasket.png'
-import burgerbasket from '../../assets/burgerbasket.png'
+import styled from "styled-components";
+import pizzabasket from '../../assets/pizzabasket.png';
+import burgerbasket from '../../assets/burgerbasket.png';
+import saladbasket from '../../assets/saladbasket.png'
+import donutbasket from '../../assets/donutbasket.png';
+import drinksbasket from '../../assets/drinksbasket.png';
 
-const BasketOrderItem = ({ type, title, description, price }) => {
-    console.log(type)
+const BasketOrderItem = ({ type, title, description, price, itemCount }) => {
 
     const getImg = () => {
         switch (type) {
             case 'burger':
-                return burgerbasket
+                return burgerbasket;
+            
             case 'pizza':
                 return pizzabasket;
+            
             case 'salad':
-                return
+                return saladbasket;
+            
             case 'donut':
-                return
+                return donutbasket;
+            
             case 'drinks':
-                return
+                return drinksbasket;
+            
             default:
                 return ''
         }
@@ -25,14 +32,14 @@ const BasketOrderItem = ({ type, title, description, price }) => {
     
   return (
     <Container>
-        <img src={getImg()} alt='' />
-        <Description>
+        <BasketItemIcon src={getImg()} alt='' />
+        <DescriptionContent>
             <p>{title}</p>
-            <span>{description}</span>                  
-        </Description>
+            <Description>{description}</Description>                  
+        </DescriptionContent>
         <Content>
-            <Span>123</Span>
-            <span>456</span>
+            <span>X{itemCount}</span>
+              <span>${price}</span>
         </Content>
     </Container>
   )
@@ -43,21 +50,15 @@ export default BasketOrderItem
 const Container = styled.div`
     display:flex;
     align-items:center;
-
-    img{
-        display:inline-block;
-        margin-right:20px
-    }
-
-    span{
-        font-weight: 600;
-        font-size: 9px;
-        line-height: 10px;
-        color: #898686;
-    }
+    margin-bottom:15px;
 `;
 
-const Description = styled.div`
+const BasketItemIcon = styled.img`
+    display:inline-block;
+    margin-right:10px
+`;
+
+const DescriptionContent = styled.div`
     align-items:center;
     width:150px;
     justify-content:space-between;
@@ -70,16 +71,20 @@ const Description = styled.div`
     }
 `;
 
+const Description = styled.span`
+    font-weight: 600;
+    font-size: 9px;
+    line-height: 10px;
+    color: #898686;
+`;
+
 const Content = styled.div`
     align-self:flex-start;
 
     span{
-        
+        font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    margin-right:10px
     }
-`;
-
-const Span = styled.span`
-font-weight: 700;
-        font-size: 8px;
-        line-height: 18px;
 `;

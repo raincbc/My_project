@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { FoodContext } from '../../context/context'
 import FoodPlaceTitle from './FoodPlaceTitle'
@@ -6,6 +6,7 @@ import { foodItems } from '../Data/FoodData'
 import FoodItem from './FoodItem'
 
 const FoodPlace = () => {
+  let isInArray = false
   const {
     activeMenu,
     getSelectedItem,
@@ -14,13 +15,26 @@ const FoodPlace = () => {
     chosenFoodElem,
     getActiveBasket,
     getSelectedFoodItem,
+    selectedFoodItem,
   } = useContext(FoodContext);
   
   const handleClick = (item) => {
     setChosenFoodElem(true)
+    setTimeout(()=> setChosenFoodElem(false), 2000)
     getSelectedItem(item)
     getActiveBasket(true)
-    getSelectedFoodItem(item)
+    
+    selectedFoodItem.forEach(elem => {
+      if (elem.id === item.id) {
+        elem.count = elem.count + 1;
+        isInArray = true
+      }
+    })
+
+    if (!isInArray) {
+      getSelectedFoodItem(item)
+    }
+    
   }
 
   return (

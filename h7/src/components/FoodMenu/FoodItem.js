@@ -33,7 +33,7 @@ const Container = styled.div`
     height:180px;
     margin-bottom:100px;
     margin-top:15px;
-    background-color: ${(props) => props.chosenFoodElem ? '#F2EEEE' : 'white'};
+    background-color: ${(props) => props.chosenFoodElem ? '#F2EEEE': 'white'};
 
     p{
         font-weight: 800;

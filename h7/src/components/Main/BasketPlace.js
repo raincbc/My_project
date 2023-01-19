@@ -1,12 +1,32 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
 import arrow from '../../assets/arrow.svg'
 import { FoodContext } from '../../context/context'
 import BasketOrderItem from './BasketOrderItem'
+import BasketCooked from './BasketCooked'
 
 const BasketPlace = () => {
-    const { activeBasket, getActiveBasket, setSelectedFoodItem, selectedFoodItem, setChosenFoodElem } = useContext(FoodContext);
+    const [finishOrder, setFinishOrder] = useState(false)
 
+    const { activeBasket, getActiveBasket, setSelectedFoodItem,
+        selectedFoodItem, setChosenFoodElem } = useContext(FoodContext);
+    
+    const fullPrise = () => {
+        let allPrice = 0;
+        if (selectedFoodItem) {
+            selectedFoodItem.forEach((element) => {
+                if (element.count > 1) {
+                    allPrice += element.price * element.count
+                } else {
+                    allPrice += parseInt(element.price)
+                }
+            });
+        } else {
+            setSelectedFoodItem('')
+        }
+        return allPrice
+    }
+    
     const handleHide = () => {
         getActiveBasket(false);
         setChosenFoodElem(false)
@@ -15,27 +35,41 @@ const BasketPlace = () => {
     const handleClick = () => {
         setSelectedFoodItem('')
         setChosenFoodElem(false)
+        setFinishOrder(prevState => !prevState)
+        if (finishOrder) {
+            getActiveBasket(false)
+        }
     }
 
-  return (
-    <Container activeBasket={activeBasket}>
-          <BasketTitle>
-              <p>Basket</p>
-              <span onClick={handleHide}>
-                  <img src={arrow} alt='' />
-              </span>
-          </BasketTitle>
-          <BasketOrder>
-              {selectedFoodItem ? (selectedFoodItem.map((elem) => (
-                  <BasketOrderItem
-                      type={elem.type}
-                      title={elem.title}
-                      description={elem.description}
-                      price={elem.price}
-                  />
-              ))) : ''}
-          </BasketOrder>
-          <button onClick={handleClick}>Order - $</button>
+    return (
+        <Container
+          activeBasket={activeBasket}
+          finishOrder={finishOrder}
+        >
+          <>
+            {!finishOrder ?                  
+                <>        
+                    <BasketTitle>                          
+                        <p>Basket</p>                          
+                        <span onClick={handleHide}>                              
+                            <img src={arrow} alt='' />                              
+                        </span>                          
+                    </BasketTitle>                      
+                    <BasketOrder>                          
+                          {selectedFoodItem ? (selectedFoodItem.map((elem) => (                  
+                            <BasketOrderItem                                  
+                                key={elem.id}                                  
+                                type={elem.type}
+                                title={elem.title}
+                                description={elem.description}
+                                price={elem.count>1? +elem.price * elem.count : elem.price}
+                                itemCount={elem.count}
+                            />                              
+                        ))) : ''}                          
+                    </BasketOrder></>                  
+                : <BasketCooked />}              
+          </>          
+          <button onClick={handleClick}>{!finishOrder ? 'Order - $' +fullPrise() : 'Order more'}</button>
     </Container>
   )
 }
@@ -97,5 +131,8 @@ const BasketTitle = styled.div`
 `;
 const BasketOrder = styled.div`
     height:80%;
+    overflow:scroll;
+
+    ::-webkit-scrollbar { width: 0; }
 `;
 

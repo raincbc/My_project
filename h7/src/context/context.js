@@ -7,9 +7,9 @@ export const DataProvider = (props) => {
     const [activeMenu, setActiveMenu] = useState('');
     const [activeBasket, setActiveBasket] = useState(false);
     const [isActiveMainMenu, setIsActiveMainMenu] = useState(menuData[0]);
-    const [selectedFoodItem, setSelectedFoodItem] = useState([])
-    const [chosenFoodElem, setChosenFoodElem] = useState(false)
-    const [selectedItem, setSelectedItem] = useState('')
+    const [selectedFoodItem, setSelectedFoodItem] = useState([]);
+    const [chosenFoodElem, setChosenFoodElem] = useState(false);
+    const [selectedItem, setSelectedItem] = useState('');
 
     const getActiveMenu = (props) => {
         setActiveMenu(props)
@@ -23,9 +23,10 @@ export const DataProvider = (props) => {
         setIsActiveMainMenu(props)
     }
 
-    const getSelectedFoodItem = (props) => {
+    const getSelectedFoodItem = (item) => {
         setSelectedFoodItem(prevState => {
-            return[...prevState, props]
+            item.count = 1
+            return [...prevState, item]
         })
     }
 

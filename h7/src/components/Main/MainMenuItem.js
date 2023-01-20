@@ -1,6 +1,7 @@
 import styled from "styled-components"
+import { MenuIcon } from "./MenuIcon"
 
-const MainMenuItem = ({ title, src, changeActiveItem, isActiveMainMenu}) => {
+const MainMenuItem = ({ title, svgName, changeActiveItem, isActiveMainMenu }) => {
 
   return (
     <MenuListItem
@@ -8,7 +9,11 @@ const MainMenuItem = ({ title, src, changeActiveItem, isActiveMainMenu}) => {
       onClick={changeActiveItem}
     >
       <div>
-        <img src={src} />
+        <MenuIcon
+          name={svgName}
+          stroke={isActiveMainMenu ? 'white' : '#919191'}
+          color={'#FF5454'}
+        />
       </div>
       <p>{title}</p>
     </MenuListItem>
@@ -40,8 +45,11 @@ const MenuListItem = styled.li`
     margin-right:25px;
 
     img{
-      display:inline-block;
-      stroke:black;
+      display:inline-block;      
+    }
+
+    ${MenuIcon}{
+      background:white;
     }
   }
 

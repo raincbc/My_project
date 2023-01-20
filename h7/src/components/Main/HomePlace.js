@@ -9,14 +9,14 @@ import styled from 'styled-components'
 const HomePlace = () => {
   return (
     <>       
-                <div>
-                    <MainContentContainer>
-                        <Title text={'Welcome To Lucknow'}/>
-                    </MainContentContainer>
-                    <FoodMenu />
-                    <FoodPlace/>
-                </div>
-                <OrderPlace/>
+        <div>
+            <MainContentContainer>
+                <Title text={'Welcome To Lucknow'}/>
+            </MainContentContainer>
+            <FoodMenu />
+            <FoodPlace/>
+        </div>
+        <OrderPlace/>
     </>
   )
 }

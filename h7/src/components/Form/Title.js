@@ -2,13 +2,15 @@ import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import face from '../../assets/face.png'
 
-const Title = ({ text }) => {
+const Title = ({ text , loader}) => {
     const location = useLocation();
 
     return (
         <TextWrapper location={location.pathname}>
             <TitleText>{text}</TitleText>
-            <Face src={ face } />
+            <Face
+                src={face}
+                loader={loader} />
         </TextWrapper>
     )
 }
@@ -37,4 +39,5 @@ const Face = styled.img`
     right:0;
     top:140px;
     width:62px;
+    display:${props=> props.loader? 'none' : 'inline'}
 `;

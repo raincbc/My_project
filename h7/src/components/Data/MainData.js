@@ -1,8 +1,8 @@
 import userphoto from '../../assets/userphoto.svg'
-import home from '../../assets/home.svg'
-import menu from '../../assets/menu.svg'
-import trending from '../../assets/trending.svg'
-import settings from '../../assets/settings.svg'
+// import home from '../../assets/home.svg'
+// import menu from '../../assets/menu.svg'
+// import trending from '../../assets/trending.svg'
+// import settings from '../../assets/settings.svg'
 import delivery from '../../assets/delivery.svg'
 import link from '../../assets/link.svg'
 import discount from '../../assets/discount.png'
@@ -17,28 +17,28 @@ export const menuData = [
         id: '1',
         type: 'home',
         title: "Home",
-        src: home
+        svgName: 'home'
     },
 
     {
         id: '2',
         type: 'menu',
         title: "Menu",
-        src: menu
+        svgName: 'menu'
     },
 
     {
         id: '3',
         type: 'trending',
         title: "Trending",
-        src: trending
+        svgName: 'trending'
     },
 
     {
         id: '4',
         type: 'settings',
         title: "Settings",
-        src: settings
+        svgName: 'settings'
     },
 ];
 

@@ -5,7 +5,6 @@ import { Container } from "./Styled/Styled";
 import Form from "./Form/Form";
 
 const LoginContent = () => {
-
     return (
         <Container >
             <BgImages />

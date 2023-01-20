@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components';
 import FormInput from './FormInput';
 import { formData } from '../Data/FormData';
@@ -8,10 +8,15 @@ import { useLocation } from 'react-router-dom'
 import { useFormik } from 'formik';
 import { loginValidationSchema, passwordValidationSchema } from '../Data/FormData';
 import * as Yup from 'yup';
+import { FoodContext } from '../../context/context';
 
-const Form = ({ btnText, nav }) => {
+const Form = ({ btnText, nav}) => {
     const navigate = useNavigate();
     const location = useLocation();
+    const { setStartApp } = useContext(FoodContext);
+    const setLoadingDelay = () => {
+        setTimeout(() => setStartApp(true), 1000)
+    }
 
     const { handleSubmit, handleChange, values, touched, errors } = useFormik({
         initialValues: {
@@ -24,8 +29,11 @@ const Form = ({ btnText, nav }) => {
                 loginValidationSchema : Object.assign(loginValidationSchema, passwordValidationSchema) ),
 
         onSubmit: (values) => {
-            console.log(values)
+            // setStartApp(true)
             navigate(nav)
+            setLoadingDelay()
+            
+            
         }
     })
 

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import UserInfo from "./UserInfo";
 import { userData } from "../Data/MainData";
 import MainMenu from "./MainMenu";
@@ -12,10 +12,14 @@ import TrendingPlace from './TrendingPlace';
 import SettingsPlace from './SettingsPlace'
 
 const MainContent = () => {
-    const { isActiveMainMenu } = useContext(FoodContext)
-
+    const { isActiveMainMenu, startApp } = useContext(FoodContext)
+console.log(startApp)
     return (
         <MainWrapper>
+            <HideWrapper>
+                <HideLeft startApp={startApp}/>
+                <HideRight startApp={startApp}/>
+            </HideWrapper>
             <MenuContainer>
                 <UserInfo userData={userData} />
                 <MainMenu />
@@ -63,3 +67,32 @@ const MainContentWrapper = styled.div`
     display:flex;
     width:100%;
 `;
+
+const HideWrapper = styled.div`
+    position:absolute;
+    width:100%;
+    height:100%;
+    display:flex;
+    z-index:10;
+
+    
+`;
+
+const HideRight = styled.div`
+    position:absolute;
+    right:0;
+    height:100%;
+    background-color:#DEEBFB;
+    z-index:10;
+    width:${props => props.startApp ? '0' : '50%;'};
+    transition: 2s;
+`;
+
+const HideLeft = styled.div`
+    background-color:#DEEBFB;
+    height:100%;
+    z-index:10;
+    width:${props => props.startApp ? '0' : '50%;'};
+    transition: 2s;
+`;
+

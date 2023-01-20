@@ -18,7 +18,7 @@ const MainMenu = () => {
           key={elem.id} 
           id={elem.id}
           title={elem.title}
-          src={elem.src} 
+          svgName={elem.svgName} 
           isActiveMainMenu={isActiveMainMenu.id===elem.id ? isActiveMainMenu : null}
           changeActiveItem={()=>changeActiveItem(elem)}
         />        

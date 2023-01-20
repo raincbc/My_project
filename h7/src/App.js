@@ -4,6 +4,7 @@ import './App.css';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import MainPage from './pages/MainPage';
+// import LoaderContent from './components/LoaderContent';
 
 export default class RouterApp extends React.Component{
   render() {

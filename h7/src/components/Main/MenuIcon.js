@@ -9,5 +9,3 @@ export const MenuIcon = ({ name, color, size = '18px', stroke}) => {
     )
 
 }
-
-

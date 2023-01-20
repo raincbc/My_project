@@ -4,13 +4,16 @@ import ShopBlock from './ShopBlock'
 import DiscountBlock from './DiscontBlock'
 import { discountData } from '../Data/MainData'
 import BasketPlace from './BasketPlace'
+import Articles from './Articles'
+import { articlesData } from '../Data/ArticlesData'
 
 const OrderPlace = () => {
   return (
     <OrderContainer> 
       <BasketPlace/>
       <ShopBlock />      
-      <DiscountBlock discountData={discountData} />      
+      <DiscountBlock discountData={discountData} />    
+      <Articles articlesData={articlesData}/>
     </OrderContainer>
   )
 }

@@ -1,12 +1,13 @@
 import styled from "styled-components"
 
-const UserInfo = ({userData}) => {
+const UserInfo = ({ userPhoto, user }) => {
+  console.log(user)
   return (
     <UserContainer>
           <UserLogo>
-            <img src={userData.photo} />
+            <img src={userPhoto} />
           </UserLogo>
-          <p>{userData.name}</p>
+          <p>{user.email}</p>
     </UserContainer>
   )
 }
@@ -28,13 +29,14 @@ const UserContainer = styled.div`
 
 const UserLogo = styled.div`
     background-color:white;
-    // max-width:max-content;
+    max-width:max-content;
     padding:8px;
     border-radius: 15px;
+    margin:0 auto;
 
     img{
         display:block;
-        width:64px;
-        height:64px;
+        width:60px;
+        height:60px;
     }
 `;

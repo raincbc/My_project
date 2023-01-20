@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import UserInfo from "./UserInfo";
 import { userData } from "../Data/MainData";
 import MainMenu from "./MainMenu";
@@ -10,40 +10,42 @@ import { FoodContext } from "../../context/context";
 import MenuPlace from './MenuPlace';
 import TrendingPlace from './TrendingPlace';
 import SettingsPlace from './SettingsPlace'
+import Fade from 'react-reveal/Fade';
 
 const MainContent = () => {
-    const { isActiveMainMenu, startApp } = useContext(FoodContext)
-console.log(startApp)
+    const { isActiveMainMenu, currentUser } = useContext(FoodContext)
+
     return (
-        <MainWrapper>
-            <HideWrapper>
-                <HideLeft startApp={startApp}/>
-                <HideRight startApp={startApp}/>
-            </HideWrapper>
-            <MenuContainer>
-                <UserInfo userData={userData} />
-                <MainMenu />
-                <Delivery deliveryData={deliveryData} />
-            </MenuContainer>
-            <MainContentWrapper>
-                {isActiveMainMenu.type === 'home' ?
-                    <HomePlace/> : <></>
-                }
+        <Fade right>
+            <MainWrapper>
+                <MenuContainer>
+                    <UserInfo
+                        userPhoto={userData.photo}
+                        user={currentUser}
+                    />
+                    <MainMenu />
+                    <Delivery deliveryData={deliveryData} />
+                </MenuContainer>
+                <MainContentWrapper>
+                    {isActiveMainMenu.type === 'home' ?
+                        <HomePlace/> : <></>
+                    }
 
-                {isActiveMainMenu.type === 'menu' ?
-                    <MenuPlace/> : <></>
-                }
+                    {isActiveMainMenu.type === 'menu' ?
+                        <MenuPlace/> : <></>
+                    }
 
-                {isActiveMainMenu.type === 'trending' ?
-                    <TrendingPlace/> : <></>
-                }
+                    {isActiveMainMenu.type === 'trending' ?
+                        <TrendingPlace/> : <></>
+                    }
 
-                {isActiveMainMenu.type === 'settings' ?
-                    <SettingsPlace/> : <></>
-                }
-            
-            </MainContentWrapper>
-        </MainWrapper>
+                    {isActiveMainMenu.type === 'settings' ?
+                        <SettingsPlace/> : <></>
+                    }
+                
+                </MainContentWrapper>
+            </MainWrapper>
+        </Fade>
     )
 }
 
@@ -68,31 +70,4 @@ const MainContentWrapper = styled.div`
     width:100%;
 `;
 
-const HideWrapper = styled.div`
-    position:absolute;
-    width:100%;
-    height:100%;
-    display:flex;
-    z-index:10;
-
-    
-`;
-
-const HideRight = styled.div`
-    position:absolute;
-    right:0;
-    height:100%;
-    background-color:#DEEBFB;
-    z-index:10;
-    width:${props => props.startApp ? '0' : '50%;'};
-    transition: 2s;
-`;
-
-const HideLeft = styled.div`
-    background-color:#DEEBFB;
-    height:100%;
-    z-index:10;
-    width:${props => props.startApp ? '0' : '50%;'};
-    transition: 2s;
-`;
 

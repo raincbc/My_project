@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const registerName = 'Name'
 
-const FormInput = ({ title, placeholder, location, name, handleChange, values, isTouched, error }) => {
+const FormInput = ({ title, placeholder, location, type, name, handleChange, values, isTouched, error }) => {
 
   return (
       <InputWrapper location={location}>
@@ -14,7 +14,7 @@ const FormInput = ({ title, placeholder, location, name, handleChange, values, i
               placeholder={placeholder}
               onChange={handleChange}
               value={values.name}
-              type={name}
+              type={type}
               autoComplete={'on'}
           />
           <Error>

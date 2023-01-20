@@ -8,15 +8,16 @@ import { useLocation } from 'react-router-dom'
 import { useFormik } from 'formik';
 import { loginValidationSchema, passwordValidationSchema } from '../Data/FormData';
 import * as Yup from 'yup';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import app from '../../base';
 import { FoodContext } from '../../context/context';
 
 const Form = ({ btnText, nav}) => {
     const navigate = useNavigate();
     const location = useLocation();
-    const { setStartApp } = useContext(FoodContext);
-    const setLoadingDelay = () => {
-        setTimeout(() => setStartApp(true), 1000)
-    }
+    const {setCurrentUser} = useContext(FoodContext)
+
+    const auth = getAuth(app)
 
     const { handleSubmit, handleChange, values, touched, errors } = useFormik({
         initialValues: {
@@ -28,12 +29,28 @@ const Form = ({ btnText, nav}) => {
         validationSchema: Yup.object(location.pathname === '/' ?
                 loginValidationSchema : Object.assign(loginValidationSchema, passwordValidationSchema) ),
 
-        onSubmit: (values) => {
-            // setStartApp(true)
-            navigate(nav)
-            setLoadingDelay()
-            
-            
+        onSubmit: async(values) => {
+            if (location.pathname === '/') {
+                await signInWithEmailAndPassword(auth, values.login, values.password)
+                    .then((result) => {
+                        const user = result.user;
+                        setCurrentUser(user)
+
+                        navigate('/main')                        
+                    }).catch((error) => {
+                        console.log(error)
+                    })
+            }
+
+            if (location.pathname === '/register') {
+                try {
+                    await createUserWithEmailAndPassword(auth, values.login, values.password) 
+                    
+                    navigate('/')
+                } catch (error) {
+                    alert(error)
+                }
+            } 
         }
     })
 
@@ -43,7 +60,7 @@ const Form = ({ btnText, nav}) => {
 
   return (
       <FormPlace onSubmit={handleSubmit}>
-          {formData.map(({ id, title, placeholder, name}) => (            
+          {formData.map(({ id, title, type, placeholder, name}) => (            
               <FormInput    
                   name={name}
                   key={id}
@@ -54,6 +71,7 @@ const Form = ({ btnText, nav}) => {
                   values={values}
                   isTouched={touched[name]}
                   error={errors[name]}
+                  type={type}
               />              
           ))}
           <FormBtn

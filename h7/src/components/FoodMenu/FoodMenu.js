@@ -7,8 +7,8 @@ import { FoodContext } from '../../context/context'
 
 const FoodMenu = () => {
   const [isActive, setIsActive] = useState(foodData[0]);
-  const { getActiveMenu } = useContext(FoodContext)
-  getActiveMenu(isActive);
+  const { setActiveMenu } = useContext(FoodContext)
+  setActiveMenu(isActive);
 
 
   const changeActiveItem = (item) => {

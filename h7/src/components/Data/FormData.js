@@ -3,15 +3,17 @@ export const formData = [
     {
         id: '1',
         title: 'Login',
-        placeholder: 'test@gmail.com', 
-        name: 'login'
+        placeholder: 'John', 
+        name: 'login',
+        type: 'login'
     },
 
     {
         id: '2',
         title: 'Password',
         placeholder: '***************',
-        name: 'password'
+        name: 'password',
+        type: 'password'
     },
 
     {
@@ -19,6 +21,7 @@ export const formData = [
         title: 'Confirm password',
         placeholder: '***************',
         name: 'confirmPassword',
+        type: 'password'
     },
 ]
 

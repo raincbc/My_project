@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { menuData } from '../components/Data/MainData';
 
 export const FoodContext = React.createContext()
@@ -11,12 +11,23 @@ export const DataProvider = (props) => {
     const [chosenFoodElem, setChosenFoodElem] = useState(false);
     const [selectedItem, setSelectedItem] = useState('');
     const [finishOrder, setFinishOrder] = useState(false);
-    const [startApp, setStartApp] = useState(false);
-    console.log(startApp)
+    const [currentUser, setCurrentUser] = useState(
+        localStorage.getItem('user')
+            ? JSON.parse(localStorage.getItem('user'))
+            : null
+    );
 
-    const getActiveMenu = (props) => {
-        setActiveMenu(props)
-    }
+    useEffect(() => {
+        if (currentUser === null) {
+            localStorage.setItem('user', 'null')
+        } else {
+            localStorage.setItem('user', JSON.stringify(currentUser))
+        }
+    }, [currentUser]);
+
+    // const getActiveMenu = (props) => {
+    //     setActiveMenu(props)
+    // }
 
     const getActiveBasket = (props) => {
         setActiveBasket(props)
@@ -39,14 +50,14 @@ export const DataProvider = (props) => {
 
     return (
         <FoodContext.Provider value={{
-            activeMenu, getActiveMenu,
+            activeMenu, setActiveMenu,
             activeBasket, getActiveBasket,
             isActiveMainMenu, getActiveMainMenu,
             selectedFoodItem, getSelectedFoodItem,
             chosenFoodElem, setChosenFoodElem,
             selectedItem, getSelectedItem,
             setSelectedFoodItem, finishOrder,
-            setFinishOrder, startApp, setStartApp
+            setFinishOrder, currentUser, setCurrentUser,
         }}>
             {props.children}
         </FoodContext.Provider>

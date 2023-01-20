@@ -11,7 +11,6 @@ const LoginContent = () => {
             <Title text={ "Welcome To Yelp App" } />
             <Form
                 btnText={'Login'}
-                nav={'/main'}
             />
         </Container>
     )

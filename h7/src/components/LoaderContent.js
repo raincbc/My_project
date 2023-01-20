@@ -2,9 +2,12 @@ import styled from "styled-components"
 import Title from "./Form/Title"
 import discount from '../assets/discount.png'
 import grapes from '../assets/grapes.png'
+import { useContext } from "react"
+import { FoodContext } from "../context/context"
 
 const LoaderContent = () => {
-  let loader = true
+  const { loader } = useContext(FoodContext);
+  
   return (
       <Container>
           <Discount src={discount} alt=''/>

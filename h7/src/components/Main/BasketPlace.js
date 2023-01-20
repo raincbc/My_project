@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
-import arrow from '../../assets/arrow.svg'
 import { FoodContext } from '../../context/context'
 import BasketOrderItem from './BasketOrderItem'
 import BasketCooked from './BasketCooked'
+import Arrow from './Arrow'
 
 const BasketPlace = () => {
     
@@ -53,7 +53,7 @@ const BasketPlace = () => {
                     <BasketTitle>                          
                         <p>Basket</p>                          
                         <span onClick={handleHide}>                              
-                            <img src={arrow} alt='' />                              
+                            <Arrow/>                              
                         </span>                          
                     </BasketTitle>                      
                     <BasketOrder>                          
@@ -122,12 +122,6 @@ const BasketTitle = styled.div`
         width:46px;
         height:46px;
         cursor:pointer;
-
-        img{
-            display:block;
-            margin:50% auto;
-            transform:translate(0, -50%)
-        }
     }
 `;
 const BasketOrder = styled.div`

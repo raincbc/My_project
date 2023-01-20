@@ -16,6 +16,7 @@ export const DataProvider = (props) => {
             ? JSON.parse(localStorage.getItem('user'))
             : null
     );
+    const loader = true;
 
     useEffect(() => {
         if (currentUser === null) {
@@ -58,6 +59,7 @@ export const DataProvider = (props) => {
             selectedItem, getSelectedItem,
             setSelectedFoodItem, finishOrder,
             setFinishOrder, currentUser, setCurrentUser,
+            loader
         }}>
             {props.children}
         </FoodContext.Provider>

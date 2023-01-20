@@ -5,7 +5,6 @@ import DiscountBlock from './DiscontBlock'
 import { discountData } from '../Data/MainData'
 import BasketPlace from './BasketPlace'
 import Articles from './Articles'
-import { articlesData } from '../Data/ArticlesData'
 
 const OrderPlace = () => {
   return (
@@ -13,7 +12,7 @@ const OrderPlace = () => {
       <BasketPlace/>
       <ShopBlock />      
       <DiscountBlock discountData={discountData} />    
-      <Articles articlesData={articlesData}/>
+      <Articles/>
     </OrderContainer>
   )
 }

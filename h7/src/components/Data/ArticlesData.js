@@ -8,27 +8,27 @@ export const articlesData = [
         id: '1',
         title: 'How to cook turkey on Natural Gas',
         titleSrc: chickenleg,
-        src:''
+        color: '#FFF0A5'
     }, 
 
     {
         id: '2',
         title: 'Corona virus update: 3,43,287+ cases',
         titleSrc: musk,
-        src:''
+        color: '#D6F5FF'
     },
 
     {
         id: '3',
         title: 'Tasty chunk donutes with chocolate',
         titleSrc: coockies,
-        src:''
+        color: 'rgb(243, 138, 155)'
     },
 
     {
         id: '4',
         title: 'Home made double cheez with popcorn respies',
         titleSrc: favoritepizza,
-        src:''
+        color: '#C1FFF4'
     }
 ]

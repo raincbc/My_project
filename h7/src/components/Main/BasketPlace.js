@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { FoodContext } from '../../context/context'
 import BasketOrderItem from './BasketOrderItem'
@@ -7,7 +7,6 @@ import Arrow from './Arrow'
 
 const BasketPlace = () => {
     
-
     const { activeBasket, getActiveBasket, setSelectedFoodItem,
         selectedFoodItem, setChosenFoodElem, finishOrder,
         setFinishOrder } = useContext(FoodContext);
@@ -16,11 +15,7 @@ const BasketPlace = () => {
         let allPrice = 0;
         if (selectedFoodItem) {
             selectedFoodItem.forEach((element) => {
-                if (element.count > 1) {
-                    allPrice += element.price * element.count
-                } else {
-                    allPrice += parseInt(element.price)
-                }
+                allPrice += element.price * element.count
             });
         } else {
             setSelectedFoodItem('')

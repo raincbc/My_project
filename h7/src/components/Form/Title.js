@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import face from '../../assets/face.png'
 
-const Title = ({ text , loader}) => {
+const Title = ({ text , faceLoader}) => {
     const location = useLocation();
 
     return (
@@ -10,7 +10,7 @@ const Title = ({ text , loader}) => {
             <TitleText>{text}</TitleText>
             <Face
                 src={face}
-                loader={loader} />
+                faceLoader={faceLoader} />
         </TextWrapper>
     )
 }
@@ -32,6 +32,20 @@ const TitleText = styled.h1`
     font-size: 48px;
     line-height: 50px;
     font-family: 'League Spartan', sans-serif;
+
+    @media (max-width: 1280px) {
+        width:280px;
+        font-weight: 800;
+        font-size: 42px;
+        line-height: 50px;
+    }
+
+    @media (max-width: 1024px) {
+        width:250px;
+        font-weight: 800;
+        font-size: 36px;
+        line-height: 40px;
+    }
 `;
 
 const Face = styled.img`
@@ -39,5 +53,16 @@ const Face = styled.img`
     right:0;
     top:140px;
     width:62px;
-    display:${props=> props.loader? 'none' : 'inline'}
+    display:${props => props.faceLoader ? 'none' : 'inline'};
+
+    @media (max-width: 1280px) {
+        width:55px;
+        top:145px;
+    }
+
+    @media (max-width: 1024px) {
+        width:45px;
+        top:135px;
+        right:10px;
+    }
 `;

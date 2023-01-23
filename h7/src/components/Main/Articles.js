@@ -7,13 +7,13 @@ import { FoodContext } from '../../context/context'
 import Arrow from './Arrow'
 
 const Articles = () => {
-  const {loader} = useContext(FoodContext)
+  const {faceLoader} = useContext(FoodContext)
   return (
     <Container>
       <ArticlesTitle>
         <Title
           text={'Articles'}
-          loader={loader}
+          faceLoader={faceLoader}
         />
         <span>
           <Arrow />
@@ -25,6 +25,7 @@ const Articles = () => {
           title={elem.title}
           titleSrc={elem.titleSrc}
           color={elem.color}
+          count={elem.count}
         />
       ))}
     </Container>

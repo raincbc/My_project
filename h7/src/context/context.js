@@ -12,11 +12,12 @@ export const DataProvider = (props) => {
     const [selectedItem, setSelectedItem] = useState('');
     const [finishOrder, setFinishOrder] = useState(false);
     const [currentUser, setCurrentUser] = useState(
-        localStorage.getItem('user')
-            ? JSON.parse(localStorage.getItem('user'))
-            : null
+        // localStorage.getItem('user')
+        //     ? JSON.parse(localStorage.getItem('user'))
+        //     : null
     );
-    const loader = true;
+    const faceLoader = true;
+    const [loader, setLoader] = useState(true);
 
     useEffect(() => {
         if (currentUser === null) {
@@ -25,10 +26,6 @@ export const DataProvider = (props) => {
             localStorage.setItem('user', JSON.stringify(currentUser))
         }
     }, [currentUser]);
-
-    // const getActiveMenu = (props) => {
-    //     setActiveMenu(props)
-    // }
 
     const getActiveBasket = (props) => {
         setActiveBasket(props)
@@ -59,7 +56,7 @@ export const DataProvider = (props) => {
             selectedItem, getSelectedItem,
             setSelectedFoodItem, finishOrder,
             setFinishOrder, currentUser, setCurrentUser,
-            loader
+            loader, setLoader, faceLoader
         }}>
             {props.children}
         </FoodContext.Provider>

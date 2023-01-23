@@ -6,7 +6,7 @@ import RegisterPage from './pages/RegisterPage';
 import MainPage from './pages/MainPage';
 import { Navigate } from 'react-router-dom';
 import { FoodContext } from './context/context';
-// import LoaderContent from './components/LoaderContent';
+import LoaderContent from './components/LoaderContent';
 
 const PrivateRouter = ({ children }) => {
     let { currentUser } = useContext(FoodContext)
@@ -31,7 +31,8 @@ const App = () => {
                       </PrivateRouter>                  
                   }                      
                   />                  
-                  <Route path='*' element={<Navigate to='/' />} />                  
+                  <Route path='*' element={<Navigate to='/' />} />
+                  <Route path='/loader' element={<LoaderContent />} />
               </Routes>              
           </div>            
       )

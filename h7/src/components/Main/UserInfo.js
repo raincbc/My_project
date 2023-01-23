@@ -1,11 +1,11 @@
 import styled from "styled-components"
 
 const UserInfo = ({ userPhoto, user }) => {
-  console.log(user)
+
   return (
     <UserContainer>
           <UserLogo>
-            <img src={userPhoto} />
+            <img src={userPhoto} alt=''/>
           </UserLogo>
           <p>{user.email}</p>
     </UserContainer>

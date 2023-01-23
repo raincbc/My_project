@@ -12,10 +12,10 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } f
 import app from '../../base';
 import { FoodContext } from '../../context/context';
 
-const Form = ({ btnText, nav}) => {
+const Form = ({ btnText }) => {
     const navigate = useNavigate();
     const location = useLocation();
-    const {setCurrentUser} = useContext(FoodContext)
+    const {setCurrentUser, setLoader} = useContext(FoodContext)
 
     const auth = getAuth(app)
 
@@ -29,16 +29,27 @@ const Form = ({ btnText, nav}) => {
         validationSchema: Yup.object(location.pathname === '/' ?
                 loginValidationSchema : Object.assign(loginValidationSchema, passwordValidationSchema) ),
 
-        onSubmit: async(values) => {
-            if (location.pathname === '/') {
+        onSubmit: async (values) => {            
+            if (location.pathname === '/') {                
                 await signInWithEmailAndPassword(auth, values.login, values.password)
                     .then((result) => {
                         const user = result.user;
                         setCurrentUser(user)
 
-                        navigate('/main')                        
+                        if (user) {
+                            setLoader(true)
+                            navigate('/loader')
+                            setTimeout(() => {
+                                setLoader(false)
+                            }, 1000)
+                        }
+
+                        setTimeout(() => {
+                            navigate('/main') 
+                        }, 1500)
+                                              
                     }).catch((error) => {
-                        console.log(error)
+                        alert(error)
                     })
             }
 

@@ -5,14 +5,14 @@ import styled from 'styled-components'
 import { FoodContext } from '../../context/context'
 
 const MainMenu = () => {
-  const { isActiveMainMenu, getActiveMainMenu } = useContext(FoodContext)  
+  const { isActiveMainMenu, getActiveMainMenu, menu } = useContext(FoodContext)  
 
   const changeActiveItem = (item) => {
     getActiveMainMenu(item)
   }
 
   return (
-    <MenuList>
+    <MenuList menu={menu}>
       {menuData.map((elem) => (   
         <MainMenuItem 
           key={elem.id} 
@@ -32,10 +32,20 @@ export default MainMenu
 const MenuList = styled.ul`
   margin-top:30px;
   margin-left:35px;
-  display:none;
 
   @media (max-width: 1280px) {
     margin-top:15px;
     margin-left:10px;
+  }
+
+  @media(max-width: 768px) {
+    position:absolute;
+    z-index:10;
+    background-color:white;
+    width:95%;
+    ${props=>props.menu ? 'top:-5px; transition:0.5s;' : 'top:-700px; transition:0.5s;'};
+    left:0;
+    height:99%;
+    border-radius:0 0 15px 15px;
   }
 `;

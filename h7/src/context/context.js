@@ -18,6 +18,7 @@ export const DataProvider = (props) => {
     );
     const faceLoader = true;
     const [loader, setLoader] = useState(true);
+    const [menu, setMenu] = useState(false);
 
     useEffect(() => {
         if (currentUser === null) {
@@ -56,7 +57,8 @@ export const DataProvider = (props) => {
             selectedItem, getSelectedItem,
             setSelectedFoodItem, finishOrder,
             setFinishOrder, currentUser, setCurrentUser,
-            loader, setLoader, faceLoader
+            loader, setLoader, faceLoader,
+            menu, setMenu
         }}>
             {props.children}
         </FoodContext.Provider>

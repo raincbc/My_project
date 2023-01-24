@@ -1,10 +1,10 @@
 import styled from "styled-components"
 import ShopBlock from "./ShopBlock"
-import BasketPlace from "./BasketPlace"
-import { useState } from "react"
+import { useContext } from "react"
+import { FoodContext } from "../../context/context"
 
 const UserInfo = ({ userPhoto, user }) => {
-  const [menu, setMenu] = useState(false);
+  const {menu, setMenu} = useContext(FoodContext);
 
   const openMenu = () => {
     setMenu(prevState => !prevState);
@@ -26,9 +26,6 @@ const UserInfo = ({ userPhoto, user }) => {
           <span menu={menu}/>
         </HideMenu>
       </HideMenuBlock>
-      {/* <HideBasket>
-        <BasketPlace/>
-      </HideBasket> */}
     </UserContainer>
   )
 }
@@ -151,12 +148,13 @@ const HideMenu = styled.div`
     span:first-child{
       ${props => props.menu ? 'top:11px;' : 'top:8px;'};
       ${props => props.menu ? 'transform:rotate(45deg); transition:500ms;' : 'transform:rotate(0); transition:500ms;'})
+      z-index:16;
     }
 
     span:nth-child(2){
       top:14px;
       display:${props => props.menu ? 'none' : 'block'};
-      transition:500ms;
+      z-index:16;
     }
 
     span{
@@ -168,20 +166,7 @@ const HideMenu = styled.div`
       ${props => props.menu ? 'top:11px;' : 'top:20px;'};
       ${props => props.menu ? 'transform:rotate(-45deg); transition:500ms;' : 'transform:rotate(0); transition:500ms;'})
       transition:500ms;
+      z-index:16;
     }
   }
 `;
-
-// const HideBasket = styled.div`
-//   display:none;
-
-//   @media (max-width: 768px){
-//       display:block;
-//       position:absolute;
-//       width:50%;
-//       height:100%;
-//       top:29px;
-//       right:10px;
-//   }
-    
-// `;

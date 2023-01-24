@@ -1,11 +1,14 @@
 import React from 'react'
+import { useContext } from 'react';
 import styled from 'styled-components'
+import { FoodContext } from '../../context/context';
 
 const Delivery = ({ deliveryData }) => {
-    const{src, title, text, link} = deliveryData;
+  const { src, title, text, link } = deliveryData;
+  const {menu} = useContext(FoodContext)
 
   return (
-    <DeliveryContent>
+    <DeliveryContent menu={menu}>
         <img src={src} alt=''/>
         <p>{title}</p>
         <div>
@@ -96,6 +99,11 @@ const DeliveryContent = styled.div`
   }
 
   @media (max-width: 768px) {
-    display:none;
+    position:absolute;
+    z-index:10;
+    right:144px;
+    // top:280px;
+    ${props => props.menu ? 'top:280px; transition:0.5s;' : 'top:-500px; transition:0.5s;'};
+    border:1px solid #919191;
   }
 `;

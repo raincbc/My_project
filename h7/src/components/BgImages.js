@@ -28,6 +28,16 @@ const Grapes = styled.img`
     @media (max-width: 1024px) {
         transform:scale(0.5);
     }
+
+    @media (max-width: 768px) {
+        transform:scale(0.3);
+        top:-20px
+    }
+
+    @media (max-width: 400px) {
+        top:-60px;
+        left:-40px;
+    }
 `;
 
 const Leaf = styled.img`
@@ -40,6 +50,16 @@ const Leaf = styled.img`
 
     @media (max-width: 1024px) {
         transform:scale(0.5);
+    }
+
+    @media (max-width: 768px) {
+        transform:scale(0.3);
+        right:-45px;
+    }
+
+    @media (max-width: 400px) {
+        top:-35px;
+        right:-60px;
     }
 `;
 
@@ -57,6 +77,16 @@ const Apple = styled.img`
         transform:scale(0.5);
         bottom: 0;
     }
+
+    @media (max-width: 768px) {
+        transform:scale(0.3);
+        bottom:50px;
+    }
+
+    @media (max-width: 400px) {
+        bottom:50px;
+        left:0;
+    }
 `;
 
 const Orange = styled(Leaf)`
@@ -69,5 +99,14 @@ const Orange = styled(Leaf)`
     @media (max-width: 1024px) {
         transform:scale(0.5);
         bottom: -50px;
+    }
+
+    @media (max-width: 768px) {
+        transform:scale(0.3);
+        bottom:20px;
+    }
+
+    @media (max-width: 400px) {
+        top:420px;
     }
 `;

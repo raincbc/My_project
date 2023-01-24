@@ -12,9 +12,9 @@ export const DataProvider = (props) => {
     const [selectedItem, setSelectedItem] = useState('');
     const [finishOrder, setFinishOrder] = useState(false);
     const [currentUser, setCurrentUser] = useState(
-        // localStorage.getItem('user')
-        //     ? JSON.parse(localStorage.getItem('user'))
-        //     : null
+        localStorage.getItem('user')
+            ? JSON.parse(localStorage.getItem('user'))
+            : null
     );
     const faceLoader = true;
     const [loader, setLoader] = useState(true);

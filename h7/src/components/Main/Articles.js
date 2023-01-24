@@ -48,8 +48,15 @@ const Container = styled.div`
     padding-top:0;
     width:100px
   }
-
   
+  @media (max-width: 1280px) {
+    padding-left:20px;
+    margin-top:10px;
+  }
+
+  @media (max-width: 1024px) {
+    padding-left:5px;
+  }
 `;
 
 const ArticlesTitle = styled.div`
@@ -64,5 +71,15 @@ const ArticlesTitle = styled.div`
     width:46px;
     height:46px;
     cursor:pointer;
+  }
+
+  @media (max-width: 1024px) {
+    margin-left:10px;
+    margin-top:30px;
+    span{
+      width:35px;
+      height:35px;
+      border-radius: 8px;
+    }
   }
 `;

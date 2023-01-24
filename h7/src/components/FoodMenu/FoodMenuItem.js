@@ -39,4 +39,41 @@ const Container = styled.li`
     line-height: 65px;
     color: ${(props)=>props.isActive ? 'black' : '#585858'};
   }
+
+  @media (max-width: 1280px) {
+    width: 80px;
+    height: 130px;
+
+    img{
+      top:35%;
+      max-width:70px;
+    }
+
+    p{
+      margin-top:60px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    width: 60px;
+    height: 100px;
+
+    img{
+      transform:scale(0.8) translate(-60%, -70%);
+    }
+
+    p{
+      margin-top:40px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    width:55px;
+
+    img{
+      transform:scale(0.5) translate(-100%, -100%) ;
+      top:30px;
+    }
+    p{}
+  }
 `;

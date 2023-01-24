@@ -106,7 +106,21 @@ const FormPlace = styled.form`
     padding:50px;
     background-color: white;
     border-radius: 35px;
-    margin-top: 17px:
+    margin-top: 17px;
+
+    @media (max-width: 768px) {
+        padding:40px;
+        max-width:450px;
+    }
+
+    @media (max-width: 550px) {
+        padding:10px
+    }
+
+    @media (max-width: 400px) {
+        max-width:350px;
+        padding:30px 10px
+    }
 `;
 
 const CreateAccount = styled.div`

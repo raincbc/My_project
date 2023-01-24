@@ -45,4 +45,25 @@ const ShopWrapper = styled.div`
   img:first-child{
     margin-right:20px;
   }
+
+  @media (max-width: 1280px) {
+    height:135px;
+
+    img{
+      margin-top:15px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    height:115px;
+
+    img{
+      width:30px;
+      margin-top:25px;
+    }
+
+    img:last-child{
+      margin-right:50px;
+    }
+  }
 `;

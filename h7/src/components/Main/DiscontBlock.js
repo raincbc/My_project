@@ -47,4 +47,29 @@ const DiscountWrapper = styled.div`
         color:white;
         margin-left:22px;
     }
+
+    @media (max-width: 1280px) {
+        margin-left:20px;
+        height:130px;
+
+        img{
+            transform:scale(0.8);
+        }
+
+        p{
+            padding-top:50px;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        margin-left:10px;
+        height:100px;
+        width:200px;
+    }
+
+    img{
+        transform:scale(0.6);
+        left:-15px;
+        bottom:-65px;
+    }
 `;

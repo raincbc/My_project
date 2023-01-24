@@ -55,10 +55,22 @@ const MainWrapper = styled.section`
     display:flex;
     overflow: hidden;
     justify-content:space-between;
+
+    @media (max-width: 768px) {
+        display:block;
+    }
 `;
 
 const MenuContainer = styled.nav`
     height:100vh;
+
+    @media (max-width: 768px) {
+        height:60px;
+        background-color:white;
+        margin:10px 10px 0;
+        border-radius:15px 15px 0 0;
+        overflow:hidden;
+    }
 `;
 
 const MainContentWrapper = styled.div`
@@ -68,6 +80,23 @@ const MainContentWrapper = styled.div`
     height:710px;
     display:flex;
     width:100%;
+
+    @media (max-width: 1280px) {
+        margin: 10px 10px 0 0;
+        height:645px;
+    }
+
+    @media (max-width: 1024px) {
+        width:80%;
+    }
+
+    @media (max-width: 768px) {
+        width:95%;
+        margin:0 10px;
+        height:585px;
+        border-radius: 0 0 15px 15px;
+        overflow:hidden;
+    }
 `;
 
 

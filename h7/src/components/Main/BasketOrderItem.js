@@ -55,7 +55,11 @@ const Container = styled.div`
 
 const BasketItemIcon = styled.img`
     display:inline-block;
-    margin-right:10px
+    margin-right:10px;
+
+    @media (max-width: 768px) {
+        width:30px;
+    }
 `;
 
 const DescriptionContent = styled.div`
@@ -69,6 +73,12 @@ const DescriptionContent = styled.div`
         font-size: 12px;
         line-height: 18px;
     }
+
+    @media (max-width: 768px) {
+        p{
+            margin-top:0;
+        }
+    }
 `;
 
 const Description = styled.span`
@@ -76,6 +86,10 @@ const Description = styled.span`
     font-size: 9px;
     line-height: 10px;
     color: #898686;
+
+    @media (max-width: 768px) {
+        display:none
+    }
 `;
 
 const Content = styled.div`
@@ -83,8 +97,12 @@ const Content = styled.div`
 
     span{
         font-weight: 700;
-    font-size: 12px;
-    line-height: 18px;
-    margin-right:10px
+        font-size: 12px;
+        line-height: 18px;
+        margin-right:10px
+    }
+
+    @media (max-width: 768px) {
+        align-self:center;
     }
 `;

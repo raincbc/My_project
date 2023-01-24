@@ -32,4 +32,10 @@ export default MainMenu
 const MenuList = styled.ul`
   margin-top:30px;
   margin-left:35px;
+  display:none;
+
+  @media (max-width: 1280px) {
+    margin-top:15px;
+    margin-left:10px;
+  }
 `;

@@ -58,4 +58,44 @@ const DeliveryContent = styled.div`
       line-height: 11px;
     }
   }
+
+  @media (max-width: 1280px) {
+    margin-left:10px;
+    width:150px;
+    height: 150px;
+
+    img:first-child{
+      transform:scale(0.8);
+      bottom:65px;
+      left:-10px;
+    }
+
+    p{
+      padding-top:50px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    width:117px;
+    height: 130px;
+    margin-top:175px;
+
+    img:first-child{
+      transform:scale(0.7);
+      bottom:30px;
+      left:-25px;
+    }
+
+    p{
+      margin-left:20px;
+    }
+
+    div{
+      margin-left:20px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    display:none;
+  }
 `;

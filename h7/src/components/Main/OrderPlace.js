@@ -23,4 +23,8 @@ const OrderContainer = styled.div`
 width:80%;
 position:relative;
 overflow: hidden;
+
+@media (max-width: 768px) {
+    display:none;
+}
 `;

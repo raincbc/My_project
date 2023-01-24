@@ -46,6 +46,20 @@ const TitleText = styled.h1`
         font-size: 36px;
         line-height: 40px;
     }
+
+    @media (max-width: 768px) {
+        padding-top:50px;
+        font-size: 30px;
+        width:200px;
+    }
+
+    @media (max-width: 400px) {
+        padding-top:40px;
+        font-size: 26px;
+        width:180px;
+        line-height: 30px;
+        margin-bottom:40px;
+    }
 `;
 
 const Face = styled.img`
@@ -64,5 +78,15 @@ const Face = styled.img`
         width:45px;
         top:135px;
         right:10px;
+    }
+
+    @media (max-width: 768px) {
+        top:85px;
+        right:-3px
+    }
+
+    @media (max-width: 400px) {
+        top:65px;
+        width:35px;
     }
 `;

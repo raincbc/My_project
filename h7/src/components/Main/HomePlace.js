@@ -4,14 +4,17 @@ import Title from '../Form/Title'
 import OrderPlace from './OrderPlace'
 import FoodPlace from '../FoodMenu/FoodPlace'
 import styled from 'styled-components'
-
+import BasketPlace from './BasketPlace'
 
 const HomePlace = () => {
   return (
     <>       
         <div>
+            <HideBasket>
+                <BasketPlace/>
+            </HideBasket>
             <MainContentContainer>
-                <Title text={'Welcome To Lucknow'}/>
+                  <Title text={'Welcome To Lucknow'} />
             </MainContentContainer>
             <FoodMenu />
             <FoodPlace/>
@@ -37,4 +40,52 @@ const MainContentContainer = styled.div`
         right:73px;
         top:40px;
     }
+
+    @media (max-width: 1280px) {
+        img{
+            right:60px;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        h1{
+            margin-left:20px;
+        }
+        img{
+            top:35px;
+        }
+
+    }
+    
+    @media (max-width: 768px) {
+        margin:0 auto;
+
+        h1{
+            font-size:26px;
+            line-height: 30px;
+            padding-left:20px;
+            margin-top:10px;
+        }
+
+        img{
+            width:30px;
+            top:25px;
+            right:70px;
+        }
+    }
+`;
+
+const HideBasket = styled.div`
+  display:none;
+  overflow:hidden;
+
+  @media (max-width: 768px){
+      display:block;
+      position:absolute;
+      width:50%;
+      height:100%;
+      top:29px;
+      right:10px;
+  }
+    
 `;

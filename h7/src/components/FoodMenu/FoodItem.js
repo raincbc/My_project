@@ -53,6 +53,38 @@ const Container = styled.div`
         height:65px;
         margin:8px 0 10px 28px;
     } 
+
+    @media (max-width: 1280px) {
+        margin-left:20px;
+        margin-bottom:80px;
+        width:170px;
+
+        &>span{
+            margin:8px 0 10px 18px;
+        }
+
+        p{
+            margin-left:18px;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        margin-left:10px;
+    }
+
+    @media (max-width: 768px) {
+        margin-bottom:50px;
+        width:165px;
+        height:170px;
+
+        p{
+            margin-top:40px;
+        }
+
+        &>span{
+            line-height: 12px;
+        }
+    }
 `;
 
 const PriceMenu = styled.div`
@@ -64,6 +96,12 @@ const PriceMenu = styled.div`
         line-height: 18px;
         margin-left:28px;
     } 
+
+    @media (max-width: 1280px) {
+        span{
+            margin-left:18px;
+        }
+    }
 `;
 
 const FoodImg = styled.img`
@@ -71,6 +109,16 @@ const FoodImg = styled.img`
     position:absolute;
     bottom:125px;
     left:20px;
+
+    @media (max-width: 1280px) {
+        transform:scale(0.8);
+    }
+
+    @media (max-width: 768px) {
+        transform:scale(0.5);
+        left:10px;
+        bottom:105px;
+    }
 `;
 
 const Plus = styled.img`
@@ -78,4 +126,9 @@ const Plus = styled.img`
     right:17px;
     top:-20px;
     cursor:pointer;
+
+    @media (max-width: 1280px) {
+        transform:scale(0.8);
+        top:-10px;
+    }
 `;

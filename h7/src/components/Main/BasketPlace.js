@@ -98,6 +98,18 @@ const Container = styled.div`
         padding:16px 0;
         cursor:pointer;
     }
+
+    @media (max-width: 1024px) {
+        width:100%;
+    }
+
+    @media (max-width: 768px) {
+        ${(props) => props.activeBasket ? 'right:0; ' : 'right:-215px;'};
+        button{
+            padding:8px 0;
+            border-radius: 8px;
+        }
+    }
 `;
 const BasketTitle = styled.div`
     display:flex;
@@ -117,6 +129,19 @@ const BasketTitle = styled.div`
         width:46px;
         height:46px;
         cursor:pointer;
+    }
+
+    @media (max-width: 768px) {
+        span{
+            width:30px;
+            height:30px;
+            border-radius: 8px;
+        }
+
+        p{
+            font-size: 18px;
+            line-height: 20px; 
+        }
     }
 `;
 const BasketOrder = styled.div`

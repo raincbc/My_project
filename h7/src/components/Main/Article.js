@@ -7,10 +7,10 @@ import like from '../../assets/like.svg'
 const Article = ({ title, titleSrc, color, count }) => {
 
   return (
-    <Container color={color}>
-      <span>
+    <Container>
+      <ImgWrapper color={color}>
         <ArticleImg src={titleSrc} alt='' />        
-      </span>
+      </ImgWrapper>
       <ArticleContent>
         <p>{title}</p>
         <div>
@@ -36,20 +36,48 @@ const Container = styled.div`
     margin-top:20px;
   }
 
-  &>span{
-    border-radius: 15px;
-    width: 60px;
-    height: 60px;
-    background-color:${props => props.color};
-    text-align:center;
-    margin-right:15px;
+  @media (max-width: 1280px) {
+    &:not(:first-child){
+      margin-top:15px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    width:210px;
+    align-items: flex-start;
+
+    &:not(:first-child){
+      margin-top:22px;
     }
   }
 `;
 
+const ImgWrapper = styled.span`
+  border-radius: 15px;
+  width: 60px;
+  height: 60px;
+  background-color:${props => props.color};
+  text-align:center;
+  margin-right:15px;
+
+  @media (max-width: 1024px) {
+    width: 45px;
+    height: 45px;
+    padding: 3px 10px;
+    margin-right:10px;
+  }
+`;
+
 const ArticleImg = styled.img`
+  display:inline-block;
   margin:50% auto;
   transform:translate(0, -50%);
+
+  @media (max-width: 1024px) {
+    width:30px;
+    height:30px;
+    transform:translate(0, -20%);
+  }
 `;
 
 const ArticleContent = styled.div`
@@ -91,5 +119,11 @@ const ArticleContent = styled.div`
         margin-left:8px;
       }
     }
-}
+  }
+
+  @media (max-width: 1024px) {
+    p{
+      width:150px;
+    }
+  }
 `;

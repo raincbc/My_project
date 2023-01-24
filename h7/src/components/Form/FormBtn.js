@@ -30,4 +30,8 @@ const Button = styled.button`
     font-weight: 700;
     font-size: 14px;
     line-height: 18px;
+
+    @media (max-width: 400px) {
+        padding:10px 0;
+    }
 `;

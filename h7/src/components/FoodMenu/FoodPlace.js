@@ -77,10 +77,32 @@ const FoodWrapper = styled.div`
     overflow: scroll;
 
     ::-webkit-scrollbar { width: 0; }
+
+    @media (max-width: 1024px) {
+      height: 59%;
+    }
+
+    @media (max-width: 768px) {
+      height: 67%;
+    }
 `;
 
 const FoodContainer = styled.div`
   margin-top:82px;
   display:grid;
   grid-template-columns: repeat(3, 280px);
+
+  @media (max-width: 1280px) {
+    margin-top:68px;
+    grid-template-columns: repeat(3, 180px);
+  }
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 190px);
+    margin-top:62px;
+  }
+
+  @media (max-width: 768px) {
+    margin-top:40px;
+  }
 `;

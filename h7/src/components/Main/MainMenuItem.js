@@ -48,9 +48,9 @@ const MenuListItem = styled.li`
       display:inline-block;      
     }
 
-    ${MenuIcon}{
-      background:white;
-    }
+    // ${MenuIcon}{
+    //   background:white;
+    // }
   }
 
   p{
@@ -60,6 +60,27 @@ const MenuListItem = styled.li`
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;
+  }
+
+  @media (max-width: 1280px) {
+    width:150px;
+
+    :not(:last-child){
+      margin-bottom:15px;
+    }
+
+    p{
+      width:30%;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    width:120px;
+    text-align:start;
+
+    div:first-child{
+      margin-right:10px
+    }
   }
   
 `;

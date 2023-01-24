@@ -32,6 +32,15 @@ const InputWrapper = styled.div`
 
     :nth-child(3){
         ${(props) => props.location === "/register" ? 'display:block;' : 'display:none;'};
+    
+    }
+
+    @media (max-width: 550px) {
+        width:350px;
+    }
+
+    @media (max-width: 400px) {
+        width:300px;
     }
 `;
 

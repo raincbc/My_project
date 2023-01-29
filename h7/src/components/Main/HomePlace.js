@@ -56,7 +56,7 @@ const MainContentContainer = styled.div`
         }
 
     }
-    
+
     @media (max-width: 768px) {
         margin:0 auto;
 
@@ -71,6 +71,15 @@ const MainContentContainer = styled.div`
             width:30px;
             top:25px;
             right:70px;
+        }
+    }
+
+    @media (max-width: 400px) {
+        h1{
+            margin-bottom:0;
+        }
+        img{
+            right:45px;
         }
     }
 `;
@@ -89,3 +98,4 @@ const HideBasket = styled.div`
   }
     
 `;
+

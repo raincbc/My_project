@@ -85,6 +85,18 @@ const Container = styled.div`
             line-height: 12px;
         }
     }
+
+    @media (max-width: 550px) {
+        margin-left:30px;
+    }
+
+    @media (max-width: 450px) {
+        margin-left:15px;
+    }
+
+    @media (max-width: 400px) {
+        margin-left:8px;
+    }
 `;
 
 const PriceMenu = styled.div`

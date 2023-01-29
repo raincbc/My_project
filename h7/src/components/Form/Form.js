@@ -34,7 +34,7 @@ const Form = ({ btnText }) => {
                 await signInWithEmailAndPassword(auth, values.login, values.password)
                     .then((result) => {
                         const user = result.user;
-                        setCurrentUser(user)
+                        setCurrentUser(user.email);
 
                         if (user) {
                             setLoader(true)
@@ -49,7 +49,7 @@ const Form = ({ btnText }) => {
                         }, 1500)
                                               
                     }).catch((error) => {
-                        alert(error)
+                        console.log(error)
                     })
             }
 

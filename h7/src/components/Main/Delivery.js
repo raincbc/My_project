@@ -101,9 +101,37 @@ const DeliveryContent = styled.div`
   @media (max-width: 768px) {
     position:absolute;
     z-index:10;
-    right:144px;
-    // top:280px;
+    right:311px;
     ${props => props.menu ? 'top:280px; transition:0.5s;' : 'top:-500px; transition:0.5s;'};
     border:1px solid #919191;
+
+  }
+
+  @media (max-width: 700px) {
+    right:276px;
+  }
+
+  @media (max-width: 650px) {
+    right:254px;
+  }
+
+  @media (max-width: 600px) {
+    right:227px;
+  }
+
+  @media (max-width: 550px) {
+    right:203px;
+  }
+
+  @media (max-width: 500px) {
+    right:178px;
+  }
+
+  @media (max-width: 450px) {
+    right:153px;
+  }
+
+  @media (max-width: 400px) {
+    right:129px;
   }
 `;

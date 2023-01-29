@@ -9,7 +9,7 @@ const BasketPlace = () => {
     
     const { activeBasket, getActiveBasket, setSelectedFoodItem,
         selectedFoodItem, setChosenFoodElem, finishOrder,
-        setFinishOrder } = useContext(FoodContext);
+        setFinishOrder, setSlideBasket } = useContext(FoodContext);
     
     const fullPrise = () => {
         let allPrice = 0;
@@ -28,10 +28,15 @@ const BasketPlace = () => {
         setChosenFoodElem(false)
     }
 
+    const deleteItem = (id) => {        
+        setSelectedFoodItem(selectedFoodItem.filter((elem) => elem.id !== id ));
+    }
+
     const handleClick = () => {
         setSelectedFoodItem('')
         setChosenFoodElem(false)
         setFinishOrder(prevState => !prevState)
+        setSlideBasket(false)
         if (finishOrder) {
             getActiveBasket(false)
         }
@@ -43,7 +48,8 @@ const BasketPlace = () => {
           finishOrder={finishOrder}
         >
           <>
-            {!finishOrder ?                  
+            {!finishOrder ?   
+                           
                 <>        
                     <BasketTitle>                          
                         <p>Basket</p>                          
@@ -52,14 +58,16 @@ const BasketPlace = () => {
                         </span>                          
                     </BasketTitle>                      
                     <BasketOrder>                          
-                          {selectedFoodItem ? (selectedFoodItem.map((elem) => (                  
+                            {selectedFoodItem ? (selectedFoodItem.map((elem) => (        
                             <BasketOrderItem                                  
-                                key={elem.id}                                  
+                                key={elem.id}
+                                id={elem.id}    
                                 type={elem.type}
                                 title={elem.title}
                                 description={elem.description}
                                 price={elem.count>1? +elem.price * elem.count : elem.price}
                                 itemCount={elem.count}
+                                deleteItem={deleteItem}
                             />                              
                         ))) : ''}                          
                     </BasketOrder></>                  
@@ -104,7 +112,7 @@ const Container = styled.div`
     }
 
     @media (max-width: 768px) {
-        ${(props) => props.activeBasket ? 'right:0; ' : 'right:-215px;'};
+        ${(props) => props.activeBasket ? 'right:0; ' : 'right:-380px;'};
         button{
             padding:8px 0;
             border-radius: 8px;

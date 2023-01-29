@@ -8,21 +8,22 @@ import FoodItem from './FoodItem'
 const FoodPlace = () => {
   let isInArray = false
   const {
-    activeMenu,
-    getSelectedItem,
-    selectedItem,
-    setChosenFoodElem,
-    chosenFoodElem,
-    getActiveBasket,
-    getSelectedFoodItem,
-    selectedFoodItem,
+    activeMenu, getSelectedItem,
+    selectedItem, setChosenFoodElem,
+    chosenFoodElem, getActiveBasket,
+    getSelectedFoodItem, selectedFoodItem,
+    slideBasket, setSlideBasket
   } = useContext(FoodContext);
-  
+
   const handleClick = (item) => {
     setChosenFoodElem(true)
     setTimeout(()=> setChosenFoodElem(false), 2000)
     getSelectedItem(item)
-    getActiveBasket(true)
+    setSlideBasket(true)
+
+    if (!slideBasket) {
+      getActiveBasket(true)
+    }
     
     if (selectedFoodItem) {
       selectedFoodItem.forEach(elem => {
@@ -43,9 +44,8 @@ const FoodPlace = () => {
     <>
       <FoodPlaceTitle title={activeMenu.title} />
       <FoodWrapper>        
-        <FoodContainer>          
+        <FoodContainer>   
           {foodItems.filter((elem) => {         
-            
             if (activeMenu.type) {            
               return elem.type === activeMenu.type              
             } else {              
@@ -76,10 +76,14 @@ const FoodWrapper = styled.div`
     height: 52.5%;
     overflow: scroll;
 
-    ::-webkit-scrollbar { width: 0; }
+    ::-webkit-scrollbar { width: 0; };
 
     @media (max-width: 1024px) {
       height: 59%;
+    }
+
+    @media (max-width: 900px) {
+      height: 57%;
     }
 
     @media (max-width: 768px) {
@@ -103,6 +107,35 @@ const FoodContainer = styled.div`
   }
 
   @media (max-width: 768px) {
+    grid-template-columns: repeat(3, 270px);
     margin-top:40px;
+  }
+
+  @media (max-width: 700px) {
+    grid-template-columns: repeat(3, 230px);
+  }
+
+  @media (max-width: 650px) {
+    grid-template-columns: repeat(3, 200px);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(3, 190px);
+  }
+
+  @media (max-width: 550px) {
+    grid-template-columns: repeat(2, 300px);
+  }
+
+  @media (max-width: 500px) {
+    grid-template-columns: repeat(2, 245px);
+  }
+
+  @media (max-width: 450px) {
+    grid-template-columns: repeat(2, 230px);
+  }
+
+  @media (max-width: 400px) {
+    grid-template-columns: repeat(2, 195px);
   }
 `;

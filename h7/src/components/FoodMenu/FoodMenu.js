@@ -61,12 +61,57 @@ const MenuList = styled.ul`
     }
 
     @media (max-width: 768px) {
-      margin-left:6px;
+      margin-left:20px;
 
       li:not(:last-child){
-        margin-right:8px;
+        margin-right:40px;
       }
     }
 
-    
+    @media (max-width: 700px) {
+
+      li:not(:last-child){
+        margin-right:30px;
+      }
+    }
+
+    @media (max-width: 650px) {
+
+      li:not(:last-child){
+        margin-right:45px;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      li:not(:last-child){
+        margin-right:35px;
+      }
+    }
+
+    @media (max-width: 550px) {
+
+      li:not(:last-child){
+        margin-right:25px;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      li:not(:last-child){
+        margin-right:15px;
+      }
+    }
+
+    @media (max-width: 450px) {
+      margin-left:10px;
+
+      li:not(:last-child){
+        margin-right:10px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      margin-left:16px;
+    }    
 `;

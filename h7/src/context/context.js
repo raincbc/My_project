@@ -6,6 +6,7 @@ export const FoodContext = React.createContext()
 export const DataProvider = (props) => {
     const [activeMenu, setActiveMenu] = useState('');
     const [activeBasket, setActiveBasket] = useState(false);
+    const [slideBasket, setSlideBasket] = useState(false);
     const [isActiveMainMenu, setIsActiveMainMenu] = useState(menuData[0]);
     const [selectedFoodItem, setSelectedFoodItem] = useState([]);
     const [chosenFoodElem, setChosenFoodElem] = useState(false);
@@ -22,9 +23,9 @@ export const DataProvider = (props) => {
 
     useEffect(() => {
         if (currentUser === null) {
-            localStorage.setItem('user', 'null')
+            localStorage.setItem('user',  JSON.stringify(null));
         } else {
-            localStorage.setItem('user', JSON.stringify(currentUser))
+            localStorage.setItem('user', JSON.stringify(currentUser));
         }
     }, [currentUser]);
 
@@ -58,7 +59,7 @@ export const DataProvider = (props) => {
             setSelectedFoodItem, finishOrder,
             setFinishOrder, currentUser, setCurrentUser,
             loader, setLoader, faceLoader,
-            menu, setMenu
+            menu, setMenu, slideBasket, setSlideBasket,
         }}>
             {props.children}
         </FoodContext.Provider>

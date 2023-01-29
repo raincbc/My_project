@@ -13,7 +13,7 @@ import SettingsPlace from './SettingsPlace'
 import Fade from 'react-reveal/Fade';
 
 const MainContent = () => {
-    const { isActiveMainMenu, currentUser, menu } = useContext(FoodContext)
+    const { isActiveMainMenu, currentUser, menu } = useContext(FoodContext);
 
     return (
         <Fade right>
@@ -70,22 +70,7 @@ const MenuContainer = styled.nav`
         margin:10px 10px 0;
         border-radius:15px 15px 0 0;
         overflow:hidden;
-
-        ul{
-            // position:absolute;
-            // z-index:10;
-            // background-color:white;
-            // width:95%;
-            // ${props=>props.menu ? 'top:-5px; transition:0.5s;' : 'top:-700px; transition:0.5s;'};
-            // left:0;
-            // height:99%;
-            // border-radius:0 0 15px 15px;
-
-            li{
-                margin:30px auto;
-                border:1px solid #919191;
-            }
-        }
+        width:97%;
     }
 `;
 
@@ -107,11 +92,16 @@ const MainContentWrapper = styled.div`
     }
 
     @media (max-width: 768px) {
-        width:95%;
+        width:97%;
         margin:0 10px;
         height:585px;
         border-radius: 0 0 15px 15px;
         overflow:hidden;
+        display:block
+    }
+
+    @media (max-width: 400px) {
+        height:650px;
     }
 `;
 

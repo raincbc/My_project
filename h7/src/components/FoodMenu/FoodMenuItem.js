@@ -68,12 +68,29 @@ const Container = styled.li`
   }
 
   @media (max-width: 768px) {
-    width:55px;
+    width:80px;
+    height: 140px;
+
+    p{
+      margin-top:60px;
+    }
 
     img{
       transform:scale(0.5) translate(-100%, -100%) ;
       top:30px;
     }
-    p{}
+  }
+
+  @media (max-width: 650px) {
+    width:60px;
+    height: 100px;
+
+    p{
+      margin-top:40px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    width:50px;
   }
 `;

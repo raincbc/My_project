@@ -69,7 +69,43 @@ const UserContainer = styled.div`
         font-size: 10px;
         line-height: 16px;
         margin-top:5px;
+        margin-right:350px;
+      }
+    }
+
+    @media (max-width: 700px){
+      p{
+        margin-right:300px;
+      }
+    }
+
+    @media (max-width: 700px){
+      p{
+        margin-right:250px;
+      }
+    }
+
+    @media (max-width: 650px){
+      p{
+        margin-right:200px;
+      }
+    }
+
+    @media (max-width: 600px){
+      p{
+        margin-right:170px;
+      }
+    }
+
+    @media (max-width: 500px){
+      p{
         margin-right:auto;
+      }
+    }
+
+    @media (max-width: 400px){
+      p{
+        margin-right:90px;
       }
     }
 `;
@@ -112,7 +148,7 @@ const HideMenuBlock = styled.div`
 
   @media (max-width: 768px){
     display:block;
-    width:60%;
+    width:30%;
     display:flex;
     align-items:center;
 
@@ -123,13 +159,17 @@ const HideMenuBlock = styled.div`
       
       img{
         margin-top:15px;
-        margin-right:0;
+        margin-right:20px;
       }
 
       img:first-child{
         display:none;
       }
     }
+  }
+
+  @media (max-width: 500px){
+    width:40%;
   }
 `;
 

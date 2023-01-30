@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import styled from 'styled-components'
 import { FoodContext } from '../../context/context'
 import FoodPlaceTitle from './FoodPlaceTitle'

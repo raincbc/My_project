@@ -1,7 +1,7 @@
-import userphoto from '../../assets/userphoto.png'
-import delivery from '../../assets/delivery.svg'
-import link from '../../assets/link.svg'
-import discount from '../../assets/discount.png'
+import userphoto from '../assets/userphoto.png'
+import delivery from '../assets/delivery.svg'
+import link from '../assets/link.svg'
+import discount from '../assets/discount.png'
 
 export const userData = {
     name: 'Alka Yagik',
@@ -13,28 +13,32 @@ export const menuData = [
         id: '1',
         type: 'home',
         title: "Home",
-        svgName: 'home'
+        svgName: 'home',
+        nav:'/home'
     },
 
     {
         id: '2',
         type: 'menu',
         title: "Menu",
-        svgName: 'menu'
+        svgName: 'menu',
+        nav:'/menu'
     },
 
     {
         id: '3',
         type: 'trending',
         title: "Trending",
-        svgName: 'trending'
+        svgName: 'trending',
+        nav:'/trending'
     },
 
     {
         id: '4',
         type: 'settings',
         title: "Settings",
-        svgName: 'settings'
+        svgName: 'settings',
+        nav:'/settings'
     },
 ];
 

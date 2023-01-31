@@ -1,19 +1,16 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import UserInfo from "./UserInfo";
-import { userData } from "../Data/MainData";
+import { userData } from "../../data/MainData";
 import MainMenu from "./MainMenu";
 import Delivery from "./Delivery";
-import { deliveryData } from "../Data/MainData";
+import { deliveryData } from "../../data/MainData";
 import HomePlace from "./HomePlace";
 import { FoodContext } from "../../context/context";
-import MenuPlace from './MenuPlace';
-import TrendingPlace from './TrendingPlace';
-import SettingsPlace from './SettingsPlace'
 import Fade from 'react-reveal/Fade';
 
 const MainContent = () => {
-    const { isActiveMainMenu, currentUser, menu } = useContext(FoodContext);
+    const { currentUser, menu } = useContext(FoodContext);
 
     return (
         <Fade right>
@@ -27,22 +24,7 @@ const MainContent = () => {
                     <Delivery deliveryData={deliveryData} />
                 </MenuContainer>
                 <MainContentWrapper>
-                    {isActiveMainMenu.type === 'home' ?
-                        <HomePlace/> : <></>
-                    }
-
-                    {isActiveMainMenu.type === 'menu' ?
-                        <MenuPlace/> : <></>
-                    }
-
-                    {isActiveMainMenu.type === 'trending' ?
-                        <TrendingPlace/> : <></>
-                    }
-
-                    {isActiveMainMenu.type === 'settings' ?
-                        <SettingsPlace/> : <></>
-                    }
-                
+                    <HomePlace/>
                 </MainContentWrapper>
             </MainWrapper>
         </Fade>

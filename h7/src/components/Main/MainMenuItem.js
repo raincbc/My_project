@@ -1,12 +1,13 @@
 import styled from "styled-components"
 import { MenuIcon } from "./MenuIcon"
 
-const MainMenuItem = ({ title, svgName, changeActiveItem, isActiveMainMenu }) => {
+const MainMenuItem = ({ title, svgName, changeActiveItem, isActiveMainMenu, nav }) => {
 
   return (
     <MenuListItem
       isActiveMainMenu={isActiveMainMenu}
       onClick={changeActiveItem}
+      nav={nav}
     >
       <div>
         <MenuIcon

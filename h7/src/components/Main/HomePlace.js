@@ -91,10 +91,10 @@ const HideBasket = styled.div`
   @media (max-width: 768px){
       display:block;
       position:absolute;
-      width:50%;
+      width:52%;
       height:95%;
       top:29px;
-      right:10px;
+      right:3px;
   }
     
 `;

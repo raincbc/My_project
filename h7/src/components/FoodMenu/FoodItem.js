@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import * as Img from '../Data/FoodPhotos'
+import * as Img from '../../data/FoodPhotos'
 import plus from '../../assets/plus.svg'
 import bird from '../../assets/bird.svg'
 

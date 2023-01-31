@@ -39,6 +39,7 @@ const BasketPlace = () => {
         setSlideBasket(false)
         if (finishOrder) {
             getActiveBasket(false)
+            localStorage.setItem('chosenFood', null)
         }
     }
 
@@ -112,7 +113,8 @@ const Container = styled.div`
     }
 
     @media (max-width: 768px) {
-        ${(props) => props.activeBasket ? 'right:0; ' : 'right:-380px;'};
+        ${(props) => props.activeBasket ? 'right:; ' : 'right:-380px;'};
+        padding:25px 15px 25px 10px;
         button{
             padding:8px 0;
             border-radius: 8px;

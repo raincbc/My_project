@@ -30,16 +30,16 @@ export const loginValidationSchema =  {
         .string()
         .min(5, 'Login should be longer then 5 characters')
         .max(30, 'Login must be shorted then 30 characters')
-        .required('Do not enter login'),
+        .required('Please enter login'),
     password: Yup
         .string()
         .min(6, 'Password should be longer then 6 characters')
-        .required('Do not enter password'),
+        .required('Please enter password'),
 }
 
 export const passwordValidationSchema =  {
     confirmPassword: Yup
         .string()
         .oneOf([Yup.ref('password'), null], 'Passwords must match')
-        .required('Do not enter confirm password')
+        .required('Please enter confirm password')
 }

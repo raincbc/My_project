@@ -1,24 +1,32 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import styled from 'styled-components';
 import FormInput from './FormInput';
-import { formData } from '../Data/FormData';
+import { formData } from '../../data/FormData';
 import FormBtn from './FormBtn';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom'
 import { useFormik } from 'formik';
-import { loginValidationSchema, passwordValidationSchema } from '../Data/FormData';
+import { loginValidationSchema, passwordValidationSchema } from '../../data/FormData';
 import * as Yup from 'yup';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
-import app from '../../base';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import {auth} from '../../base';
 import { FoodContext } from '../../context/context';
 
 const Form = ({ btnText }) => {
     const navigate = useNavigate();
     const location = useLocation();
-    const {setCurrentUser, setLoader} = useContext(FoodContext)
+    const { setCurrentUser, setLoader, loader } = useContext(FoodContext)
+    
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setLoader(false)
+        }, 1000);
 
-    const auth = getAuth(app)
-
+        return () => {
+            clearTimeout(timer)
+        }
+    }, [loader])
+    
     const { handleSubmit, handleChange, values, touched, errors } = useFormik({
         initialValues: {
             login: '',
@@ -26,11 +34,11 @@ const Form = ({ btnText }) => {
             confirmPassword: '',
         },
 
-        validationSchema: Yup.object(location.pathname === '/' ?
-                loginValidationSchema : Object.assign(loginValidationSchema, passwordValidationSchema) ),
+        validationSchema: Yup.object(location.pathname === '/login' ?
+            loginValidationSchema : { ...loginValidationSchema, ...passwordValidationSchema }),
 
         onSubmit: async (values) => {            
-            if (location.pathname === '/') {                
+            if (location.pathname === '/login') {                
                 await signInWithEmailAndPassword(auth, values.login, values.password)
                     .then((result) => {
                         const user = result.user;
@@ -39,9 +47,6 @@ const Form = ({ btnText }) => {
                         if (user) {
                             setLoader(true)
                             navigate('/loader')
-                            setTimeout(() => {
-                                setLoader(false)
-                            }, 1000)
                         }
 
                         setTimeout(() => {
@@ -57,7 +62,7 @@ const Form = ({ btnText }) => {
                 try {
                     await createUserWithEmailAndPassword(auth, values.login, values.password) 
                     
-                    navigate('/')
+                    navigate('/login')
                 } catch (error) {
                     alert(error)
                 }
@@ -87,6 +92,7 @@ const Form = ({ btnText }) => {
           ))}
           <FormBtn
               btnText={btnText}
+              type={'submit'}
           />
           <CreateAccount
               location={location.pathname}

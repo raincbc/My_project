@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import { articlesData } from '../Data/ArticlesData'
+import { articlesData } from '../../data/ArticlesData'
 import Article from './Article'
 import Title from '../Form/Title'
 import { FoodContext } from '../../context/context'

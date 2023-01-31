@@ -1,16 +1,18 @@
 import React, { useContext} from 'react'
 import MainMenuItem from './MainMenuItem'
-import { menuData } from '../Data/MainData'
+import { menuData } from '../../data/MainData'
 import styled from 'styled-components'
 import { FoodContext } from '../../context/context'
-import { useLocation } from 'react-router-dom'
+import {useNavigate } from 'react-router-dom'
 
 const MainMenu = () => {
   const { isActiveMainMenu, getActiveMainMenu, menu, setMenu } = useContext(FoodContext);
+  const navigate = useNavigate()
 
   const changeActiveItem = (item) => {
     getActiveMainMenu(item);
     setMenu(false)
+    navigate(item.nav)
   }
 
   return (
@@ -19,6 +21,7 @@ const MainMenu = () => {
         <MainMenuItem 
           key={elem.id} 
           id={elem.id}
+          nav={elem.nav}
           title={elem.title}
           svgName={elem.svgName} 
           isActiveMainMenu={isActiveMainMenu.id===elem.id ? isActiveMainMenu : null}

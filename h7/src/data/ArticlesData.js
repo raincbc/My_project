@@ -1,7 +1,7 @@
-import chickenleg from '../../assets/chickenleg.svg';
-import musk from '../../assets/musk.svg';
-import coockies from '../../assets/coockies.svg';
-import favoritepizza from '../../assets/favoritepizza.svg';
+import chickenleg from '../assets/chickenleg.svg';
+import musk from '../assets/musk.svg';
+import coockies from '../assets/coockies.svg';
+import favoritepizza from '../assets/favoritepizza.svg';
 
 export const articlesData = [
     {

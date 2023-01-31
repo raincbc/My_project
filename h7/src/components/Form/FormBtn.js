@@ -1,9 +1,11 @@
 import styled from "styled-components"
 
-const FormBtn = ({btnText}) => {
+const FormBtn = ({btnText, type, onClick}) => {
     return (
         <ButtonWrapper>
-            <Button type='submit'>
+            <Button
+                onClick={onClick}
+                type={type}>
                 {btnText}
             </Button>
         </ButtonWrapper>

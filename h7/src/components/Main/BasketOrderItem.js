@@ -4,6 +4,7 @@ import burgerbasket from '../../assets/burgerbasket.png';
 import saladbasket from '../../assets/saladbasket.png'
 import donutbasket from '../../assets/donutbasket.png';
 import drinksbasket from '../../assets/drinksbasket.png';
+import dast from '../../assets/dust.svg';
 
 const BasketOrderItem = ({ id, type, title, description, price, itemCount, deleteItem }) => {
 
@@ -31,7 +32,7 @@ const BasketOrderItem = ({ id, type, title, description, price, itemCount, delet
      
   return (
     <Container>
-        <DeleteSpan onClick={()=>deleteItem(id)}>-</DeleteSpan> 
+          <DeleteImg onClick={() => deleteItem(id)} src={dast} />
         <BasketItemIcon src={getImg()} alt='' />
         <DescriptionContent>
             <p>{title}</p>
@@ -47,10 +48,20 @@ const BasketOrderItem = ({ id, type, title, description, price, itemCount, delet
 
 export default BasketOrderItem
 
-const DeleteSpan = styled.span`
-font-size:40px;
-margin-right:10px;
-cursor:pointer;
+
+const DeleteImg = styled.img`
+    max-height:20px;
+    margin-right:10px;
+    cursor:pointer;
+
+    @media (max-width: 768px) {
+        max-height:15px;
+    }
+
+    @media (max-width: 410px) {
+        max-height:10px;
+        margin-right:5px;
+    }
 `;
 
 const Container = styled.div`

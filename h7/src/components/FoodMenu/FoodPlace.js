@@ -2,8 +2,9 @@ import React, { useContext, useEffect } from 'react'
 import styled from 'styled-components'
 import { FoodContext } from '../../context/context'
 import FoodPlaceTitle from './FoodPlaceTitle'
-import { foodItems } from '../Data/FoodData'
+import { foodItems } from '../../data/FoodData'
 import FoodItem from './FoodItem'
+import { useRef } from 'react'
 
 const FoodPlace = () => {
   let isInArray = false
@@ -12,7 +13,7 @@ const FoodPlace = () => {
     selectedItem, setChosenFoodElem,
     chosenFoodElem, getActiveBasket,
     getSelectedFoodItem, selectedFoodItem,
-    slideBasket, setSlideBasket
+    slideBasket, setSlideBasket,
   } = useContext(FoodContext);
 
   const handleClick = (item) => {
@@ -40,11 +41,23 @@ const FoodPlace = () => {
     
   }
 
+  const scrollRef = useRef();
+  
+  const scrollTop = () => {
+    if (scrollRef.current !== '') {
+      scrollRef.current.scrollTo({top:0, behavior:'smooth'})
+    }
+  }
+
+  useEffect(() => {
+    scrollTop()
+  }, [activeMenu])
+
   return (
     <>
       <FoodPlaceTitle title={activeMenu.title} />
-      <FoodWrapper>        
-        <FoodContainer>   
+      <FoodWrapper ref={scrollRef}>        
+        <FoodContainer >   
           {foodItems.filter((elem) => {         
             if (activeMenu.type) {            
               return elem.type === activeMenu.type              

@@ -15,7 +15,7 @@ const UserInfo = ({ userPhoto, user }) => {
       <UserLogo>
         <img src={userPhoto} alt=''/>
       </UserLogo>
-      <p>{user.email}</p>
+      <p>{user}</p>
       <HideMenuBlock>
         <>
           <ShopBlock/>

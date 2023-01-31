@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { menuData } from '../components/Data/MainData';
+import { menuData } from '../data/MainData';
 
 export const FoodContext = React.createContext()
 
@@ -42,6 +42,8 @@ export const DataProvider = (props) => {
             item.count = 1
             return [...prevState, item]
         })
+
+        localStorage.setItem('chosenFood', selectedFoodItem)
     }
 
     const getSelectedItem = (props) => {

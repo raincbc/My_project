@@ -34,7 +34,7 @@ const BasketPlace = () => {
     localStorage.setItem('chosenFood', JSON.stringify(selectedFoodItem))
 
     const handleClick = () => {
-        setSelectedFoodItem('')
+        setSelectedFoodItem([])
         setChosenFoodElem(false)
         setFinishOrder(prevState => !prevState)
         setSlideBasket(false)

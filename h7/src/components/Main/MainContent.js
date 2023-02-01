@@ -41,6 +41,10 @@ const MainWrapper = styled.section`
     @media (max-width: 768px) {
         display:block;
     }
+
+    @media (max-width: 400px) {
+        padding-right:10px;
+    }
 `;
 
 const MenuContainer = styled.nav`

@@ -21,9 +21,9 @@ const UserInfo = ({ userPhoto, user }) => {
           <ShopBlock/>
         </>
         <HideMenu isMenu={menu} onClick={openMenu}>
-          <span isMenu={menu}/>
-          <span isMenu={menu}/>
-          <span isMenu={menu}/>
+          <Span isMenu={menu}/>
+          <Span isMenu={menu}/>
+          <Span isMenu={menu}/>
         </HideMenu>
       </HideMenuBlock>
     </UserContainer>
@@ -31,6 +31,8 @@ const UserInfo = ({ userPhoto, user }) => {
 }
 
 export default UserInfo
+
+const Span = styled.span``;
 
 const UserContainer = styled.div`
     margin-top:35px;
@@ -104,10 +106,18 @@ const UserContainer = styled.div`
     }
 
     @media (max-width: 400px){
+      padding-right:20px;
+
       p{
-        margin-right:90px;
+        margin-right:0px;
       }
     }
+
+    @media (max-width: 370px){
+      p{
+        margin-right:50px;
+      }
+     
 `;
 
 const UserLogo = styled.div`

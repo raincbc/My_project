@@ -112,5 +112,9 @@ const MenuList = styled.ul`
 
     @media (max-width: 400px) {
       margin-left:16px;
-    }    
+    }
+    
+    @media (max-width: 380px) {
+      margin-left:10px;
+    } 
 `;

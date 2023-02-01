@@ -1,4 +1,4 @@
-import React, { useContext} from 'react'
+import React, { useContext, useEffect} from 'react'
 import MainMenuItem from './MainMenuItem'
 import { menuData } from '../../data/MainData'
 import styled from 'styled-components'
@@ -10,16 +10,23 @@ const MainMenu = () => {
   const { isActiveMainMenu, setIsActiveMainMenu, menu, setMenu } = useContext(FoodContext);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    setIsActiveMainMenu(menuData[0])
+
+    menuData.map((elem) => {
+      if (location.pathname && location.pathname === elem.nav) { 
+        setIsActiveMainMenu(elem)
+      }
+    })
+  }, [isActiveMainMenu])
+
   const changeActiveItem = (item) => {
-    if (location.pathname && location.pathname === item.nav) {
-      setIsActiveMainMenu(item);
-    }
       setMenu(false)
       navigate(item.nav)
   }
 
   return (
-    <MenuList isMenu={menu || undefined}>
+    <MenuList isMenu={menu}>
       {menuData.map((elem) => (   
         <MainMenuItem 
           key={elem.id} 
@@ -38,9 +45,6 @@ const MainMenu = () => {
 export default MainMenu
 
 const MenuList = styled.ul`
-${props => {
-  console.log(typeof(isMenu))
-}}
   margin-top:30px;
   margin-left:35px;
 

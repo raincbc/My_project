@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { menuData } from '../data/MainData';
 
 export const FoodContext = React.createContext()
 
@@ -7,7 +6,7 @@ export const DataProvider = (props) => {
     const [activeMenu, setActiveMenu] = useState(null);
     const [activeBasket, setActiveBasket] = useState(false);
     const [slideBasket, setSlideBasket] = useState(false);
-    const [isActiveMainMenu, setIsActiveMainMenu] = useState(menuData[0]);
+    const [isActiveMainMenu, setIsActiveMainMenu] = useState('');
     const [selectedFoodItem, setSelectedFoodItem] = useState(
         localStorage.getItem('chosenFood')
             ? JSON.parse(localStorage.getItem('chosenFood'))

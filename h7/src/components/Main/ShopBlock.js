@@ -3,7 +3,6 @@ import shop from '../../assets/shop.svg'
 import search from '../../assets/search.svg'
 import styled from 'styled-components'
 import { FoodContext } from '../../context/context'
-import { useLocation } from 'react-router-dom'
 
 const ShopBlock = () => {
   const { activeBasket, getActiveBasket, selectedFoodItem, isActiveMainMenu } = useContext(FoodContext);
@@ -29,8 +28,8 @@ const ShopBlock = () => {
   return (
     <ShopWrapper isActiveMainMenu={isActiveMainMenu} >
       <FoodCount selectedFoodItem={selectedFoodItem}>{selectedFoodItem.length ? shopCount() : ''}</FoodCount>
-      <img src={search} alt=''/>
-      <img
+      <Img src={search} alt=''/>
+      <Img
         src={shop}
         alt=''
         onClick={handleBasket}
@@ -41,6 +40,8 @@ const ShopBlock = () => {
 }
 
 export default ShopBlock
+
+const Img = styled.img``;
 
 const ShopWrapper = styled.div`
   height:150px;
@@ -88,7 +89,7 @@ const ShopWrapper = styled.div`
 `;
 
 const FoodCount = styled.span`
-  display:${props=>props.selectedFoodItem ? 'block' : 'none'};
+  display:${props=>props.selectedFoodItem.length  ? 'block' : 'none'};
   position:absolute;
   z-index:3;
   right: 30px;
@@ -97,7 +98,7 @@ const FoodCount = styled.span`
   border:1px solid violet;
   border-radius:50%;
   padding:2px 5px;
-  background-color:violet;
+  background-color: violet;
 
   @media (max-width: 1280px) {
     top: 18px;

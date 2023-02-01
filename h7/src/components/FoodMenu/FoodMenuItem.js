@@ -93,4 +93,8 @@ const Container = styled.li`
   @media (max-width: 400px) {
     width:50px;
   }
+
+  @media (max-width: 370px) {
+    width:48px;
+  }
 `;

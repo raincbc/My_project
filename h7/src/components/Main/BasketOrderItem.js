@@ -32,7 +32,6 @@ const BasketOrderItem = ({ id, type, title, description, price, itemCount, delet
      
   return (
     <Container>
-          <DeleteImg onClick={() => deleteItem(id)} src={dast} />
         <BasketItemIcon src={getImg()} alt='' />
         <DescriptionContent>
             <p>{title}</p>
@@ -41,7 +40,8 @@ const BasketOrderItem = ({ id, type, title, description, price, itemCount, delet
         <Content>
             <span>X{itemCount}</span>
               <span>${price}</span>
-        </Content>
+          </Content>
+          <DeleteImg onClick={() => deleteItem(id)} src={dast} />
     </Container>
   )
 }
@@ -53,6 +53,7 @@ const DeleteImg = styled.img`
     max-height:20px;
     margin-right:10px;
     cursor:pointer;
+    
 
     @media (max-width: 768px) {
         max-height:15px;
@@ -60,13 +61,12 @@ const DeleteImg = styled.img`
 
     @media (max-width: 410px) {
         max-height:10px;
-        margin-right:5px;
     }
 `;
 
 const Container = styled.div`
     display:flex;
-    align-items:center;
+    align-items:start;
     margin-bottom:15px;
 `;
 

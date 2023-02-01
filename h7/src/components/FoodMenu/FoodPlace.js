@@ -37,6 +37,7 @@ const FoodPlace = () => {
 
     if (!isInArray) {
       getSelectedFoodItem(item)
+      
     }
     
   }
@@ -55,11 +56,11 @@ const FoodPlace = () => {
 
   return (
     <>
-      <FoodPlaceTitle title={activeMenu.title} />
+      <FoodPlaceTitle title={activeMenu? activeMenu.title : ''} />
       <FoodWrapper ref={scrollRef}>        
         <FoodContainer >   
           {foodItems.filter((elem) => {         
-            if (activeMenu.type) {            
+            if (activeMenu? activeMenu.type :'') {            
               return elem.type === activeMenu.type              
             } else {              
               return activeMenu        
@@ -72,7 +73,7 @@ const FoodPlace = () => {
               description={elem.description}              
               prise={elem.price}
               src={elem.src}
-              chosenFoodElem={selectedItem.id===elem.id? chosenFoodElem : ''}
+              chosenFoodElem={selectedItem? selectedItem.id===elem.id? chosenFoodElem : '' : ''}
               handleClick={()=>handleClick(elem)}
             />            
           ))}          

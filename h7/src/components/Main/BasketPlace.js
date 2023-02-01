@@ -31,6 +31,7 @@ const BasketPlace = () => {
     const deleteItem = (id) => {        
         setSelectedFoodItem(selectedFoodItem.filter((elem) => elem.id !== id ));
     }
+    localStorage.setItem('chosenFood', JSON.stringify(selectedFoodItem))
 
     const handleClick = () => {
         setSelectedFoodItem('')
@@ -108,17 +109,36 @@ const Container = styled.div`
         cursor:pointer;
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1110px) {
+        width:90%;
+    }
+
+    @media (max-width: 840px) {
         width:100%;
     }
 
     @media (max-width: 768px) {
-        ${(props) => props.activeBasket ? 'right:; ' : 'right:-380px;'};
+        width:70%;
+        ${(props) => props.activeBasket ? 'right:9px; ' : 'right:-380px;'};
         padding:25px 15px 25px 10px;
         button{
             padding:8px 0;
             border-radius: 8px;
         }
+    }
+
+    @media (max-width: 580px) {
+        width:90%;
+        ${(props) => props.activeBasket ? 'right:4px; ' : 'right:-380px;'};
+    }
+
+    @media (max-width: 500px) {
+        ${(props) => props.activeBasket ? 'right:2px; ' : 'right:-380px;'};
+        width:100%;
+    }
+
+    @media (max-width: 450px) {
+        ${(props) => props.activeBasket ? 'right:0; ' : 'right:-380px;'};
     }
 `;
 const BasketTitle = styled.div`

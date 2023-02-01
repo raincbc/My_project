@@ -20,10 +20,10 @@ const UserInfo = ({ userPhoto, user }) => {
         <>
           <ShopBlock/>
         </>
-        <HideMenu menu={menu} onClick={openMenu}>
-          <span menu={menu}/>
-          <span menu={menu}/>
-          <span menu={menu}/>
+        <HideMenu isMenu={menu} onClick={openMenu}>
+          <span isMenu={menu}/>
+          <span isMenu={menu}/>
+          <span isMenu={menu}/>
         </HideMenu>
       </HideMenuBlock>
     </UserContainer>
@@ -186,14 +186,14 @@ const HideMenu = styled.div`
     display:block;
 
     span:first-child{
-      ${props => props.menu ? 'top:11px;' : 'top:8px;'};
-      ${props => props.menu ? 'transform:rotate(45deg); transition:500ms;' : 'transform:rotate(0); transition:500ms;'})
+      ${props => props.isMenu ? 'top:11px;' : 'top:8px;'};
+      ${props => props.isMenu ? 'transform:rotate(45deg); transition:500ms;' : 'transform:rotate(0); transition:500ms;'})
       z-index:16;
     }
 
     span:nth-child(2){
       top:14px;
-      display:${props => props.menu ? 'none' : 'block'};
+      display:${props => props.isMenu ? 'none' : 'block'};
       z-index:16;
     }
 
@@ -203,8 +203,8 @@ const HideMenu = styled.div`
       border-radius:4px;
       background-color:black;
       position:absolute;
-      ${props => props.menu ? 'top:11px;' : 'top:20px;'};
-      ${props => props.menu ? 'transform:rotate(-45deg); transition:500ms;' : 'transform:rotate(0); transition:500ms;'})
+      ${props => props.isMenu ? 'top:11px;' : 'top:20px;'};
+      ${props => props.isMenu ? 'transform:rotate(-45deg); transition:500ms;' : 'transform:rotate(0); transition:500ms;'})
       transition:500ms;
       z-index:16;
     }

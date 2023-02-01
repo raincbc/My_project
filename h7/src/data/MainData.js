@@ -14,7 +14,7 @@ export const menuData = [
         type: 'home',
         title: "Home",
         svgName: 'home',
-        nav:'/home'
+        nav:'/main'
     },
 
     {

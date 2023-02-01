@@ -27,7 +27,7 @@ const ShopBlock = () => {
       getActiveBasket(true)
   }
   return (
-    <ShopWrapper isActiveMainMenu={isActiveMainMenu}>
+    <ShopWrapper isActiveMainMenu={isActiveMainMenu} >
       <FoodCount selectedFoodItem={selectedFoodItem}>{selectedFoodItem.length ? shopCount() : ''}</FoodCount>
       <img src={search} alt=''/>
       <img
@@ -88,57 +88,63 @@ const ShopWrapper = styled.div`
 `;
 
 const FoodCount = styled.span`
-  ${props=>props.selectedFoodItem ? 'display:block;' : 'display:none;'}
+  display:${props=>props.selectedFoodItem ? 'block' : 'none'};
   position:absolute;
   z-index:3;
-  right: 50px;
-  top: 32px;
+  right: 30px;
+  top: 20px;
   font-weight:800;
+  border:1px solid violet;
+  border-radius:50%;
+  padding:2px 5px;
+  background-color:violet;
 
   @media (max-width: 1280px) {
     top: 18px;
   }
 
   @media (max-width: 1024px) {
-    top: 25px;
-    right:60px;
+    top: 15px;
+    right:45px;
     font-weight:500;
     font-size:12px
   }
 
   @media (max-width: 768px) {
-    top: 32px;
-    right:160px;
+    top: 23px;
+    right:135px;
     font-weight:400;
     font-size:10px
+    padding:2px 4px;
   }
 
   @media (max-width: 700px) {
-    right:143px;
+    right:115px;
   }
 
   @media (max-width: 650px) {
-    right:127px;
+    right:100px;
   }
 
   @media (max-width: 600px) {
-    right:103px;
+    right:80px;
   }
 
   @media (max-width: 550px) {
-    right:88px;
+    right:65px;
   }
 
   @media (max-width: 500px) {
-    right:118px;
+    right:95px;
   }
 
   @media (max-width: 450px) {
-    right:100px;
+    right:70px;
     font-weight:600;
+    padding:2px 5px;
   }
 
   @media (max-width: 400px) {
-    right:84px;
+    right:65px;
   }
 `;

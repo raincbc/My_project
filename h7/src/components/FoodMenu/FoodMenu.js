@@ -111,10 +111,10 @@ const MenuList = styled.ul`
     }
 
     @media (max-width: 400px) {
-      margin-left:16px;
+      margin-left:11px;
     }
     
     @media (max-width: 380px) {
-      margin-left:10px;
+      margin-left:5px;
     } 
 `;

@@ -63,8 +63,8 @@ const MainContentContainer = styled.div`
         h1{
             font-size:26px;
             line-height: 30px;
-            padding-left:20px;
             margin-top:10px;
+            margin-left:0;
         }
 
         img{

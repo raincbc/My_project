@@ -90,6 +90,10 @@ const Container = styled.li`
     }
   }
 
+  @media (max-width: 420px) {
+    width:55px;
+  }
+
   @media (max-width: 400px) {
     width:50px;
   }

@@ -109,7 +109,7 @@ const UserContainer = styled.div`
       padding-right:20px;
 
       p{
-        margin-right:0px;
+        margin-right:45px;
       }
     }
 

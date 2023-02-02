@@ -84,6 +84,10 @@ const MainContentWrapper = styled.div`
         border-radius: 0 0 15px 15px;
         overflow:hidden;
         display:block
+
+        div{
+            height:585px;
+        }
     }
 
     @media (max-width: 400px) {

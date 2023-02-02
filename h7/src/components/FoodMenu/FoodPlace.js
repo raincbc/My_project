@@ -150,7 +150,7 @@ const FoodContainer = styled.div`
   }
 
   @media (max-width: 400px) {
-    grid-template-columns: repeat(2, 195px);
+    grid-template-columns: repeat(2, 188px);
   }
 
   @media (max-width: 370px) {

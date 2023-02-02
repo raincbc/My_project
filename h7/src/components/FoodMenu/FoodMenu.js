@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { foodData } from '../../data/FoodData'
 import FoodMenuItem from './FoodMenuItem'
@@ -7,7 +7,10 @@ import { FoodContext } from '../../context/context'
 const FoodMenu = () => {
   const [isActive, setIsActive] = useState(foodData[0]);
   const { setActiveMenu } = useContext(FoodContext)
-  setActiveMenu(isActive);
+  
+  useEffect(() => {
+    setActiveMenu(isActive);
+  },[])
 
 
   const changeActiveItem = (item) => {
